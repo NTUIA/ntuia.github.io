@@ -10,7 +10,6 @@ import Gallery from './pages/Gallery.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 import DiwaliEvent from './pages/DiwaliEvent.jsx'
-import MotionPanel from './motion/MotionPanel.jsx'
 import PageErrorBoundary from './components/PageErrorBoundary.jsx'
 
 function ScrollToTop() {
@@ -21,8 +20,6 @@ function ScrollToTop() {
 
 export default function App() {
   const { pathname } = useLocation()
-  // Festive motion controls appear only on the Diwali event page.
-  const festive = pathname.startsWith('/events/jashn-e-diwali')
 
   return (
     <>
@@ -44,7 +41,6 @@ export default function App() {
         </PageErrorBoundary>
       </main>
       <Footer />
-      {festive && <MotionPanel />}
     </>
   )
 }

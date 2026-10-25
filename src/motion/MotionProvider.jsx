@@ -3,22 +3,13 @@ import { DEFAULT_DESIGN, DEFAULT_PRESET, DESIGNS, EFFECTS, MotionContext, PRESET
 
 const STORAGE_KEY = 'ntuia-motion'
 
+// Every visitor sees the site's default design and motion (DEFAULT_DESIGN and
+// DEFAULT_PRESET in effects.js). Reduced-motion users get no animation.
+// A link with ?design=...&motion=... can still preview another option.
 function initialState() {
-  let state = null
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY))
-    if (saved && Array.isArray(saved.effects)) state = saved
-  } catch {
-    // Storage unavailable or corrupted: fall back to defaults.
-  }
-  if (!state) {
-    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-    const preset = reduced ? 'off' : DEFAULT_PRESET
-    state = { preset, effects: PRESETS[preset].effects }
-  }
-  if (!DESIGNS[state.design]) state = { ...state, design: DEFAULT_DESIGN }
-
-  // Links such as https://ntuia.org/?design=night&motion=grand preview an option.
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+  const preset = reduced ? 'off' : DEFAULT_PRESET
+  let state = { preset, effects: PRESETS[preset].effects, design: DEFAULT_DESIGN }
   const params = new URLSearchParams(window.location.search)
   const motion = params.get('motion')
   const design = params.get('design')
@@ -42,9 +33,9 @@ export default function MotionProvider({ children }) {
     const root = document.documentElement
     EFFECTS.forEach(({ key }) => root.classList.toggle(`fx-${key}`, state.effects.includes(key)))
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+      localStorage.removeItem(STORAGE_KEY) // clear choices saved by the old motion button
     } catch {
-      // Ignore: preference just won't persist.
+      // Storage unavailable: nothing to clear.
     }
   }, [state])
 
