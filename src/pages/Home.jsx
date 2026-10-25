@@ -30,7 +30,7 @@ export default function Home() {
   const upcoming = events
     .filter((e) => isUpcoming(e.date))
     .sort((a, b) => a.date.localeCompare(b.date))
-  const rest = upcoming.filter((e) => !e.slug).slice(0, 3)
+  const rest = upcoming.slice(0, 3)
 
   return (
     <>
@@ -105,7 +105,7 @@ export default function Home() {
           {rest.length ? (
             <div className="stack">{rest.map((e) => <EventCard key={e.id} event={e} />)}</div>
           ) : (
-            <p>No other events are scheduled yet. Follow us for announcements.</p>
+            <p>No events are scheduled right now. Follow us for announcements.</p>
           )}
         </div>
       </section>

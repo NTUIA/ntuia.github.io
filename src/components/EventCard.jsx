@@ -5,7 +5,7 @@ export default function EventCard({ event, past = false }) {
   const d = new Date(`${event.date}T00:00:00`)
   const href = event.slug ? `/events/${event.slug}` : null
   return (
-    <article className={`event-card ${past ? 'is-past' : ''}`}>
+    <article className={`event-card ${past ? 'is-past' : ''} ${event.image ? 'has-poster' : ''}`}>
       <div className="event-card__date">
         <span className="day">{d.getDate()}</span>
         <span className="month">{d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}</span>
@@ -17,6 +17,11 @@ export default function EventCard({ event, past = false }) {
         </p>
         <p>{event.description}</p>
       </div>
+      {event.image && (
+        <a className="event-card__poster" href={event.image} target="_blank" rel="noreferrer" aria-label={`Open the ${event.title} poster`}>
+          <img src={event.image} alt={event.imageAlt || `${event.title} poster`} width="1000" height="1410" loading="lazy" />
+        </a>
+      )}
       {href && <Link reloadDocument className="link-arrow event-card__more" to={href}>Event page</Link>}
     </article>
   )
