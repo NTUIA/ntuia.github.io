@@ -32,7 +32,7 @@ export default function Footer() {
         <div>
           <h3>Contact</h3>
           <ul>
-            <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+            <li><Link reloadDocument to="/contact">Send us a message</Link></li>
             <li>{site.address}</li>
             <li className="footer__social">
               {site.social.map((s, i) => (

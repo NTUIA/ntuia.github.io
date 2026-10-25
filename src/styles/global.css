@@ -142,10 +142,12 @@ p { margin: 0 0 1em; }
 /* ---------- News ---------- */
 .news-card { padding: 0 0 4px; border-top: 2px solid var(--navy-deep); padding-top: 18px; }
 .news-card h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; color: var(--navy-deep); }
-.news-card.has-poster { display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start; }
-.news-card__poster { display: block; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 20px -12px rgba(15, 38, 71, 0.45); }
-.news-card__poster img { width: 100%; height: auto; }
-@media (max-width: 640px) { .news-card.has-poster { grid-template-columns: 1fr; } .news-card__poster { width: 180px; } }
+.news-card__image { border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; aspect-ratio: 900 / 369; display: flex; align-items: flex-end; justify-content: center; }
+.news-card__image img { width: 100%; height: 100%; object-fit: cover; }
+.news-card__image--plum { background: #3d0a26; }
+.news-card__image--marigold { background: radial-gradient(ellipse at 50% 100%, #fff1cf 0%, transparent 60%), linear-gradient(160deg, #ffd27a, #f5a524 50%, #e8730c); padding: 18px 14px 10px; }
+.news-card__image--marigold img { object-fit: contain; object-position: bottom; }
+.news-card__cta { margin-top: 4px; }
 
 /* ---------- Team ---------- */
 .team__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 32px 24px; }
@@ -328,3 +330,11 @@ p { margin: 0 0 1em; }
   .j-draw, .j-rise, .j-reveal, .j-layer, .j-pop { transition: none; }
   .j-meridian, .j-pulse, .is-on .j-beam, .journey__fill { animation: none; }
 }
+
+/* Contact form states */
+.form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.form__status { margin: 0; font-size: 0.95rem; min-height: 1.5em; }
+.form__status--sent { color: var(--green); font-weight: 600; }
+.form__status--error { color: var(--red); font-weight: 600; }
+.form__status--off { color: var(--slate); }

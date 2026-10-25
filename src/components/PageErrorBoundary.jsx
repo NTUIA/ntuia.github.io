@@ -32,7 +32,7 @@ export default class PageErrorBoundary extends Component {
         <div className="container">
           <p className="eyebrow">Something went wrong</p>
           <h1>This page didn’t load</h1>
-          <p className="lead">Please reload the page. If it keeps happening, let us know at info@ntuia.org.</p>
+          <p className="lead">Please reload the page. If it keeps happening, let us know through the contact form.</p>
           <button type="button" className="btn btn--primary" onClick={() => window.location.reload()}>Reload page</button>
         </div>
       </section>
