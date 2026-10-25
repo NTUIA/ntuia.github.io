@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import DiwaliHero from '../components/festive/DiwaliHero.jsx'
+import DiwaliCalls from '../components/festive/DiwaliCalls.jsx'
 import { events } from '../data/events.js'
 import { formatDate } from '../utils.js'
 
@@ -18,6 +19,7 @@ export default function DiwaliEvent() {
   return (
     <div className="theme-diwali">
       <DiwaliHero />
+      <DiwaliCalls />
       <section className="section" id="details">
         <div className="container diwali-details">
           <div>
