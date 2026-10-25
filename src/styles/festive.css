@@ -413,3 +413,12 @@ a.call__btn:hover { transform: translateY(-2px); }
 @media (prefers-reduced-motion: reduce) {
   .calls .flame, .call-glow, .call__people--perf img { animation: none; }
 }
+
+/* Performers panel mirrors the volunteers panel: content aligned to the right on wide screens */
+@media (min-width: 821px) {
+  .call--perf { text-align: right; align-items: flex-end; }
+  .call--perf .call__lede { margin-left: auto; }
+  .call--perf .perf-types { justify-content: flex-end; margin-left: auto; }
+  .call--perf .call__foot { justify-items: end; }
+  .call--perf .call__people { align-self: stretch; }
+}
