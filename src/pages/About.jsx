@@ -59,7 +59,7 @@ export default function About() {
               <p className="eyebrow">Executive committee {committeeYear}</p>
               <h2>Meet our team</h2>
             </div>
-            <Link to="/contact" className="link-arrow">Contact the committee</Link>
+            <Link reloadDocument to="/contact" className="link-arrow">Contact the committee</Link>
           </div>
           <div className="team__grid team__grid--compact">
             {team.map((m) => <TeamCard key={m.name} member={m} />)}

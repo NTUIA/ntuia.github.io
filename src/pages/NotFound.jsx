@@ -6,7 +6,7 @@ export default function NotFound() {
     <>
       <PageHeader eyebrow="Error 404" title="Page not found" subtitle="The page you are looking for does not exist or has moved." />
       <section className="section">
-        <div className="container"><Link to="/" className="btn btn--primary">Back to home</Link></div>
+        <div className="container"><Link reloadDocument to="/" className="btn btn--primary">Back to home</Link></div>
       </section>
     </>
   )

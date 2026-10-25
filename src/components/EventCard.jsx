@@ -11,13 +11,13 @@ export default function EventCard({ event, past = false }) {
         <span className="month">{d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}</span>
       </div>
       <div>
-        <h3>{href ? <Link to={href}>{event.title}</Link> : event.title}</h3>
+        <h3>{href ? <Link reloadDocument to={href}>{event.title}</Link> : event.title}</h3>
         <p className="meta">
           <time dateTime={event.date}>{formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long' })}</time> · {event.time} · {event.location}
         </p>
         <p>{event.description}</p>
       </div>
-      {href && <Link className="link-arrow event-card__more" to={href}>Event page</Link>}
+      {href && <Link reloadDocument className="link-arrow event-card__more" to={href}>Event page</Link>}
     </article>
   )
 }

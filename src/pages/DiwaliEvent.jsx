@@ -28,7 +28,7 @@ export default function DiwaliEvent() {
               <div><dt>Time</dt><dd>{event.time}</dd></div>
               <div><dt>Venue</dt><dd>{event.location}</dd></div>
             </dl>
-            <Link to="/contact" className="btn btn--primary">Ask the organisers</Link>
+            <Link reloadDocument to="/contact" className="btn btn--primary">Ask the organisers</Link>
           </div>
           <div className="diwali-programme">
             {programme.map((p) => (

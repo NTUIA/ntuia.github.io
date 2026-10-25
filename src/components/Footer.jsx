@@ -17,16 +17,16 @@ export default function Footer() {
           <h3>Explore</h3>
           <ul>
             {navLinks.map((l) => (
-              <li key={l.to}><Link to={l.to}>{l.label}</Link></li>
+              <li key={l.to}><Link reloadDocument to={l.to}>{l.label}</Link></li>
             ))}
           </ul>
         </div>
         <div>
           <h3>Get involved</h3>
           <ul>
-            <li><Link to="/contact">Become a member</Link></li>
-            <li><Link to="/contact">Partner with us</Link></li>
-            <li><Link to="/events">Attend an event</Link></li>
+            <li><Link reloadDocument to="/contact">Become a member</Link></li>
+            <li><Link reloadDocument to="/contact">Partner with us</Link></li>
+            <li><Link reloadDocument to="/events">Attend an event</Link></li>
           </ul>
         </div>
         <div>

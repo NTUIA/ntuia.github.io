@@ -12,7 +12,7 @@ function DefaultActions() {
   return (
     <>
       <a href="#details" className="btn btn--primary">Event details</a>
-      <Link to="/events" className="btn btn--outline">All NTUIA events</Link>
+      <Link reloadDocument to="/events" className="btn btn--outline">All NTUIA events</Link>
     </>
   )
 }

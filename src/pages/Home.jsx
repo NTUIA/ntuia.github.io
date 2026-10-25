@@ -41,7 +41,7 @@ export default function Home() {
               <button type="button" className="btn btn--soon" aria-disabled="true">
                 <span className="btn--soon__dot" aria-hidden="true" />Registration starts soon
               </button>
-              <Link to="/events/jashn-e-diwali-2026" className="btn btn--primary">Diwali event details</Link>
+              <Link reloadDocument to="/events/jashn-e-diwali-2026" className="btn btn--primary">Diwali event details</Link>
             </>
           }
         />
@@ -54,8 +54,8 @@ export default function Home() {
             <h1>A home for Indian students at NTU.</h1>
             <p className="lead">{site.mission}</p>
             <div className="home-hero__actions">
-              <Link to="/contact" className="btn btn--primary">Become a member</Link>
-              <Link to="/events" className="btn btn--outline">Upcoming events</Link>
+              <Link reloadDocument to="/contact" className="btn btn--primary">Become a member</Link>
+              <Link reloadDocument to="/events" className="btn btn--outline">Upcoming events</Link>
             </div>
           </div>
           <div className="home-hero__art">
@@ -79,7 +79,7 @@ export default function Home() {
           <div className="split__aside">
             <p className="eyebrow">What we do</p>
             <h2>Four ways we support our community</h2>
-            <Link to="/about" className="link-arrow">About NTUIA</Link>
+            <Link reloadDocument to="/about" className="link-arrow">About NTUIA</Link>
           </div>
           <div className="pillars">
             {pillars.map((p) => (
@@ -100,7 +100,7 @@ export default function Home() {
               <p className="eyebrow">Calendar</p>
               <h2>Upcoming events</h2>
             </div>
-            <Link to="/events" className="link-arrow">All events</Link>
+            <Link reloadDocument to="/events" className="link-arrow">All events</Link>
           </div>
           {rest.length ? (
             <div className="stack">{rest.map((e) => <EventCard key={e.id} event={e} />)}</div>
@@ -117,7 +117,7 @@ export default function Home() {
               <p className="eyebrow">Executive committee {committeeYear}</p>
               <h2>The people behind NTUIA</h2>
             </div>
-            <Link to="/about" className="link-arrow">Meet the team</Link>
+            <Link reloadDocument to="/about" className="link-arrow">Meet the team</Link>
           </div>
           <div className="team__grid team__grid--compact">
             {team.map((m) => <TeamCard key={m.name} member={m} />)}
@@ -133,8 +133,8 @@ export default function Home() {
             <p>Sponsors, university offices and community partners help us run free events and welcome new students every semester. We would be glad to talk.</p>
           </div>
           <div className="cta__actions">
-            <Link to="/contact" className="btn btn--light">Become a partner</Link>
-            <Link to="/contact" className="btn btn--outline">Contact the committee</Link>
+            <Link reloadDocument to="/contact" className="btn btn--light">Become a partner</Link>
+            <Link reloadDocument to="/contact" className="btn btn--outline">Contact the committee</Link>
           </div>
         </div>
       </section>
@@ -146,7 +146,7 @@ export default function Home() {
               <p className="eyebrow">News</p>
               <h2>Latest from NTUIA</h2>
             </div>
-            <Link to="/news" className="link-arrow">All news</Link>
+            <Link reloadDocument to="/news" className="link-arrow">All news</Link>
           </div>
           <div className="grid grid--3">
             {news.slice(0, 3).map((n) => <NewsCard key={n.id} post={n} />)}
