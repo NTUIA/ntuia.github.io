@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { navLinks, site } from '../data/site.js'
+import SocialIcons from './SocialIcons.jsx'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -11,6 +12,7 @@ export default function Navbar() {
         <Link reloadDocument to="/" className="brand" onClick={() => setOpen(false)} aria-label={`${site.name} home`}>
           <img className="brand__logo" src="/ntuia-logo.png" alt={site.fullName} width="254" height="92" />
         </Link>
+        <SocialIcons className="navbar__social" />
         <button
           className="navbar__toggle"
           aria-expanded={open}
