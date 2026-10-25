@@ -405,10 +405,10 @@ a.call__btn:hover { transform: translateY(-2px); }
 /* Phones: a separate skyline framed on Taipei 101, placed below the buttons */
 .dhero__skyline--phone { display: none; }
 @media (max-width: 760px) {
-  .dhero { padding-bottom: calc(100vw * 266 / 330 + 8px); }
+  .dhero { padding-bottom: calc(100vw * 266 / 580 + 8px); }
   .dhero__skyline--wide { display: none; }
-  .dhero__skyline--phone { display: block; height: auto; aspect-ratio: 330 / 266; }
+  .dhero__skyline--phone { display: block; height: auto; aspect-ratio: 580 / 266; }
   .dhero__skyline--phone .skyline-art { opacity: 0.6; }
-  .dhero__diya { bottom: calc(100vw * 266 / 330 - 30px); }
+  .dhero__diya { bottom: calc(100vw * 266 / 580 - 30px); }
   .dhero__rangoli { display: none; }
 }
