@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { site } from '../data/site.js'
 
 const ICONS = {
@@ -30,6 +31,14 @@ export default function SocialIcons({ className = '' }) {
           </a>
         </li>
       ))}
+      <li>
+        <Link reloadDocument to="/contact" className="social__link social__link--mail" aria-label="Contact NTUIA" title="Contact us">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" strokeWidth="2" />
+            <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          </svg>
+        </Link>
+      </li>
     </ul>
   )
 }

@@ -75,6 +75,7 @@ p { margin: 0 0 1em; }
 .social__link--instagram:hover { color: #c13584; }
 .social__link--facebook:hover { color: #1877f2; }
 .social__link--linkedin:hover { color: #0a66c2; }
+.social__link--mail:hover { color: var(--saffron); }
 .navbar__social { padding-left: 14px; margin-left: 2px; border-left: 1px solid var(--line); }
 .navbar__links a { position: relative; padding: 10px 12px; color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
 .navbar__links a::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 4px; height: 2px; background: var(--saffron); transform: scaleX(0); transform-origin: left; transition: transform .2s; }

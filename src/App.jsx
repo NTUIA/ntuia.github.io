@@ -21,8 +21,8 @@ function ScrollToTop() {
 
 export default function App() {
   const { pathname } = useLocation()
-  // Festive motion controls appear where the Diwali banner is shown.
-  const festive = pathname === '/' || pathname.startsWith('/events/jashn-e-diwali')
+  // Festive motion controls appear only on the Diwali event page.
+  const festive = pathname.startsWith('/events/jashn-e-diwali')
 
   return (
     <>
