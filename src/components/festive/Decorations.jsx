@@ -505,14 +505,15 @@ const CITY = [
   'M1106 250 V214 H1130 V250',
 ].join(' ')
 
-export function TaipeiSkyline({ className = '' }) {
+// viewBox/fit let phones frame a narrower slice (Taipei 101 and its neighbours) at a readable size.
+export function TaipeiSkyline({ className = '', viewBox = '0 -70 1200 330', fit = 'xMidYMax slice' }) {
   const palm = (x, h) =>
     `M${x} 250 Q${x - 4} ${250 - h / 2} ${x} ${250 - h} ` +
     `M${x} ${250 - h} q-22 -4 -34 12 M${x} ${250 - h} q-14 -16 -30 -14 M${x} ${250 - h} q4 -20 -6 -30 ` +
     `M${x} ${250 - h} q14 -16 30 -14 M${x} ${250 - h} q22 -4 34 12`
   // The viewBox reaches above y=0 so fireworks from the top of Taipei 101 have room.
   return (
-    <svg className={`skyline ${className}`} viewBox="0 -70 1200 330" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <svg className={`skyline ${className}`} viewBox={viewBox} preserveAspectRatio={fit} aria-hidden="true">
       <g className="skyline-art" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M0 210 Q120 150 240 190 T480 180 T720 170 T960 185 T1200 165" opacity=".15" />
         <RamMandir />

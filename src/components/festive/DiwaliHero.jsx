@@ -25,7 +25,8 @@ export default function DiwaliHero({ actions = <DefaultActions /> }) {
   return (
     <section className={`dhero dhero--${design}`}>
       <div className="dhero__glow" aria-hidden="true" />
-      <TaipeiSkyline className="dhero__skyline" />
+      <TaipeiSkyline className="dhero__skyline dhero__skyline--wide" />
+      <TaipeiSkyline className="dhero__skyline dhero__skyline--phone" viewBox="790 -12 330 266" fit="xMidYMax meet" />
       <SkyLanterns />
       <Sparkles />
       {motion.has('fireworks') && <Fireworks />}
