@@ -22,9 +22,9 @@ export const PRESETS = {
 }
 
 // Site-wide default. Change to 'subtle', 'grand' or 'off' to pick what visitors see first.
-export const DEFAULT_PRESET = 'festive'
+export const DEFAULT_PRESET = 'grand'
 
-// Hero design options. Visitors can switch in the Motion panel; DEFAULT_DESIGN is what they see first.
+// Hero design options. DEFAULT_DESIGN is what every visitor sees.
 export const DESIGNS = {
   celebration: { label: 'Scroll', hint: 'Title on a festive gold scroll' },
   classic: { label: 'Classic', hint: 'Lanterns, diyas and rangoli on cream' },
