@@ -139,6 +139,10 @@ p { margin: 0 0 1em; }
 /* ---------- News ---------- */
 .news-card { padding: 0 0 4px; border-top: 2px solid var(--navy-deep); padding-top: 18px; }
 .news-card h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; color: var(--navy-deep); }
+.news-card.has-poster { display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start; }
+.news-card__poster { display: block; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 20px -12px rgba(15, 38, 71, 0.45); }
+.news-card__poster img { width: 100%; height: auto; }
+@media (max-width: 640px) { .news-card.has-poster { grid-template-columns: 1fr; } .news-card__poster { width: 180px; } }
 
 /* ---------- Team ---------- */
 .team__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 32px 24px; }
