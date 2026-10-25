@@ -11,9 +11,9 @@ export const site = {
   phone: '+886 (placeholder)',
   address: 'National Taiwan University, No. 1, Sec. 4, Roosevelt Rd., Taipei, Taiwan',
   social: [
-    { label: 'Facebook', url: 'https://facebook.com/' },
-    { label: 'LinkedIn', url: 'https://linkedin.com/' },
-    { label: 'Instagram', url: 'https://instagram.com/' },
+    { label: 'Instagram', url: 'https://www.instagram.com/ntu_india_association/' },
+    { label: 'Facebook', url: 'https://www.facebook.com/groups/564748801460198' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/groups/16572022/' },
   ],
 }
 
