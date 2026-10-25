@@ -1,11 +1,11 @@
 import PageHeader from '../components/PageHeader.jsx'
 import EventCard from '../components/EventCard.jsx'
 import { events } from '../data/events.js'
-import { isUpcoming } from '../utils.js'
+import { byDate, isUpcoming } from '../utils.js'
 
 export default function Events() {
-  const upcoming = events.filter((e) => isUpcoming(e.date)).sort((a, b) => a.date.localeCompare(b.date))
-  const past = events.filter((e) => !isUpcoming(e.date)).sort((a, b) => b.date.localeCompare(a.date))
+  const upcoming = events.filter((e) => isUpcoming(e.date)).sort(byDate)
+  const past = events.filter((e) => !isUpcoming(e.date)).sort((a, b) => byDate(b, a))
 
   return (
     <>

@@ -1,14 +1,17 @@
 // NTUIA events. Dates use ISO format (YYYY-MM-DD).
 // Events dated today or later appear under "Upcoming"; earlier ones move to "Past events".
 // Optional fields: slug (links to an event page), image (poster in public/images/events).
+// Leave date as null while the date is not announced; the event then shows
+// "Date to be announced" and stays in the upcoming list.
 export const events = [
   {
     id: 'diwali-2026',
     slug: 'jashn-e-diwali-2026',
     title: 'Jashn-e-Diwali 2026',
-    date: '2026-11-08',
-    time: 'Evening (TBA)',
-    location: 'NTU campus, Taipei (venue TBA)',
+    date: null,
+    time: null,
+    location: 'NTU campus, Taipei',
+    venueTba: true,
     description: 'Our Festival of Lights celebration with diyas, rangoli, cultural performances, and Indian food. Everyone is welcome.',
   },
   {

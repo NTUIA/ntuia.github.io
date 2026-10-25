@@ -4,7 +4,7 @@ import { site } from '../data/site.js'
 import { events } from '../data/events.js'
 import { news } from '../data/news.js'
 import { committeeYear, team } from '../data/team.js'
-import { isUpcoming } from '../utils.js'
+import { byDate, isUpcoming } from '../utils.js'
 import EventCard from '../components/EventCard.jsx'
 import NewsCard from '../components/NewsCard.jsx'
 import TeamCard from '../components/TeamCard.jsx'
@@ -29,7 +29,7 @@ export default function Home() {
 
   const upcoming = events
     .filter((e) => isUpcoming(e.date))
-    .sort((a, b) => a.date.localeCompare(b.date))
+    .sort(byDate)
   const rest = upcoming.slice(0, 3)
 
   return (

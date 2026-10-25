@@ -339,6 +339,7 @@
 .diwali-facts { margin: 0 0 24px; display: grid; gap: 14px; }
 .diwali-facts dt { font-weight: 700; color: var(--primary); }
 .diwali-facts dd { margin: 2px 0 0; }
+.diwali-details--single { grid-template-columns: 1fr; max-width: 640px; }
 .diwali-programme { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .theme-diwali .card { background: #fffaf0; border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
 .theme-diwali .card h3 { color: var(--primary); }
