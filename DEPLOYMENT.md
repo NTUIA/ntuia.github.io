@@ -2,11 +2,11 @@
 
 ## 1. Push the code to GitHub
 
-1. The site lives in the association's GitHub organization: **github.com/NTUIA/NTUIA** (public). It was transferred there from a personal account.
+1. The site lives in the association's GitHub organization: **github.com/NTUIA/ntuia.github.io** (public). Because of that repository name, GitHub serves it at **https://ntuia.github.io** until the custom domain is connected.
 2. From this folder:
 
 ```bash
-git remote set-url origin https://github.com/NTUIA/NTUIA.git
+git remote set-url origin https://github.com/NTUIA/ntuia.github.io.git
 git push -u origin main
 ```
 
@@ -66,7 +66,8 @@ The workflow rebuilds and redeploys automatically.
 
 ## Notes
 
-- `vite.config.js` uses `base: '/'` because the site lives at the domain root. To test at `https://ntuia.github.io/NTUIA/` before the domain works, temporarily set `base: '/NTUIA/'`.
+- `vite.config.js` uses `base: '/'` because the site lives at a domain root, both https://ntuia.github.io and https://ntuia.org.
+- When ntuia.org is connected, https://ntuia.github.io redirects to it automatically.
 - The build copies `index.html` to `404.html` so links like `/events` work on refresh.
 - The contact form opens the visitor's email app. It has no backend. For server-side submissions, connect a form service such as Formspree.
 - Dependencies are set to `latest` and CI runs `npm install`, so each deploy uses the newest library versions. If a future release breaks the build, the Actions run fails and the live site stays on the previous version.
