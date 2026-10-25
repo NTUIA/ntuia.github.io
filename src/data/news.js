@@ -20,9 +20,9 @@ export const news = [
     date: '2026-10-22',
     category: 'Volunteers',
     excerpt: 'Be the spark behind NTU’s Diwali celebration. Join the Jashn-e-Diwali 2026 team and bring the energy, colour and joy. Volunteer registration is now open.',
-    image: '/images/diwali/volunteers.webp',
-    imageAlt: 'Four friends in festive Indian clothes lighting diyas together',
-    imageTone: 'plum',
+    image: '/images/news/call-for-volunteers-2026.webp',
+    imageAlt: 'NTU India Association, Jashn-e-Diwali 2026: Call for Volunteers banner with six cheering students',
+    imageTone: 'banner',
     link: { href: diwaliForms.volunteers, label: 'Volunteer sign-up' },
   },
   {
