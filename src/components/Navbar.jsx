@@ -27,7 +27,6 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <Link reloadDocument to="/contact" className="navbar__cta" onClick={() => setOpen(false)}>Become a member</Link>
         </nav>
         <SocialIcons className="navbar__social" />
       </div>
