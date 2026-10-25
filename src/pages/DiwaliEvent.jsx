@@ -11,7 +11,16 @@ export default function DiwaliEvent() {
 
   return (
     <div className="theme-diwali">
-      <DiwaliHero />
+      <DiwaliHero
+        actions={
+          <>
+            <button type="button" className="btn btn--soon" aria-disabled="true">
+              <span className="btn--soon__dot" aria-hidden="true" />Registration starts soon
+            </button>
+            <a href="#details" className="btn btn--primary">Diwali event details</a>
+          </>
+        }
+      />
       <DiwaliCalls />
       <section className="section" id="details">
         <div className="container diwali-details diwali-details--single">
