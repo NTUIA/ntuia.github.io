@@ -1,73 +1,68 @@
+import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
+import TeamCard from '../components/TeamCard.jsx'
 import { site } from '../data/site.js'
-
-const team = [
-  { name: 'Member Name', role: 'President' },
-  { name: 'Member Name', role: 'Vice President' },
-  { name: 'Member Name', role: 'Secretary' },
-  { name: 'Member Name', role: 'Treasurer' },
-]
+import { committeeYear, team } from '../data/team.js'
 
 const values = [
-  { title: 'Inclusion', text: 'Everyone is welcome, and every voice matters.' },
-  { title: 'Service', text: 'We give back to our members and the wider community.' },
-  { title: 'Excellence', text: 'We aim for quality in everything we organise.' },
-  { title: 'Integrity', text: 'We act transparently and responsibly.' },
+  { title: 'Welcome', text: 'Everyone is welcome at NTUIA, whatever their nationality, field or background.' },
+  { title: 'Service', text: 'We give our time to support students and to give back to Taipei.' },
+  { title: 'Culture', text: 'We share India’s festivals, food and arts with the NTU community.' },
+  { title: 'Integrity', text: 'We run the association openly, with clear accounts and elected leadership.' },
 ]
-
-function initials(name) {
-  return name.split(' ').map((p) => p[0]).join('').slice(0, 2).toUpperCase()
-}
 
 export default function About() {
   return (
     <>
-      <PageHeader title="About us" subtitle={`Who we are and what ${site.name} stands for.`} />
+      <PageHeader eyebrow="About NTUIA" title="Who we are" subtitle={site.mission} />
 
       <section className="section">
-        <div className="container grid grid--2">
-          <div className="card">
-            <h2>Our mission</h2>
-            <p>
-              {site.fullName} exists to build a strong, supportive community through events,
-              knowledge sharing, and service. Replace this text with NTUIA’s official mission statement.
-            </p>
+        <div className="container split">
+          <div className="split__aside">
+            <p className="eyebrow">Our purpose</p>
+            <h2>Mission and vision</h2>
           </div>
-          <div className="card">
-            <h2>Our vision</h2>
-            <p>
-              A connected network where every member can grow personally and professionally,
-              and contribute positively to society. Replace with the official vision.
-            </p>
+          <div className="pillars pillars--wide">
+            <article className="pillar">
+              <h3>Mission</h3>
+              <p>{site.fullName} supports Indian students and researchers at National Taiwan University from their first week in Taipei to graduation and beyond, and shares India’s culture with the wider NTU community.</p>
+            </article>
+            <article className="pillar">
+              <h3>Vision</h3>
+              <p>A connected, confident community where every Indian student at NTU feels at home, and where Taiwan and India learn from each other.</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section className="section section--alt">
-        <div className="container">
-          <h2>Our values</h2>
-          <div className="grid grid--4">
+        <div className="container split">
+          <div className="split__aside">
+            <p className="eyebrow">How we work</p>
+            <h2>Our values</h2>
+          </div>
+          <div className="pillars">
             {values.map((v) => (
-              <div key={v.title} className="card feature">
+              <article key={v.title} className="pillar">
                 <h3>{v.title}</h3>
                 <p>{v.text}</p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="team">
         <div className="container">
-          <h2>Executive committee</h2>
-          <div className="grid grid--4">
-            {team.map((m) => (
-              <div key={m.role} className="card team-card">
-                <div className="avatar" aria-hidden="true">{initials(m.role)}</div>
-                <h3>{m.name}</h3>
-                <p className="meta">{m.role}</p>
-              </div>
-            ))}
+          <div className="section__head">
+            <div>
+              <p className="eyebrow">Executive committee {committeeYear}</p>
+              <h2>Meet our team</h2>
+            </div>
+            <Link to="/contact" className="link-arrow">Contact the committee</Link>
+          </div>
+          <div className="team__grid team__grid--compact">
+            {team.map((m) => <TeamCard key={m.name} member={m} />)}
           </div>
         </div>
       </section>

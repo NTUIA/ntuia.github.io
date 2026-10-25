@@ -5,7 +5,7 @@ import { news } from '../data/news.js'
 export default function News() {
   return (
     <>
-      <PageHeader title="News" subtitle="Announcements and stories from our community." />
+      <PageHeader eyebrow="Newsroom" title="News" subtitle="Announcements and stories from the NTUIA community." />
       <section className="section">
         <div className="container grid grid--2">
           {news.map((n) => <NewsCard key={n.id} post={n} />)}

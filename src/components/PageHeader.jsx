@@ -1,16 +1,15 @@
 import { useEffect } from 'react'
 import { site } from '../data/site.js'
-import { StringLights } from './festive/Decorations.jsx'
 
-export default function PageHeader({ title, subtitle }) {
+export default function PageHeader({ eyebrow, title, subtitle }) {
   useEffect(() => {
-    document.title = `${title} | ${site.name}`
+    document.title = `${title} | ${site.fullName}`
   }, [title])
 
   return (
     <section className="page-header">
-      <StringLights />
       <div className="container">
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
       </div>

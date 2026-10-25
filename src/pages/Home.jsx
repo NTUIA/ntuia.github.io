@@ -3,87 +3,154 @@ import { Link } from 'react-router-dom'
 import { site } from '../data/site.js'
 import { events } from '../data/events.js'
 import { news } from '../data/news.js'
+import { committeeYear, team } from '../data/team.js'
 import { isUpcoming } from '../utils.js'
 import EventCard from '../components/EventCard.jsx'
-import DiwaliHero from '../components/festive/DiwaliHero.jsx'
 import NewsCard from '../components/NewsCard.jsx'
+import TeamCard from '../components/TeamCard.jsx'
+import JourneyStory from '../components/journey/JourneyStory.jsx'
+import DiwaliHero from '../components/festive/DiwaliHero.jsx'
 
-const highlights = [
-  { title: 'Community', text: 'A home away from home for Indian students, researchers, and friends at NTU.' },
-  { title: 'Celebrations', text: 'Diwali, Holi, Independence Day, and cultural nights shared with all of Taiwan.' },
-  { title: 'Support', text: 'Help with settling in Taipei, academics, careers, and everyday life in Taiwan.' },
+const facts = [
+  { label: 'Based at', value: 'National Taiwan University, Taipei' },
+  { label: 'Run by', value: 'A volunteer committee of NTU students' },
+  { label: 'Open to', value: 'Everyone, whatever their nationality' },
+]
+
+const pillars = [
+  { title: 'Settling in Taipei', text: 'Practical help for new arrivals: housing, banking, ARC paperwork, and finding a familiar meal near campus.' },
+  { title: 'Culture and festivals', text: 'Diwali, Holi, Independence Day and more, celebrated with the whole NTU community.' },
+  { title: 'Academic and career network', text: 'Talks, mentoring and alumni connections across research labs and industry in Taiwan.' },
+  { title: 'Community and service', text: 'Volunteering, fundraising and outreach that give back to Taipei and to India.' },
 ]
 
 export default function Home() {
-  useEffect(() => { document.title = `${site.name} | ${site.tagline}` }, [])
+  useEffect(() => { document.title = `${site.fullName} | NTUIA` }, [])
 
   const upcoming = events
     .filter((e) => isUpcoming(e.date))
     .sort((a, b) => a.date.localeCompare(b.date))
-    .slice(0, 3)
+  const rest = upcoming.filter((e) => !e.slug).slice(0, 3)
 
   return (
     <>
-      <DiwaliHero />
+      <div className="theme-diwali">
+        <DiwaliHero
+          actions={
+            <>
+              <button type="button" className="btn btn--soon" aria-disabled="true">
+                <span className="btn--soon__dot" aria-hidden="true" />Registration starts soon
+              </button>
+              <Link to="/events/jashn-e-diwali-2026" className="btn btn--primary">Diwali event details</Link>
+            </>
+          }
+        />
+      </div>
 
-      <section className="section section--alt">
-        <div className="container banner-feature">
-          <img
-            src="/images/jashn-e-diwali-2026.webp"
-            alt="NTU India Association, Jashn-e-Diwali 2026: Call for Volunteers"
-            width="1638"
-            height="574"
-          />
-          <div className="banner-feature__text">
-            <p className="script-accent">Be part of the celebration</p>
-            <p>Help with decorations, rangoli, food, performances, or hosting. Every pair of hands makes the night brighter.</p>
-            <Link to="/contact" className="btn btn--primary">Sign up to volunteer</Link>
+      <section className="home-hero">
+        <div className="container home-hero__inner">
+          <div className="home-hero__text">
+            <p className="eyebrow">Student association · National Taiwan University</p>
+            <h1>A home for Indian students at NTU.</h1>
+            <p className="lead">{site.mission}</p>
+            <div className="home-hero__actions">
+              <Link to="/contact" className="btn btn--primary">Become a member</Link>
+              <Link to="/events" className="btn btn--outline">Upcoming events</Link>
+            </div>
           </div>
+          <div className="home-hero__art">
+            <JourneyStory />
+          </div>
+        </div>
+        <div className="container">
+          <dl className="facts">
+            {facts.map((f) => (
+              <div key={f.label}>
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
       <section className="section">
-        <div className="container grid grid--3">
-          {highlights.map((h) => (
-            <div key={h.title} className="card feature">
-              <h3>{h.title}</h3>
-              <p>{h.text}</p>
-            </div>
-          ))}
+        <div className="container split">
+          <div className="split__aside">
+            <p className="eyebrow">What we do</p>
+            <h2>Four ways we support our community</h2>
+            <Link to="/about" className="link-arrow">About NTUIA</Link>
+          </div>
+          <div className="pillars">
+            {pillars.map((p) => (
+              <article key={p.title} className="pillar">
+                <h3>{p.title}</h3>
+                <p>{p.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section section--alt">
+
+      <section className="section">
         <div className="container">
           <div className="section__head">
-            <h2>Upcoming events</h2>
-            <Link to="/events">View all →</Link>
+            <div>
+              <p className="eyebrow">Calendar</p>
+              <h2>Upcoming events</h2>
+            </div>
+            <Link to="/events" className="link-arrow">All events</Link>
           </div>
-          {upcoming.length ? (
-            <div className="stack">{upcoming.map((e) => <EventCard key={e.id} event={e} />)}</div>
+          {rest.length ? (
+            <div className="stack">{rest.map((e) => <EventCard key={e.id} event={e} />)}</div>
           ) : (
-            <p>No upcoming events right now. Check back soon.</p>
+            <p>No other events are scheduled yet. Follow us for announcements.</p>
           )}
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
           <div className="section__head">
-            <h2>Latest news</h2>
-            <Link to="/news">All news →</Link>
+            <div>
+              <p className="eyebrow">Executive committee {committeeYear}</p>
+              <h2>The people behind NTUIA</h2>
+            </div>
+            <Link to="/about" className="link-arrow">Meet the team</Link>
           </div>
-          <div className="grid grid--3">
-            {news.slice(0, 3).map((n) => <NewsCard key={n.id} post={n} />)}
+          <div className="team__grid team__grid--compact">
+            {team.map((m) => <TeamCard key={m.name} member={m} />)}
           </div>
         </div>
       </section>
 
       <section className="cta">
         <div className="container cta__inner">
-          <h2>Want to get involved?</h2>
-          <p>Become a member, volunteer at an event, or simply say hello.</p>
-          <Link to="/contact" className="btn btn--accent">Contact us</Link>
+          <div>
+            <p className="eyebrow eyebrow--light">Partner with NTUIA</p>
+            <h2>Support Indian students in Taiwan</h2>
+            <p>Sponsors, university offices and community partners help us run free events and welcome new students every semester. We would be glad to talk.</p>
+          </div>
+          <div className="cta__actions">
+            <Link to="/contact" className="btn btn--light">Become a partner</Link>
+            <Link to="/contact" className="btn btn--outline">Contact the committee</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section__head">
+            <div>
+              <p className="eyebrow">News</p>
+              <h2>Latest from NTUIA</h2>
+            </div>
+            <Link to="/news" className="link-arrow">All news</Link>
+          </div>
+          <div className="grid grid--3">
+            {news.slice(0, 3).map((n) => <NewsCard key={n.id} post={n} />)}
+          </div>
         </div>
       </section>
     </>

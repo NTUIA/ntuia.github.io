@@ -2,11 +2,11 @@
 
 ## 1. Push the code to GitHub
 
-1. On github.com, create a **public** repository named `NTUIA` under the `Akarsth` account. Do not add a README or .gitignore.
+1. The site lives in the association's GitHub organization: **github.com/NTUIA/NTUIA** (public). It was transferred there from a personal account.
 2. From this folder:
 
 ```bash
-git remote add origin https://github.com/Akarsth/NTUIA.git
+git remote set-url origin https://github.com/NTUIA/NTUIA.git
 git push -u origin main
 ```
 
@@ -20,7 +20,7 @@ git push -u origin main
 
 1. **Settings → Pages → Custom domain**: enter `ntuia.org` and save.
 2. The `public/CNAME` file already contains `ntuia.org`, so the domain survives every redeploy.
-3. Recommended: verify the domain under your GitHub profile **Settings → Pages → Verified domains** to prevent takeover.
+3. Recommended: verify the domain under the **NTUIA organization's Settings → Pages → Verified domains** to prevent takeover.
 
 ## 4. GoDaddy DNS
 
@@ -37,7 +37,7 @@ Add:
 | A | @ | 185.199.109.153 | 1 hour |
 | A | @ | 185.199.110.153 | 1 hour |
 | A | @ | 185.199.111.153 | 1 hour |
-| CNAME | www | akarsth.github.io | 1 hour |
+| CNAME | www | ntuia.github.io | 1 hour |
 
 Optional IPv6 (`AAAA`, name `@`): `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
 
@@ -66,7 +66,7 @@ The workflow rebuilds and redeploys automatically.
 
 ## Notes
 
-- `vite.config.js` uses `base: '/'` because the site lives at the domain root. To test at `https://akarsth.github.io/NTUIA/` before the domain works, temporarily set `base: '/NTUIA/'`.
+- `vite.config.js` uses `base: '/'` because the site lives at the domain root. To test at `https://ntuia.github.io/NTUIA/` before the domain works, temporarily set `base: '/NTUIA/'`.
 - The build copies `index.html` to `404.html` so links like `/events` work on refresh.
 - The contact form opens the visitor's email app. It has no backend. For server-side submissions, connect a form service such as Formspree.
 - Dependencies are set to `latest` and CI runs `npm install`, so each deploy uses the newest library versions. If a future release breaks the build, the Actions run fails and the live site stays on the previous version.

@@ -27,7 +27,7 @@ export default function Gallery() {
 
   return (
     <>
-      <PageHeader title="Gallery" subtitle="Moments from our events and activities." />
+      <PageHeader eyebrow="Gallery" title="Moments from our events" subtitle="Photos from NTUIA gatherings and celebrations." />
       <section className="section">
         <div className="container gallery">
           {gallery.map((img, i) => (

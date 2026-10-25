@@ -2,7 +2,8 @@
 export const site = {
   name: 'NTUIA',
   fullName: 'NTU India Association',
-  tagline: 'The Indian community at National Taiwan University, Taipei.',
+  tagline: 'The student association for Indian students, researchers and friends at National Taiwan University.',
+  mission: 'We help Indian students settle into life in Taipei, share India’s culture with the NTU community, and build a network that lasts beyond graduation.',
   email: 'info@ntuia.org',
   phone: '+886 (placeholder)',
   address: 'National Taiwan University, No. 1, Sec. 4, Roosevelt Rd., Taipei, Taiwan',

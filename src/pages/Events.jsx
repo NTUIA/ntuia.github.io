@@ -9,7 +9,7 @@ export default function Events() {
 
   return (
     <>
-      <PageHeader title="Events" subtitle="Meetings, workshops, and celebrations." />
+      <PageHeader eyebrow="Calendar" title="Events" subtitle="Festivals, talks, workshops and gatherings, open to the whole NTU community." />
       <section className="section">
         <div className="container">
           <h2>Upcoming</h2>

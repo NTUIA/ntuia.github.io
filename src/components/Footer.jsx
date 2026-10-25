@@ -8,14 +8,13 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__grid">
         <div>
-          <div className="brand brand--light">
-            <img src="/logo.svg" alt="" width="32" height="32" />
-            <span>{site.name}</span>
+          <div className="footer__logo">
+            <img src="/ntuia-logo.png" alt={site.fullName} width="254" height="92" />
           </div>
           <p className="footer__tagline">{site.tagline}</p>
         </div>
         <div>
-          <h3>Quick links</h3>
+          <h3>Explore</h3>
           <ul>
             {navLinks.map((l) => (
               <li key={l.to}><Link to={l.to}>{l.label}</Link></li>
@@ -23,24 +22,34 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3>Contact</h3>
+          <h3>Get involved</h3>
           <ul>
-            <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
-            <li>{site.phone}</li>
-            <li>{site.address}</li>
+            <li><Link to="/contact">Become a member</Link></li>
+            <li><Link to="/contact">Partner with us</Link></li>
+            <li><Link to="/events">Attend an event</Link></li>
           </ul>
         </div>
         <div>
-          <h3>Follow us</h3>
+          <h3>Contact</h3>
           <ul>
-            {site.social.map((s) => (
-              <li key={s.label}><a href={s.url} target="_blank" rel="noreferrer">{s.label}</a></li>
-            ))}
+            <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+            <li>{site.address}</li>
+            <li className="footer__social">
+              {site.social.map((s, i) => (
+                <span key={s.label}>
+                  {i > 0 && ' · '}
+                  <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
+                </span>
+              ))}
+            </li>
           </ul>
         </div>
       </div>
       <div className="footer__bottom">
-        <div className="container">© {year} {site.fullName}. All rights reserved.</div>
+        <div className="container">
+          <span><span className="footer__flag" aria-hidden="true" />© {year} {site.fullName}</span>
+          <span>A student-run, non-profit association at National Taiwan University</span>
+        </div>
       </div>
     </footer>
   )

@@ -5,13 +5,11 @@ import { navLinks, site } from '../data/site.js'
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
-
   return (
     <header className="navbar">
       <div className="container navbar__inner">
         <Link to="/" className="brand" onClick={() => setOpen(false)} aria-label={`${site.name} home`}>
-          <img src="/logo.svg" alt="" width="36" height="36" />
-          <span>{site.name}</span>
+          <img className="brand__logo" src="/ntuia-logo.png" alt={site.fullName} width="254" height="92" />
         </Link>
         <button
           className="navbar__toggle"
@@ -28,6 +26,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
+          <Link to="/contact" className="navbar__cta" onClick={() => setOpen(false)}>Become a member</Link>
         </nav>
       </div>
     </header>

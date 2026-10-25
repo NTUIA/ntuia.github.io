@@ -9,6 +9,7 @@ import News from './pages/News.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
+import DiwaliEvent from './pages/DiwaliEvent.jsx'
 import MotionPanel from './motion/MotionPanel.jsx'
 
 function ScrollToTop() {
@@ -18,6 +19,10 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+  // Festive motion controls appear where the Diwali banner is shown.
+  const festive = pathname === '/' || pathname.startsWith('/events/jashn-e-diwali')
+
   return (
     <>
       <ScrollToTop />
@@ -28,6 +33,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/jashn-e-diwali-2026" element={<DiwaliEvent />} />
           <Route path="/news" element={<News />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
@@ -35,7 +41,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <MotionPanel />
+      {festive && <MotionPanel />}
     </>
   )
 }
