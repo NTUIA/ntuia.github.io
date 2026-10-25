@@ -12,7 +12,6 @@ export default function Navbar() {
         <Link reloadDocument to="/" className="brand" onClick={() => setOpen(false)} aria-label={`${site.name} home`}>
           <img className="brand__logo" src="/ntuia-logo.png" alt={site.fullName} width="254" height="92" />
         </Link>
-        <SocialIcons className="navbar__social" />
         <button
           className="navbar__toggle"
           aria-expanded={open}
@@ -30,6 +29,7 @@ export default function Navbar() {
           ))}
           <Link reloadDocument to="/contact" className="navbar__cta" onClick={() => setOpen(false)}>Become a member</Link>
         </nav>
+        <SocialIcons className="navbar__social" />
       </div>
     </header>
   )

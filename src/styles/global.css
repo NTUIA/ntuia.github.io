@@ -76,12 +76,13 @@ p { margin: 0 0 1em; }
 .social__link--facebook:hover { color: #1877f2; }
 .social__link--linkedin:hover { color: #0a66c2; }
 .social__link--mail:hover { color: var(--saffron); }
-.navbar__social { padding-left: 14px; margin-left: 2px; border-left: 1px solid var(--line); }
+.navbar__social { padding-left: 14px; border-left: 1px solid var(--line); gap: 2px; }
+.navbar__social .social__link { width: 32px; height: 32px; }
 .navbar__links a { position: relative; padding: 10px 12px; color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
 .navbar__links a::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 4px; height: 2px; background: var(--saffron); transform: scaleX(0); transform-origin: left; transition: transform .2s; }
 .navbar__links a:hover::after, .navbar__links a.active::after { transform: scaleX(1); }
 .navbar__links a.active { color: var(--navy); }
-.navbar__links .navbar__cta { margin-left: 10px; background: var(--navy); color: #fff; border-radius: var(--radius); padding: 10px 16px; }
+.navbar__links .navbar__cta { white-space: nowrap; margin-left: 10px; background: var(--navy); color: #fff; border-radius: var(--radius); padding: 10px 16px; }
 .navbar__links .navbar__cta::after { display: none; }
 .navbar__links .navbar__cta:hover { background: var(--navy-deep); }
 .navbar__toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
@@ -221,10 +222,11 @@ p { margin: 0 0 1em; }
   .cta__inner { grid-template-columns: 1fr; }
   .cta__actions { justify-content: flex-start; }
 }
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
   .brand__logo { height: 42px; }
   .navbar__toggle { display: block; }
-  .navbar__social { margin-left: auto; padding-left: 0; border-left: 0; }
+  .navbar__social { margin-left: auto; padding-left: 0; border-left: 0; order: 1; }
+  .navbar__toggle { order: 2; }
   .navbar__links { position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: #fff; border-bottom: 1px solid var(--line); padding: 8px 16px 18px; display: none; box-shadow: 0 12px 24px rgba(15, 38, 71, 0.08); }
   .navbar__links.is-open { display: flex; }
   .navbar__links a { padding: 12px 8px; }
