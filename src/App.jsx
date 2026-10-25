@@ -11,6 +11,7 @@ import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 import DiwaliEvent from './pages/DiwaliEvent.jsx'
 import MotionPanel from './motion/MotionPanel.jsx'
+import PageErrorBoundary from './components/PageErrorBoundary.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -29,6 +30,7 @@ export default function App() {
       <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
       <main id="main">
+        <PageErrorBoundary key={pathname}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -39,6 +41,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </PageErrorBoundary>
       </main>
       <Footer />
       {festive && <MotionPanel />}
