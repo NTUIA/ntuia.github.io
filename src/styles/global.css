@@ -332,7 +332,10 @@ p { margin: 0 0 1em; }
 }
 
 /* Contact form states */
+.req { color: var(--red); font-weight: 700; }
+.form__hint { margin: -6px 0 0; font-size: 0.85rem; color: var(--slate); }
 .form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+button.btn { font-family: inherit; }
 .form .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 .form__status { margin: 0; font-size: 0.95rem; min-height: 1.5em; }
 .form__status--sent { color: var(--green); font-weight: 600; }

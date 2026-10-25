@@ -61,14 +61,15 @@ export default function Contact() {
           </div>
           <form className="card form" onSubmit={submit}>
             <h2>Send a message</h2>
-            <label htmlFor="c-name">Name<input id="c-name" name="name" value={form.name} onChange={update} required autoComplete="name" /></label>
-            <label htmlFor="c-email">Your email<input id="c-email" type="email" name="email" value={form.email} onChange={update} required autoComplete="email" /></label>
+            <p className="form__hint"><span className="req" aria-hidden="true">*</span> Required</p>
+            <label htmlFor="c-name"><span>Name <span className="req" aria-hidden="true">*</span></span><input id="c-name" name="name" value={form.name} onChange={update} required autoComplete="name" /></label>
+            <label htmlFor="c-email"><span>Your email <span className="req" aria-hidden="true">*</span></span><input id="c-email" type="email" name="email" value={form.email} onChange={update} required autoComplete="email" /></label>
             <label htmlFor="c-topic">Topic
               <select id="c-topic" name="topic" value={form.topic} onChange={update}>
                 {topics.map((t) => <option key={t}>{t}</option>)}
               </select>
             </label>
-            <label htmlFor="c-message">Message<textarea id="c-message" name="message" rows="6" value={form.message} onChange={update} required /></label>
+            <label htmlFor="c-message"><span>Message <span className="req" aria-hidden="true">*</span></span><textarea id="c-message" name="message" rows="6" value={form.message} onChange={update} required /></label>
             <input type="checkbox" name="botcheck" className="form__trap" tabIndex="-1" autoComplete="off" aria-hidden="true" />
             <button type="submit" className="btn btn--primary" disabled={!ready || status === 'sending'}>
               {status === 'sending' ? 'Sending…' : 'Send message'}
