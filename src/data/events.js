@@ -8,10 +8,9 @@ export const events = [
     id: 'diwali-2026',
     slug: 'jashn-e-diwali-2026',
     title: 'Jashn-e-Diwali 2026',
-    date: null,
+    date: '2026-11-15',
     time: null,
-    location: 'NTU campus, Taipei',
-    venueTba: true,
+    location: '103, Boya Building, National Taiwan University, Taipei',
     description: 'Our Festival of Lights celebration with diyas, rangoli, cultural performances, and Indian food. Everyone is welcome.',
   },
   {
