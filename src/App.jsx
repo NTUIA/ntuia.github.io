@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 import DiwaliEvent from './pages/DiwaliEvent.jsx'
+import Registration from './pages/Registration.jsx'
 import PageErrorBoundary from './components/PageErrorBoundary.jsx'
 
 function ScrollToTop() {
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/jashn-e-diwali-2026" element={<DiwaliEvent />} />
+          <Route path="/registration" element={<Registration />} />
           <Route path="/news" element={<News />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />

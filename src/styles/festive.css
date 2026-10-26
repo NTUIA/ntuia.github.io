@@ -412,3 +412,7 @@ a.call__btn:hover { transform: translateY(-2px); }
   .dhero__diya { bottom: calc(100vw * 266 / 580 - 30px); }
   .dhero__rangoli { display: none; }
 }
+
+/* Live "Register here" button (same look as the old "starts soon" chip, now clickable) */
+a.btn--register { cursor: pointer; text-decoration: none; }
+a.btn--register:hover { background: #fff3dc; border-style: solid; transform: translateY(-1px); }

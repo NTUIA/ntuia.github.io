@@ -14,9 +14,9 @@ export default function DiwaliEvent() {
       <DiwaliHero
         actions={
           <>
-            <button type="button" className="btn btn--soon" aria-disabled="true">
-              <span className="btn--soon__dot" aria-hidden="true" />Registration starts soon
-            </button>
+            <Link reloadDocument to="/registration" className="btn btn--soon btn--register">
+              <span className="btn--soon__dot" aria-hidden="true" />Register here
+            </Link>
             <a href="#details" className="btn btn--primary">Diwali event details</a>
           </>
         }

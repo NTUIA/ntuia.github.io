@@ -38,9 +38,9 @@ export default function Home() {
         <DiwaliHero
           actions={
             <>
-              <button type="button" className="btn btn--soon" aria-disabled="true">
-                <span className="btn--soon__dot" aria-hidden="true" />Registration starts soon
-              </button>
+              <Link reloadDocument to="/registration" className="btn btn--soon btn--register">
+                <span className="btn--soon__dot" aria-hidden="true" />Register here
+              </Link>
               <Link reloadDocument to="/events/jashn-e-diwali-2026" className="btn btn--primary">Diwali event details</Link>
             </>
           }
