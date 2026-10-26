@@ -1,7 +1,7 @@
 // Update committeeYear when a new committee is elected.
 export const committeeYear = 2026
 
-// Executive committee. Photos live in public/images/team (square images work best).
+// Executive committee. Photos live in public/images/team as 480 x 600 portraits (4:5).
 export const team = [
   { name: 'Aditya Naman Soni', role: 'President', degree: 'PhD Scholar', photo: '/images/team/aditya.webp' },
   { name: 'Vinay Vilas Shinde', role: 'Vice President', degree: "Master's Scholar", photo: '/images/team/vinay.webp' },
