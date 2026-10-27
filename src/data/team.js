@@ -38,6 +38,15 @@ export const pastCommittees = [
       { name: 'Sumangaladevi K.', role: 'Treasurer', photo: '/images/team/past/2024/sumangaladevi.webp' },
     ],
   },
-  { year: 2023, members: blankCommittee() },
+  {
+    year: 2023,
+    members: [
+      { name: 'Varad Modak', role: 'President', photo: '' },
+      { name: 'Deep Shubhra Biswas', role: 'Vice President', photo: '' },
+      { name: 'Avijeet Balabantray', role: 'Social Media Coordinator', photo: '' },
+      { name: 'Bharanitharan J', role: 'Event Coordinator', photo: '' },
+      { name: 'Nilabh Basu', role: 'Treasurer', photo: '' },
+    ],
+  },
   { year: 2022, members: blankCommittee() },
 ]
