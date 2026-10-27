@@ -26,6 +26,9 @@
   --border: var(--line);
   --gold: #b88a2e;
 
+  /* Small Indian flag waving in the wind (animated SVG), plus a still version for reduced motion */
+  --flag-wave: url('/images/flag-wave.svg');
+  --flag-still: url('/images/flag-still.svg');
   --radius: 6px;
   --max: 1160px;
   /* Main site typeface: Helvetica (Arial where Helvetica isn't installed). */
@@ -61,7 +64,7 @@ p { margin: 0 0 1em; }
 
 /* Small uppercase label above headings */
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 500 0.78rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); margin: 0 0 14px; }
-.eyebrow::before { content: ''; width: 22px; height: 2px; background: linear-gradient(90deg, var(--saffron) 0 33%, #fff 33% 66%, var(--green) 66%); box-shadow: 0 0 0 1px var(--line); }
+.eyebrow::before, .footer__flag { content: ''; display: inline-block; flex: none; width: 27px; height: 18px; background: var(--flag-wave) center / contain no-repeat; filter: drop-shadow(0 1px 1px rgba(15, 38, 71, 0.18)); }
 
 /* ---------- Navbar ---------- */
 .navbar { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
@@ -213,7 +216,7 @@ p { margin: 0 0 1em; }
 .footer__tagline { margin-top: 16px; max-width: 34ch; }
 .footer__bottom { border-top: 1px solid #ffffff1f; padding-block: 20px; font-size: 0.85rem; }
 .footer__bottom .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
-.footer__flag { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 8px; background: linear-gradient(90deg, var(--saffron) 0 33%, #fff 33% 66%, var(--green) 66%); }
+.footer__flag { vertical-align: middle; margin-right: 8px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
@@ -362,3 +365,5 @@ button.btn { font-family: inherit; }
 .registration__bar .link-arrow { color: #f2c14e; font-size: 0.9rem; }
 .registration__frame { display: block; width: 100%; height: calc(100dvh - 72px - 46px); min-height: 620px; border: 0; background: #3a0c22; }
 @media (max-width: 640px) { .registration__bar h1 { font-size: 0.95rem; } }
+
+@media (prefers-reduced-motion: reduce) { .eyebrow::before, .footer__flag { background-image: var(--flag-still); } }
