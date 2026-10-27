@@ -9,7 +9,9 @@
   --radius: 14px; --shadow: 0 6px 22px rgba(110, 22, 49, 0.08);
   --font-display: 'Cinzel', 'Times New Roman', serif;
   --font-script: 'Kaushan Script', 'Brush Script MT', cursive;
-  font-family: 'Mukta', system-ui, sans-serif;
+  --font-body: 'Mukta', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: var(--font-body);
   background: var(--bg); color: var(--text);
 }
 .theme-diwali h1, .theme-diwali h2 { font-weight: 700; letter-spacing: 0.01em; }
