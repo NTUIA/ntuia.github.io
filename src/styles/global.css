@@ -140,6 +140,8 @@ p { margin: 0 0 1em; }
 .event-card h3 a:hover { color: var(--navy); text-decoration: underline; }
 .event-card p { margin: 6px 0 0; max-width: 62ch; }
 .event-card .meta { margin: 0; }
+.event-card .event-card__where { margin-top: 2px; }
+.footer__social { display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .event-card__more { align-self: center; }
 .event-card.is-past .event-card__date .day { color: var(--slate); }
 .event-card__poster { display: block; width: 140px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 20px -12px rgba(15, 38, 71, 0.45); transition: transform .2s; }

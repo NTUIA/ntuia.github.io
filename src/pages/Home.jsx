@@ -50,7 +50,7 @@ export default function Home() {
       <section className="home-hero">
         <div className="container home-hero__inner">
           <div className="home-hero__text">
-            <p className="eyebrow">Student association · National Taiwan University</p>
+            <p className="eyebrow">Student association at National Taiwan University</p>
             <h1>A home for Indian students at NTU.</h1>
             <p className="lead">{site.mission}</p>
             <div className="home-hero__actions">

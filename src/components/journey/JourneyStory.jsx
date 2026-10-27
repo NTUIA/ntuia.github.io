@@ -9,15 +9,15 @@ import {
 const SCENES = [
   { id: 'globe', tag: 'The journey', title: 'Every NTUIA story begins with a journey', ms: 3800 },
   { id: 'india', tag: 'India', title: 'Home, from the Himalayas to Kanyakumari', ms: 3600 },
-  { id: 'taj', kind: 'india', city: 'agra', art: TAJ_MAHAL, tag: 'North · Agra', title: 'Taj Mahal', ms: 3400 },
-  { id: 'gateway', kind: 'india', city: 'mumbai', art: GATEWAY_OF_INDIA, tag: 'West · Mumbai', title: 'Gateway of India', ms: 3400 },
-  { id: 'howrah', kind: 'india', city: 'kolkata', art: HOWRAH_BRIDGE, tag: 'East · Kolkata', title: 'Howrah Bridge', ms: 3400 },
-  { id: 'gopuram', kind: 'india', city: 'madurai', art: MEENAKSHI_GOPURAM, tag: 'South · Madurai', title: 'Meenakshi Temple', ms: 3400 },
+  { id: 'taj', kind: 'india', city: 'agra', art: TAJ_MAHAL, tag: 'Agra, North India', title: 'Taj Mahal', ms: 3400 },
+  { id: 'gateway', kind: 'india', city: 'mumbai', art: GATEWAY_OF_INDIA, tag: 'Mumbai, West India', title: 'Gateway of India', ms: 3400 },
+  { id: 'howrah', kind: 'india', city: 'kolkata', art: HOWRAH_BRIDGE, tag: 'Kolkata, East India', title: 'Howrah Bridge', ms: 3400 },
+  { id: 'gopuram', kind: 'india', city: 'madurai', art: MEENAKSHI_GOPURAM, tag: 'Madurai, South India', title: 'Meenakshi Temple', ms: 3400 },
   { id: 'flight', tag: 'Departure', title: 'New Delhi to Taipei, about 4,400 km', ms: 4400 },
-  { id: 't101', kind: 'taiwan', place: 'taipei', tag: 'North Taiwan · Taipei', title: 'Taipei 101', ms: 3400 },
-  { id: 'pagoda', kind: 'taiwan', place: 'sunmoon', art: CIEN_PAGODA, tag: 'Central Taiwan · Nantou', title: 'Ci’en Pagoda, Sun Moon Lake', ms: 3400 },
-  { id: 'lighthouse', kind: 'taiwan', place: 'kenting', art: ELUANBI_LIGHTHOUSE, tag: 'South Taiwan · Pingtung', title: 'Eluanbi Lighthouse, Kenting', ms: 3600 },
-  { id: 'ntu', tag: 'Arrival · Taipei', title: 'National Taiwan University, our home away from home', ms: 7500 },
+  { id: 't101', kind: 'taiwan', place: 'taipei', tag: 'Taipei, North Taiwan', title: 'Taipei 101', ms: 3400 },
+  { id: 'pagoda', kind: 'taiwan', place: 'sunmoon', art: CIEN_PAGODA, tag: 'Nantou, Central Taiwan', title: 'Ci’en Pagoda, Sun Moon Lake', ms: 3400 },
+  { id: 'lighthouse', kind: 'taiwan', place: 'kenting', art: ELUANBI_LIGHTHOUSE, tag: 'Pingtung, South Taiwan', title: 'Eluanbi Lighthouse, Kenting', ms: 3600 },
+  { id: 'ntu', tag: 'Arrival in Taipei', title: 'National Taiwan University, our home away from home', ms: 7500 },
 ]
 
 // Screen positions for the flight scene (India and Taiwan maps placed side by side).

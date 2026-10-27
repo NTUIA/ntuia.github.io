@@ -35,11 +35,8 @@ export default function Footer() {
             <li><Link reloadDocument to="/contact">Send us a message</Link></li>
             <li>{site.address}</li>
             <li className="footer__social">
-              {site.social.map((s, i) => (
-                <span key={s.label}>
-                  {i > 0 && ' · '}
-                  <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
-                </span>
+              {site.social.map((s) => (
+                <a key={s.label} href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
               ))}
             </li>
           </ul>

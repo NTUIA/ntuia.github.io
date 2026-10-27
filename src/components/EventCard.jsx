@@ -21,11 +21,12 @@ export default function EventCard({ event, past = false }) {
       </div>
       <div>
         <h3>{href ? <Link reloadDocument to={href}>{event.title}</Link> : event.title}</h3>
-        <p className="meta">
+        <p className="meta event-card__when">
           {event.date
-            ? <><time dateTime={event.date}>{formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long' })}</time>{event.time && ` · ${event.time}`}</>
-            : 'Date and time to be announced'}{' · '}{event.location}
+            ? <><time dateTime={event.date}>{formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long' })}</time>{event.time && `, ${event.time}`}</>
+            : 'Date and time to be announced'}
         </p>
+        <p className="meta event-card__where">{event.location}</p>
         <p>{event.description}</p>
       </div>
       {event.image && (

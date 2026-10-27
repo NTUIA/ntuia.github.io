@@ -37,7 +37,7 @@ export default function DiwaliCalls() {
     <section className="calls" id="get-involved" aria-labelledby="calls-title">
       <div className="container">
         <header className="calls__head">
-          <p className="calls__eyebrow">Jashn-e-Diwali 2026 · NTU</p>
+          <p className="calls__eyebrow">Jashn-e-Diwali 2026 at NTU</p>
           <h2 id="calls-title">Two ways to light up the night</h2>
           <p>Help us build the celebration behind the scenes, or take the stage and share your art. Everyone at NTU is welcome to join.</p>
         </header>
