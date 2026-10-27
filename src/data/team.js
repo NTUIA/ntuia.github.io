@@ -14,8 +14,6 @@ export const team = [
 //   1. Put the photo in public/images/team/past/<year>/ (square; it is shown as a circle).
 //   2. Fill in name, role and photo below. Leave photo as '' to show a person icon instead.
 // Add or remove rows freely; a member with no name shows as "Name to be added".
-const placeholderRoles = ['President', 'Vice President', 'Secretariat', 'Event Coordinator', 'Treasurer']
-const blankCommittee = () => placeholderRoles.map((role) => ({ name: '', role, photo: '' }))
 
 export const pastCommittees = [
   {
@@ -48,5 +46,16 @@ export const pastCommittees = [
       { name: 'Nilabh Basu', role: 'Treasurer', photo: '' },
     ],
   },
-  { year: 2022, members: blankCommittee() },
+  {
+    year: 2022,
+    members: [
+      { name: 'Siddhartha Panigrahi', role: 'President', photo: '' },
+      { name: 'Dalip Kumar', role: 'Vice President', photo: '' },
+      { name: 'Kavya J', role: 'Cultural Coordinator', photo: '' },
+      { name: 'Subhashree Shivani', role: 'Activity Coordinator', photo: '' },
+      { name: 'Varad Modak', role: 'Activity Coordinator', photo: '' },
+      { name: 'Amali Gitanjali', role: 'Social Media Coordinator', photo: '' },
+      { name: 'Suyash Wagh', role: 'Treasurer', photo: '' },
+    ],
+  },
 ]
