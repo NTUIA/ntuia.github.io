@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import DiwaliHero from '../components/festive/DiwaliHero.jsx'
+import RegisterButton from '../components/festive/RegisterButton.jsx'
 import DiwaliCalls from '../components/festive/DiwaliCalls.jsx'
 import { events } from '../data/events.js'
 import { formatDate } from '../utils.js'
@@ -14,9 +15,7 @@ export default function DiwaliEvent() {
       <DiwaliHero
         actions={
           <>
-            <Link reloadDocument to="/registration" className="btn btn--soon btn--register">
-              <span className="btn--soon__dot" aria-hidden="true" />Register here
-            </Link>
+            <RegisterButton />
             <a href="#details" className="btn btn--primary">Diwali event details</a>
           </>
         }

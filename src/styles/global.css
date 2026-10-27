@@ -382,5 +382,9 @@ button.btn { font-family: inherit; }
 .registration__bar .link-arrow { color: #f2c14e; font-size: 0.9rem; }
 .registration__frame { display: block; width: 100%; height: calc(100dvh - 72px - 46px); min-height: 620px; border: 0; background: #3a0c22; }
 @media (max-width: 640px) { .registration__bar h1 { font-size: 0.95rem; } }
+.registration__soon { padding-block: 96px; text-align: center; display: grid; justify-items: center; gap: 14px; }
+.registration__soon h1 { margin: 0; color: #fbe9d4; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.registration__soon p { margin: 0; color: #f0d9c2; font-size: 1.1rem; }
+.registration__soon .link-arrow { color: #f2c14e; }
 
 @media (prefers-reduced-motion: reduce) { .eyebrow::before, .footer__flag { background-image: var(--flag-still); } }
