@@ -39,7 +39,7 @@ export const pastCommittees = [
   {
     year: 2023,
     members: [
-      { name: 'Varad Modak', role: 'President', photo: '' },
+      { name: 'Varad Modak', role: 'President', photo: '/images/team/past/2023/varad.webp' },
       { name: 'Deep Shubhra Biswas', role: 'Vice President', photo: '' },
       { name: 'Avijeet Balabantray', role: 'Social Media Coordinator', photo: '' },
       { name: 'Bharanitharan J', role: 'Event Coordinator', photo: '' },
@@ -53,7 +53,7 @@ export const pastCommittees = [
       { name: 'Dalip Kumar', role: 'Vice President', photo: '' },
       { name: 'Kavya J', role: 'Cultural Coordinator', photo: '' },
       { name: 'Subhashree Shivani', role: 'Activity Coordinator', photo: '' },
-      { name: 'Varad Modak', role: 'Activity Coordinator', photo: '' },
+      { name: 'Varad Modak', role: 'Activity Coordinator', photo: '/images/team/past/2023/varad.webp' },
       { name: 'Amali Gitanjali', role: 'Social Media Coordinator', photo: '' },
       { name: 'Suyash Wagh', role: 'Treasurer', photo: '' },
     ],
