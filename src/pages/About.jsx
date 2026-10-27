@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 import TeamCard from '../components/TeamCard.jsx'
+import PastCommittees from '../components/PastCommittees.jsx'
 import { site } from '../data/site.js'
 import { committeeYear, team } from '../data/team.js'
 
@@ -64,6 +65,18 @@ export default function About() {
           <div className="team__grid team__grid--compact">
             {team.map((m) => <TeamCard key={m.name} member={m} />)}
           </div>
+        </div>
+      </section>
+
+      <section className="section section--alt" id="past-committees">
+        <div className="container">
+          <div className="section__head">
+            <div>
+              <p className="eyebrow">Past committees</p>
+              <h2>Those who led before us</h2>
+            </div>
+          </div>
+          <PastCommittees />
         </div>
       </section>
     </>
