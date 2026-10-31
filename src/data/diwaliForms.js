@@ -10,6 +10,6 @@ export const diwaliForms = {
 // Shown inside https://ntuia.org/registration so visitors stay on ntuia.org.
 export const diwaliRegistration = 'https://script.google.com/macros/s/AKfycbyZ_nVl3AsKkBcXQFq-u4wK3_F-ZMwkJoIO5lDX917BC2tXXN8W1Djv3SYmD5c_Xo9iUQ/exec'
 
-// Set to true to open registration. While false, the "Register here" buttons read
+// Set to true to open registration. While false, the "Register now" buttons read
 // "Registration coming soon" and ntuia.org/registration shows a notice instead of the form.
-export const registrationOpen = false
+export const registrationOpen = true

@@ -11,7 +11,7 @@ export default function RegisterButton() {
   }
   return (
     <Link reloadDocument to="/registration" className="btn btn--soon btn--register">
-      <span className="btn--soon__dot" aria-hidden="true" />Register here
+      <span className="btn--soon__dot" aria-hidden="true" />Register now
     </Link>
   )
 }
