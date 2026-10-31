@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import PageHeader from '../components/PageHeader.jsx'
 import { gallery } from '../data/gallery.js'
+import { site } from '../data/site.js'
 
 export default function Gallery() {
   const [index, setIndex] = useState(null)
@@ -28,6 +29,20 @@ export default function Gallery() {
   return (
     <>
       <PageHeader eyebrow="Gallery" title="Moments from our events" subtitle="Photos from NTUIA gatherings and celebrations." />
+      {gallery.length === 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="gallery-soon">
+              <h2>Photos coming soon</h2>
+              <p>We'll share photos from our events here soon. Until then, follow us on Instagram.</p>
+              <div className="gallery-soon__actions">
+                <a href={site.social.find((s) => s.label === 'Instagram').url} target="_blank" rel="noreferrer" className="btn btn--primary">Follow us on Instagram</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+      {gallery.length > 0 && (
       <section className="section">
         <div className="container gallery">
           {gallery.map((img, i) => (
@@ -37,6 +52,7 @@ export default function Gallery() {
           ))}
         </div>
       </section>
+      )}
 
       {index !== null && (
         <div className="lightbox" role="dialog" aria-modal="true" aria-label={gallery[index].alt} onClick={close}>
