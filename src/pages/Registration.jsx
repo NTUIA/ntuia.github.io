@@ -21,11 +21,7 @@ export default function Registration() {
   }
 
   return (
-    <section className="registration" aria-labelledby="reg-title">
-      <div className="registration__bar container">
-        <h1 id="reg-title">Jashn-e-Diwali 2026 registration</h1>
-        <a href={diwaliRegistration} target="_blank" rel="noreferrer" className="link-arrow">Form not loading? Open it here</a>
-      </div>
+    <section className="registration" aria-label="Jashn-e-Diwali 2026 registration">
       <iframe
         className="registration__frame"
         src={diwaliRegistration}
