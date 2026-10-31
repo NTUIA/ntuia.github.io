@@ -322,9 +322,6 @@ function RamMandir() {
       {spires.map((sp, i) => (
         <path key={`f${sp.cx}`} d={finial(sp.cx, sp.apex, i === 3)} />
       ))}
-      {/* Side spire hugging the main shikhara */}
-      <path d={shikhara(366, 200, 150, 16)} />
-      <path d={finial(366, 150)} />
     </g>
   )
 }
