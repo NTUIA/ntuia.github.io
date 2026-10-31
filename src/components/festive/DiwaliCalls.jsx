@@ -1,6 +1,14 @@
-import { diwaliForms } from '../../data/diwaliForms.js'
+import { diwaliForms, volunteersOpen } from '../../data/diwaliForms.js'
 
-function FormButton({ href, children }) {
+function FormButton({ href, children, closed }) {
+  if (closed) {
+    return (
+      <>
+        <span className="call__btn call__btn--closed" aria-disabled="true">{closed}</span>
+        <span className="call__note">Thank you to everyone who signed up.</span>
+      </>
+    )
+  }
   if (!href) {
     return (
       <>
@@ -31,15 +39,24 @@ function Medallion() {
   )
 }
 
-// "Call for Volunteers" and "Call for Performers", side by side on the Diwali event page.
+const STALL_TYPES = [
+  ['sweets', 'Snacks and sweets'],
+  ['mehndi', 'Mehndi'],
+  ['handicrafts', 'Handicrafts'],
+  ['accessories', 'Accessories'],
+  ['cultural', 'Cultural items'],
+]
+
+// "Call for Volunteers" and "Call for Performers" side by side on the Diwali event page,
+// with "Call for Stalls" in a wide card below them.
 export default function DiwaliCalls() {
   return (
     <section className="calls" id="get-involved" aria-labelledby="calls-title">
       <div className="container">
         <header className="calls__head">
           <p className="calls__eyebrow">Jashn-e-Diwali 2026 at NTU</p>
-          <h2 id="calls-title">Two ways to light up the night</h2>
-          <p>Help us build the celebration behind the scenes, or take the stage and share your art. Everyone at NTU is welcome to join.</p>
+          <h2 id="calls-title">Three ways to light up the night</h2>
+          <p>Help us build the celebration behind the scenes, take the stage and share your art, or run a stall. Everyone at NTU is welcome to join.</p>
         </header>
 
         <div className="calls__grid">
@@ -49,10 +66,10 @@ export default function DiwaliCalls() {
             <p className="call__lede">Be the spark behind NTU’s Diwali celebration. Join the team and bring the energy, colour and joy.</p>
             <ul className="vol-points">
               <li>Jashn-e-Diwali 2026 at NTU</li>
-              <li>Volunteer registration is open</li>
+              <li>Volunteer registration is {volunteersOpen ? 'open' : 'closed'}</li>
             </ul>
             <div className="call__foot">
-              <FormButton href={diwaliForms.volunteers}>Volunteer sign-up</FormButton>
+              <FormButton href={diwaliForms.volunteers} closed={!volunteersOpen && 'Volunteer sign-up closed'}>Volunteer sign-up</FormButton>
             </div>
             <figure className="call__people call__people--vol">
               <img src="/images/diwali/volunteers.webp" alt="Four friends in festive Indian clothes lighting diyas together" width="900" height="369" loading="lazy" />
@@ -79,6 +96,36 @@ export default function DiwaliCalls() {
             </figure>
           </article>
         </div>
+
+        <article className="call call--stall" aria-labelledby="stall-title">
+          <div className="stall__main">
+            <p className="call__kicker">Call for</p>
+            <h3 id="stall-title">Stalls</h3>
+            <p className="call__lede">NTU students, non-NTU participants and business owners are welcome to set up their own stall at Jashn-e-Diwali 2026.</p>
+            <div className="call__foot">
+              <FormButton href={diwaliForms.stalls}>Register a stall</FormButton>
+            </div>
+          </div>
+          <div className="stall__side">
+            <ul className="vol-points stall-points">
+              <li>Free stall registration for NTU students</li>
+              <li>First come, first served</li>
+              <li>Only 4 to 5 stalls, so register early</li>
+            </ul>
+          </div>
+          <ul className="stall-types" aria-label="Stall types">
+            {STALL_TYPES.map(([img, label], i) => (
+              <li key={img} style={{ '--i': i }}>
+                <img src={`/images/diwali/stall-${img}.webp`} alt="" width="160" height="140" loading="lazy" />
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+          <figure className="call__people call__people--stall">
+            {[1, 2, 3, 4, 5, 6].map((n) => <span key={n} className={`stall-spark stall-spark--${n}`} aria-hidden="true">✦</span>)}
+            <img src="/images/diwali/stalls.webp" alt="Three festive stalls: snacks and sweets, mehndi, and handicrafts and accessories" width="1200" height="321" loading="lazy" />
+          </figure>
+        </article>
       </div>
     </section>
   )

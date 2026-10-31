@@ -4,7 +4,12 @@
 export const diwaliForms = {
   volunteers: 'https://forms.gle/MKnJP93G4fztqXGk8',
   performers: 'https://forms.gle/42PcEgkgCJMZ6Vct7',
+  stalls: 'https://forms.gle/5ppb5tjXdbacpKpb8',
 }
+
+// Set to true to reopen volunteer sign-up. While false, the volunteer buttons read
+// "Volunteer sign-up closed" and the news post says registration is closed.
+export const volunteersOpen = false
 
 // Jashn-e-Diwali 2026 attendee registration (Google Apps Script web app).
 // Shown inside https://ntuia.org/registration so visitors stay on ntuia.org.
