@@ -39,12 +39,13 @@ function Medallion() {
   )
 }
 
-const STALL_TYPES = [
-  ['sweets', 'Snacks and sweets'],
-  ['mehndi', 'Mehndi'],
-  ['handicrafts', 'Handicrafts'],
-  ['accessories', 'Accessories'],
-  ['cultural', 'Cultural items'],
+const STALL_TYPES = ['Snacks and sweets', 'Mehndi', 'Handicrafts', 'Accessories', 'Cultural items']
+
+const STALL_ART = [
+  ['crafts', 355],
+  ['chaat', 551],
+  ['bakery', 301],
+  ['fresh', 433],
 ]
 
 // "Call for Volunteers" and "Call for Performers" side by side on the Diwali event page,
@@ -107,24 +108,21 @@ export default function DiwaliCalls() {
             </div>
           </div>
           <div className="stall__side">
+            <ul className="perf-types stall-names" aria-label="Stall types">
+              {STALL_TYPES.map((label) => <li key={label}>{label}</li>)}
+            </ul>
             <ul className="vol-points stall-points">
               <li>Free stall registration for NTU students</li>
               <li>First come, first served</li>
               <li>Only 4 to 5 stalls, so register early</li>
             </ul>
           </div>
-          <ul className="stall-types" aria-label="Stall types">
-            {STALL_TYPES.map(([img, label], i) => (
-              <li key={img} style={{ '--i': i }}>
-                <img src={`/images/diwali/stall-${img}.webp`} alt="" width="160" height="140" loading="lazy" />
-                <span>{label}</span>
-              </li>
+          <div className="call__people call__people--stall" aria-hidden="true">
+            {[1, 2, 3, 4, 5, 6].map((n) => <span key={n} className={`stall-spark stall-spark--${n}`}>✦</span>)}
+            {STALL_ART.map(([img, w], i) => (
+              <img key={img} src={`/images/diwali/stall-art-${img}.webp`} alt="" width={w} height="360" loading="lazy" style={{ '--i': i, flexGrow: w }} />
             ))}
-          </ul>
-          <figure className="call__people call__people--stall">
-            {[1, 2, 3, 4, 5, 6].map((n) => <span key={n} className={`stall-spark stall-spark--${n}`} aria-hidden="true">✦</span>)}
-            <img src="/images/diwali/stalls.webp" alt="Three festive stalls: snacks and sweets, mehndi, and handicrafts and accessories" width="1200" height="321" loading="lazy" />
-          </figure>
+          </div>
         </article>
       </div>
     </section>

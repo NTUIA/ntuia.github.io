@@ -391,16 +391,13 @@ a.call__btn:hover { transform: translateY(-2px); }
 .call--stall h3 { color: var(--plum); }
 .call--stall .call__btn { background: #c8414b; color: #fff; box-shadow: 0 10px 24px -10px rgba(200, 65, 75, 0.6); }
 .call--stall .call__lede { max-width: 34ch; }
+.stall-names { max-width: none; margin: 0 0 16px; }
+.stall-names li { background: #fff; }
 .stall-points { margin: 0; color: var(--plum); font-weight: 600; }
 .stall-points li::before { color: var(--saffron); }
-.stall-types { grid-column: 1 / -1; list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
-.stall-types li { display: grid; justify-items: center; gap: 6px; text-align: center; }
-.stall-types img { width: 100%; max-width: 120px; height: auto; -webkit-mask-image: radial-gradient(closest-side, #000 70%, transparent 100%); mask-image: radial-gradient(closest-side, #000 70%, transparent 100%); }
-.stall-types span { background: #f6e6cf; color: #6b3a22; border-radius: 999px; padding: 5px 14px; font-weight: 700; font-size: 0.9rem; }
-.call__people--stall { grid-column: 1 / -1; margin: 18px -36px 0; }
-.stall-types img { animation: stall-float 3.2s ease-in-out infinite; animation-delay: calc(var(--i) * -0.6s); transition: transform .25s; }
-.stall-types li:hover img { animation-play-state: paused; transform: translateY(-6px) scale(1.08) rotate(-3deg); }
-.stall-types li:nth-child(5) img { animation-name: stall-float, stall-glow; animation-duration: 3.2s, 2.2s; }
+.call__people--stall { grid-column: 1 / -1; display: flex; align-items: flex-end; gap: 2%; margin: 26px 0 0; padding: 0 0 22px; }
+.call__people--stall::before { content: ''; position: absolute; left: 4%; right: 4%; bottom: 14px; height: 22px; border-radius: 50%; background: radial-gradient(ellipse, rgba(61, 10, 38, .18), transparent 70%); }
+.call__people--stall img { position: relative; flex: 1 1 0; min-width: 0; height: auto; mix-blend-mode: multiply; transform-origin: 50% 100%; animation: stall-bob 4s ease-in-out infinite; animation-delay: calc(var(--i) * -1s); }
 .stall-spark { position: absolute; z-index: 1; color: #f5a524; font-size: 1.1rem; pointer-events: none; animation: stall-twinkle 2.4s ease-in-out infinite; text-shadow: 0 0 10px rgba(245, 165, 36, .7); }
 .stall-spark--1 { left: 8%; top: 12%; }
 .stall-spark--2 { left: 27%; top: 30%; animation-delay: -.8s; font-size: .8rem; }
@@ -408,24 +405,19 @@ a.call__btn:hover { transform: translateY(-2px); }
 .stall-spark--4 { left: 63%; top: 26%; animation-delay: -.4s; font-size: .8rem; }
 .stall-spark--5 { left: 80%; top: 10%; animation-delay: -1.2s; }
 .stall-spark--6 { left: 93%; top: 34%; animation-delay: -2s; font-size: .8rem; }
-.call__people--stall img { transform-origin: 50% 100%; animation: stall-sway 6s ease-in-out infinite; }
-@keyframes stall-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-@keyframes stall-glow { 0%, 100% { filter: drop-shadow(0 0 0 rgba(245, 165, 36, 0)); } 50% { filter: drop-shadow(0 0 12px rgba(245, 165, 36, .75)); } }
 @keyframes stall-twinkle { 0%, 100% { opacity: 0; transform: scale(.4) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(45deg); } }
-@keyframes stall-sway { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); } }
+@keyframes stall-bob { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-0.6deg); } 75% { transform: translateY(-2px) rotate(0.6deg); } }
 @media (max-width: 820px) {
   .call--stall { grid-template-columns: 1fr; margin-top: 64px; }
-  .stall-types { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 8px; }
-  .stall-types li { width: calc(33.3% - 8px); }
-  .stall-types span { font-size: 0.82rem; padding: 4px 10px; }
-  .call__people--stall { margin-inline: -26px; }
+  .call__people--stall { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 18px 12px; }
+  .call__people--stall img { width: 100%; height: 150px; object-fit: contain; object-position: 50% 100%; }
   .calls__grid { grid-template-columns: 1fr; gap: 64px; }
   .call { padding: 34px 26px 0; }
   .call__people { margin-inline: -26px; }
   .call__people--perf { margin-inline: -10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .calls .flame, .call-glow, .call__people--perf img, .stall-types img, .stall-spark, .call__people--stall img { animation: none; }
+  .calls .flame, .call-glow, .call__people--perf img, .stall-spark, .call__people--stall img { animation: none; }
   .stall-spark { display: none; }
 }
 
