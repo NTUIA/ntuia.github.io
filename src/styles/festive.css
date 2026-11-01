@@ -52,6 +52,31 @@
   font-size: clamp(1.6rem, 3.6vw, 2.5rem);
   margin: 0 0 0.6em;
 }
+.dhero__date {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
+  margin: 4px auto 18px; padding: 8px 20px 8px 16px; border-radius: 999px;
+  background: var(--primary); color: #fff; box-shadow: 0 6px 18px rgba(110, 22, 49, 0.2);
+  font-weight: 700; font-size: 1.1rem; line-height: 1.2;
+  position: relative; overflow: hidden; border: 1.5px solid var(--accent);
+  animation: date-glow 2.4s ease-in-out infinite;
+}
+/* A gold shine sweeps across the badge every few seconds */
+.dhero__date::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 217, 138, 0.55) 50%, transparent 65%);
+  transform: translateX(-120%); animation: date-shine 3.2s ease-in-out infinite;
+}
+.dhero__date svg { color: var(--accent); flex: none; transform-origin: 50% 20%; animation: date-swing 3.2s ease-in-out infinite; }
+@keyframes date-glow { 50% { box-shadow: 0 6px 18px rgba(110, 22, 49, 0.2), 0 0 0 6px rgba(245, 165, 36, 0.28); } }
+@keyframes date-shine { 0%, 45% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+@keyframes date-swing { 0%, 60%, 100% { transform: rotate(0); } 70% { transform: rotate(-14deg); } 80% { transform: rotate(10deg); } 90% { transform: rotate(-5deg); } }
+@media (prefers-reduced-motion: reduce) { .dhero__date, .dhero__date::after, .dhero__date svg { animation: none; } }
+.dhero__date-label { color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; }
+@media (max-width: 520px) {
+  .dhero__date { gap: 7px; padding: 7px 14px 7px 12px; font-size: 0.95rem; flex-wrap: nowrap; }
+  .dhero__date svg { width: 16px; height: 16px; }
+  .dhero__date-label { font-size: 0.66rem; letter-spacing: 0.08em; }
+}
 .dhero__lead { font-size: 1.12rem; color: var(--muted); max-width: 620px; margin-inline: auto; }
 .dhero__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .btn--outline { border-color: var(--primary); color: var(--primary); background: transparent; }

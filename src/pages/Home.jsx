@@ -11,6 +11,7 @@ import TeamCard from '../components/TeamCard.jsx'
 import JourneyStory from '../components/journey/JourneyStory.jsx'
 import DiwaliHero from '../components/festive/DiwaliHero.jsx'
 import RegisterButton from '../components/festive/RegisterButton.jsx'
+import RegisterDeadline from '../components/festive/RegisterDeadline.jsx'
 
 const facts = [
   { label: 'Based at', value: 'National Taiwan University, Taipei' },
@@ -41,6 +42,7 @@ export default function Home() {
             <>
               <RegisterButton />
               <Link reloadDocument to="/events/jashn-e-diwali-2026" className="btn btn--primary">Diwali event details</Link>
+              <RegisterDeadline />
             </>
           }
         />
