@@ -18,3 +18,7 @@ export const diwaliRegistration = 'https://script.google.com/macros/s/AKfycbyjMa
 // Set to true to open registration. While false, the "Register now" buttons read
 // "Registration coming soon" and ntuia.org/registration shows a notice instead of the form.
 export const registrationOpen = true
+
+// Last day to register (Taiwan time). The Diwali page shows it beside "Register now"
+// with a countdown, and hides it once the day has passed.
+export const registrationDeadline = '2026-11-08'

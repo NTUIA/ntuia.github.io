@@ -444,3 +444,44 @@ a.call__btn:hover { transform: translateY(-2px); }
 /* Live "Register here" button (same look as the old "starts soon" chip, now clickable) */
 a.btn--register { cursor: pointer; text-decoration: none; }
 a.btn--register:hover { background: #fff3dc; border-style: solid; transform: translateY(-1px); }
+
+/* "Registration closes" card under the Diwali hero buttons: a blinking badge,
+   the date, then a live countdown that turns red in the last two days */
+.reg-deadline {
+  position: relative;
+  flex-basis: 100%; max-width: 480px; margin: 6px auto 0;
+  display: grid; justify-items: center; gap: 10px;
+  padding: 14px 16px; text-align: center;
+  background: #fffaf0; border: 1.5px solid var(--gold); border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(110, 22, 49, 0.12);
+}
+.reg-deadline__text { display: grid; justify-items: center; min-width: 0; line-height: 1.25; }
+.reg-deadline__label {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-bottom: 4px; padding: 3px 10px 3px 8px; border-radius: 999px;
+  border: 1.5px solid #c8414b; background: #c8414b; color: #fff;
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  animation: deadline-blink 1.2s steps(1, end) infinite;
+}
+/* White dot that pulses while the badge blinks between solid red and outlined red */
+.reg-deadline__label::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor;
+}
+@keyframes deadline-blink { 50% { background: #fff; color: #c8414b; } }
+.reg-deadline__text strong { color: var(--primary); font-size: 1.15rem; }
+.reg-deadline__clock { display: flex; gap: 6px; width: 100%; }
+.reg-deadline__unit {
+  flex: 1; display: grid; justify-items: center; padding: 4px 0 3px;
+  background: var(--primary); color: #f8e3bd; border-radius: 8px;
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.2;
+}
+.reg-deadline__unit b { font-family: var(--font-mono); font-size: 1.15rem; color: #fff; letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.reg-deadline--urgent .reg-deadline__unit { background: #c8414b; }
+.reg-deadline--urgent { animation: deadline-pulse 1.6s ease-in-out infinite; }
+@keyframes deadline-pulse { 50% { box-shadow: 0 0 0 6px rgba(200, 65, 75, 0.18), 0 6px 18px rgba(110, 22, 49, 0.12); } }
+/* Keep the lamps and falling petals from covering the card */
+.dhero__content:has(.reg-deadline) { z-index: 5; }
+@media (max-width: 520px) {
+  .reg-deadline__text strong { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .reg-deadline--urgent, .reg-deadline__label, .reg-deadline__label::before { animation: none; } }
