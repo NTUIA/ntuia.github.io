@@ -649,3 +649,28 @@ a.btn--register:hover { background: #fff3dc; border-style: solid; transform: tra
 }
 @media (max-width: 760px) { .dlanterns span:nth-child(n+5) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .dlanterns { display: none; } }
+
+/* ---------- "Happy Diwali" in 23 languages behind the banner ---------- */
+.dgreet { position: absolute; inset: 0; z-index: 0; display: flex; flex-direction: column; justify-content: space-around; padding: 70px 0 120px; overflow: hidden; pointer-events: none; }
+.dgreet__row { display: flex; gap: 0; width: max-content; white-space: nowrap; animation: dgreet-left 90s linear infinite; animation-delay: calc(var(--row) * -17s); }
+.dgreet__row--right { animation-name: dgreet-right; }
+.dgreet__row span {
+  padding: 0 clamp(22px, 4vw, 56px);
+  font-family: 'Mukta', 'Noto Sans', 'Noto Sans Meetei Mayek', 'Noto Sans Ol Chiki', sans-serif;
+  font-size: clamp(1.25rem, 3vw, 2.3rem); font-weight: 700; line-height: 1.5;
+  color: #b0532a; opacity: 0.1;
+  animation: dgreet-blink 7s ease-in-out infinite; animation-delay: calc(var(--i) * -1s);
+}
+.dgreet__row:nth-child(even) span { color: #8a2440; }
+@keyframes dgreet-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes dgreet-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes dgreet-blink {
+  0%, 100% { opacity: 0.08; text-shadow: none; }
+  45% { opacity: 0.1; }
+  55% { opacity: 0.32; text-shadow: 0 0 18px rgba(245, 165, 36, 0.55); }
+  65% { opacity: 0.12; }
+}
+.dhero--night .dgreet__row span { color: #ffd98a; }
+.dhero--night .dgreet__row:nth-child(even) span { color: #ffb347; }
+@media (max-width: 600px) { .dgreet { padding: 60px 0 150px; } }
+@media (prefers-reduced-motion: reduce) { .dgreet__row, .dgreet__row span { animation: none; } }

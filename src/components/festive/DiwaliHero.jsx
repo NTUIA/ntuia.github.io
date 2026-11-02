@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useMotion } from '../../motion/effects.js'
 import { ChineseLantern, Diya, Garland, Lantern, Ornament, Rangoli, SkyLanterns, Sparkles, StringLights, TaipeiSkyline } from './Decorations.jsx'
+import DiwaliGreetings from './DiwaliGreetings.jsx'
 import FestiveBoard from './FestiveBoard.jsx'
 import Fireworks from './Fireworks.jsx'
 import PetalShower from './PetalShower.jsx'
@@ -44,6 +45,7 @@ export default function DiwaliHero({ actions = <DefaultActions /> }) {
   return (
     <section className={`dhero dhero--${design}`}>
       <div className="dhero__glow" aria-hidden="true" />
+      <DiwaliGreetings />
       <TaipeiSkyline className="dhero__skyline dhero__skyline--wide" />
       <TaipeiSkyline className="dhero__skyline dhero__skyline--phone" viewBox="440 -12 580 266" fit="xMidYMax meet" />
       <SkyLanterns />

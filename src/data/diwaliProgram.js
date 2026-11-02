@@ -89,3 +89,32 @@ export const carnival = [
   { key: 'paint', kicker: 'Wear your festive spirit', title: 'Face painting', text: 'Add a splash of colour with playful designs that bring your celebration to life.' },
   { key: 'booth', kicker: 'Strike a pose', title: 'Diwali photo booth', text: 'Festive backdrops, playful props and your favourite people. Take a little of the glow home.' },
 ]
+
+// "Happy Diwali" in the 22 scheduled languages of India plus English. They float
+// behind the Diwali banner. Bodo, Dogri, Maithili, Manipuri and Santali are
+// less commonly published and worth checking with native speakers.
+export const greetings = [
+  { lang: 'sa', name: 'Sanskrit', text: 'शुभ दीपावलिः' },
+  { lang: 'en', name: 'English', text: 'Happy Diwali' },
+  { lang: 'hi', name: 'Hindi', text: 'शुभ दीपावली' },
+  { lang: 'bn', name: 'Bengali', text: 'শুভ দীপাবলি' },
+  { lang: 'ta', name: 'Tamil', text: 'இனிய தீபாவளி நல்வாழ்த்துகள்' },
+  { lang: 'te', name: 'Telugu', text: 'దీపావళి శుభాకాంక్షలు' },
+  { lang: 'ml', name: 'Malayalam', text: 'ദീപാവലി ആശംസകൾ' },
+  { lang: 'kn', name: 'Kannada', text: 'ದೀಪಾವಳಿಯ ಶುಭಾಶಯಗಳು' },
+  { lang: 'mr', name: 'Marathi', text: 'दिवाळीच्या हार्दिक शुभेच्छा' },
+  { lang: 'gu', name: 'Gujarati', text: 'દિવાળીની શુભકામનાઓ' },
+  { lang: 'pa', name: 'Punjabi', text: 'ਦੀਵਾਲੀ ਦੀਆਂ ਵਧਾਈਆਂ' },
+  { lang: 'or', name: 'Odia', text: 'ଶୁଭ ଦୀପାବଳି' },
+  { lang: 'as', name: 'Assamese', text: 'শুভ দীপাৱলী' },
+  { lang: 'ur', name: 'Urdu', text: 'دیوالی مبارک' },
+  { lang: 'ne', name: 'Nepali', text: 'शुभ दीपावली' },
+  { lang: 'ks', name: 'Kashmiri', text: 'دیوالی مُبارک' },
+  { lang: 'kok', name: 'Konkani', text: 'दिवाळेच्यो परबी' },
+  { lang: 'sd', name: 'Sindhi', text: 'ڏياريءَ جون مبارڪون' },
+  { lang: 'mai', name: 'Maithili', text: 'दीपावलीक हार्दिक शुभकामना' },
+  { lang: 'doi', name: 'Dogri', text: 'दिवाली दियां मुबारकां' },
+  { lang: 'brx', name: 'Bodo', text: 'दीपावलीनि गोजोनथों' },
+  { lang: 'mni', name: 'Manipuri', text: 'ꯅꯨꯡꯉꯥꯏꯕ ꯗꯤꯋꯥꯂꯤ' },
+  { lang: 'sat', name: 'Santali', text: 'ᱫᱤᱭᱟᱹᱞᱤ ᱨᱮᱭᱟᱜ ᱡᱚᱦᱟᱨ' },
+]
