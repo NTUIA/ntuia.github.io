@@ -25,7 +25,6 @@ export default function DiwaliEvent() {
         }
       />
       <DiwaliHighlights />
-      <DiwaliCalls />
       <DiwaliStage />
       <DiwaliMenu />
       <DiwaliCarnival />
@@ -48,6 +47,7 @@ export default function DiwaliEvent() {
           <Link reloadDocument to="/contact" className="link-arrow">Questions? Ask the organisers</Link>
         </div>
       </section>
+      <DiwaliCalls />
     </div>
   )
 }

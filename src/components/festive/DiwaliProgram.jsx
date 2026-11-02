@@ -30,11 +30,11 @@ export function useReveal() {
 }
 
 const JUMPS = [
-  ['#get-involved', 'Get involved'],
   ['#stage', 'Stage'],
   ['#food', 'Food'],
   ['#carnival', 'Carnival'],
   ['#details', 'Event details'],
+  ['#stalls', 'Stalls'],
 ]
 
 // Sliding strip of highlights under the banner, then quick links to each section.

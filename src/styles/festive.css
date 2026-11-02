@@ -369,8 +369,6 @@
 .calls__eyebrow::after { transform: scaleX(-1); }
 .calls__head h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 12px 0 8px; }
 .calls__head p { margin: 0 auto; max-width: 52ch; color: var(--muted); }
-.calls__grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-
 .call { position: relative; overflow: hidden; border-radius: 22px; padding: 40px 36px 0; display: flex; flex-direction: column; }
 .call__kicker { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; margin: 0; }
 .call h3 { font-family: var(--font-script); font-weight: 400; font-size: clamp(3rem, 6vw, 4.4rem); line-height: 0.95; margin: 6px 0 14px; }
@@ -379,39 +377,19 @@
 .call__btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .2s; }
 a.call__btn:hover { transform: translateY(-2px); }
 .call__btn[aria-disabled="true"] { cursor: default; opacity: 0.92; }
-.call--vol .call__btn.call__btn--closed { background: rgba(255, 255, 255, 0.14); color: #fbe9d4; box-shadow: none; border: 1px solid rgba(251, 233, 212, 0.35); }
 .call__note { font-size: 0.85rem; opacity: 0.85; }
 
-.call--vol { background: radial-gradient(ellipse at 85% 10%, #8a2440 0%, #6e1631 35%, var(--plum) 100%); color: #fbe9d4; }
-.call--vol .call__kicker { color: var(--gold); }
-.call--vol h3 { color: #fff3dc; text-shadow: 0 2px 18px rgba(242, 193, 78, 0.35); }
-.call--vol .call__btn { background: var(--gold); color: var(--plum); box-shadow: 0 10px 24px -10px rgba(242, 193, 78, 0.7); }
 .vol-points { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 8px; }
 .vol-points li { display: flex; gap: 10px; align-items: baseline; }
 .vol-points li::before { content: '✦'; color: var(--gold); font-size: 0.8rem; }
 
-.call--perf { background: radial-gradient(ellipse at 50% 100%, #fff1cf 0%, transparent 55%), linear-gradient(160deg, #ffd27a 0%, var(--marigold) 45%, var(--saffron) 100%); color: var(--text); }
-.call--perf .call__kicker { color: var(--primary); }
-.call--perf h3 { color: var(--plum); }
-.call--perf .call__btn { background: var(--plum); color: #fff3dc; box-shadow: 0 10px 24px -10px rgba(61, 10, 38, 0.6); }
 .perf-types { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; max-width: 34ch; }
 .perf-types li { background: rgba(255, 246, 228, 0.82); color: var(--plum); border: 1.5px solid rgba(61, 10, 38, 0.18); border-radius: 999px; padding: 6px 13px; font-weight: 600; font-size: 0.9rem; }
 
 .call__people { margin: auto -36px 0; position: relative; }
 .call__people img { display: block; width: 100%; height: auto; }
-.call__people--vol { -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 34%); mask-image: linear-gradient(180deg, transparent 0%, #000 34%); }
-.call__people--perf { margin-inline: -20px; padding-bottom: 14px; }
-.call__people--perf::before { content: ''; position: absolute; left: 6%; right: 6%; bottom: 10px; height: 26px; border-radius: 50%; background: radial-gradient(ellipse, rgba(61, 10, 38, .28), transparent 70%); }
-.call__people--perf img { position: relative; animation: call-bob 3.4s ease-in-out infinite; }
 
-.calls__medallion { position: absolute; left: 50%; top: 50%; z-index: 3; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--gold), 0 14px 30px -8px rgba(61, 10, 38, 0.45); }
-.calls__medallion svg { width: 64px; }
-.calls .flame { animation: flicker 1.1s ease-in-out infinite; }
-.call-glow { animation: call-glow 2.2s ease-in-out infinite; }
-@keyframes call-glow { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.95; } }
-@keyframes call-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
-
-.call--stall { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 0 40px; background: #fbf3ea; color: var(--text); border: 1.5px solid rgba(201, 150, 43, 0.45); }
+.call--stall { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 0 40px; background: #fbf3ea; color: var(--text); border: 1.5px solid rgba(201, 150, 43, 0.45); }
 .call--stall .call__kicker { color: var(--saffron); }
 .call--stall h3 { color: var(--plum); }
 .call--stall .call__btn { background: #c8414b; color: #fff; box-shadow: 0 10px 24px -10px rgba(200, 65, 75, 0.6); }
@@ -433,26 +411,15 @@ a.call__btn:hover { transform: translateY(-2px); }
 @keyframes stall-twinkle { 0%, 100% { opacity: 0; transform: scale(.4) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(45deg); } }
 @keyframes stall-bob { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-0.6deg); } 75% { transform: translateY(-2px) rotate(0.6deg); } }
 @media (max-width: 820px) {
-  .call--stall { grid-template-columns: 1fr; margin-top: 64px; }
+  .call--stall { grid-template-columns: 1fr; }
   .call__people--stall { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 18px 12px; }
   .call__people--stall img { width: 100%; height: 150px; object-fit: contain; object-position: 50% 100%; }
-  .calls__grid { grid-template-columns: 1fr; gap: 64px; }
   .call { padding: 34px 26px 0; }
   .call__people { margin-inline: -26px; }
-  .call__people--perf { margin-inline: -10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .calls .flame, .call-glow, .call__people--perf img, .stall-spark, .call__people--stall img { animation: none; }
+  .stall-spark, .call__people--stall img { animation: none; }
   .stall-spark { display: none; }
-}
-
-/* Performers panel mirrors the volunteers panel: content aligned to the right on wide screens */
-@media (min-width: 821px) {
-  .call--perf { text-align: right; align-items: flex-end; }
-  .call--perf .call__lede { margin-left: auto; }
-  .call--perf .perf-types { justify-content: flex-end; margin-left: auto; }
-  .call--perf .call__foot { justify-items: end; }
-  .call--perf .call__people { align-self: stretch; }
 }
 
 /* Phones: a separate skyline framed on Taipei 101, placed below the buttons */
