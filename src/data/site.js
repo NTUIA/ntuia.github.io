@@ -7,7 +7,7 @@ export const site = {
   // FormSubmit form ID (the random string FormSubmit gives after activation).
   // Messages are delivered to the inbox linked to this ID; the address itself
   // never appears on the site.
-  contactFormId: '',
+  contactFormId: '62808c7c31fd21316ee851d571da716b',
   phone: '+886 (placeholder)',
   address: 'National Taiwan University, No. 1, Sec. 4, Roosevelt Rd., Taipei, Taiwan',
   social: [
