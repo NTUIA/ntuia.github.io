@@ -9,7 +9,7 @@ export const events = [
     slug: 'jashn-e-diwali-2026',
     title: 'Jashn-e-Diwali 2026',
     date: '2026-11-15',
-    time: null,
+    time: '6:30 PM – 9:30 PM',
     location: '103, Boya Building, National Taiwan University, Taipei',
     description: 'Our Festival of Lights celebration with diyas, rangoli, cultural performances, and Indian food. Everyone is welcome.',
   },

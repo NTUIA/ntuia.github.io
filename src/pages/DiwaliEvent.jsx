@@ -4,12 +4,14 @@ import DiwaliHero from '../components/festive/DiwaliHero.jsx'
 import RegisterButton from '../components/festive/RegisterButton.jsx'
 import RegisterDeadline from '../components/festive/RegisterDeadline.jsx'
 import DiwaliCalls from '../components/festive/DiwaliCalls.jsx'
+import { DiwaliCarnival, DiwaliHighlights, DiwaliMenu, DiwaliStage, ShareButton, useReveal } from '../components/festive/DiwaliProgram.jsx'
 import { events } from '../data/events.js'
 import { formatDate } from '../utils.js'
 
 export default function DiwaliEvent() {
   const event = events.find((e) => e.slug === 'jashn-e-diwali-2026')
   useEffect(() => { document.title = `${event.title} | NTU India Association` }, [event.title])
+  useReveal()
 
   return (
     <div className="theme-diwali">
@@ -22,19 +24,28 @@ export default function DiwaliEvent() {
           </>
         }
       />
+      <DiwaliHighlights />
       <DiwaliCalls />
-      <section className="section" id="details">
-        <div className="container diwali-details diwali-details--single">
-          <div>
-            <p className="dhero__script">Event details</p>
-            <h2>{event.title}</h2>
-            <dl className="diwali-facts">
-              <div><dt>Date</dt><dd>{event.date ? formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : 'To be announced'}</dd></div>
-              <div><dt>Time</dt><dd>{event.time || 'To be announced'}</dd></div>
-              <div><dt>Venue</dt><dd>{event.location}{event.venueTba && ' (exact venue to be announced)'}</dd></div>
-            </dl>
-            <Link reloadDocument to="/contact" className="btn btn--primary">Ask the organisers</Link>
+      <DiwaliStage />
+      <DiwaliMenu />
+      <DiwaliCarnival />
+      <section className="dsec dsec--details" id="details" aria-labelledby="details-title">
+        <div className="dlanterns" aria-hidden="true">
+          {[8, 22, 37, 63, 78, 92].map((x, i) => <span key={x} style={{ '--x': `${x}%`, '--i': i }} />)}
+        </div>
+        <div className="container ddetails">
+          <p className="dhero__script">Your evening, illuminated</p>
+          <h2 id="details-title">Come as you are. <em>Leave a little brighter.</em></h2>
+          <dl className="ddetails__facts">
+            <div><dt>Date</dt><dd>{event.date ? formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : 'To be announced'}</dd></div>
+            <div><dt>Time</dt><dd>{event.time || 'To be announced'}</dd></div>
+            <div><dt>Venue</dt><dd>{event.location}</dd></div>
+          </dl>
+          <div className="ddetails__actions">
+            <RegisterButton />
+            <ShareButton />
           </div>
+          <Link reloadDocument to="/contact" className="link-arrow">Questions? Ask the organisers</Link>
         </div>
       </section>
     </div>
