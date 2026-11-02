@@ -650,27 +650,51 @@ a.btn--register:hover { background: #fff3dc; border-style: solid; transform: tra
 @media (max-width: 760px) { .dlanterns span:nth-child(n+5) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .dlanterns { display: none; } }
 
-/* ---------- "Happy Diwali" in 23 languages behind the banner ---------- */
-.dgreet { position: absolute; inset: 0; z-index: 0; display: flex; flex-direction: column; justify-content: space-around; padding: 70px 0 120px; overflow: hidden; pointer-events: none; }
-.dgreet__row { display: flex; gap: 0; width: max-content; white-space: nowrap; animation: dgreet-left 90s linear infinite; animation-delay: calc(var(--row) * -17s); }
-.dgreet__row--right { animation-name: dgreet-right; }
-.dgreet__row span {
-  padding: 0 clamp(22px, 4vw, 56px);
+/* ---------- "Happy Diwali" in many languages behind the banner ---------- */
+.dgreet { position: absolute; inset: 60px 0 110px; z-index: 0; pointer-events: none; }
+.dgreet__w {
+  position: absolute; left: var(--x); top: var(--y);
+  --ax: -50%;
+  transform: translate(var(--ax), -50%) rotate(var(--tilt));
+  animation: dgreet-float var(--float) ease-in-out infinite alternate; animation-delay: var(--delay);
+}
+.dgreet__w > span {
+  display: block; white-space: nowrap;
   font-family: 'Mukta', 'Noto Sans', 'Noto Sans Meetei Mayek', 'Noto Sans Ol Chiki', sans-serif;
-  font-size: clamp(1.25rem, 3vw, 2.3rem); font-weight: 700; line-height: 1.5;
+  font-size: calc(clamp(1rem, 1.9vw, 1.6rem) * var(--size)); font-weight: 700; line-height: 1.4;
   color: #b0532a; opacity: 0.1;
-  animation: dgreet-blink 7s ease-in-out infinite; animation-delay: calc(var(--i) * -1s);
+  animation: dgreet-blink 9s ease-in-out infinite; animation-delay: calc(var(--blink) * 0.65);
 }
-.dgreet__row:nth-child(even) span { color: #8a2440; }
-@keyframes dgreet-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes dgreet-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.dgreet__w:nth-child(3n) > span { color: #8a2440; }
+.dgreet__w:nth-child(3n + 1) > span { color: #c9962b; }
+@keyframes dgreet-float {
+  0% { transform: translate(var(--ax), -50%) rotate(var(--tilt)); }
+  50% { transform: translate(calc(var(--ax) + 18px), calc(-50% - 14px)) rotate(calc(var(--tilt) * -0.5)); }
+  100% { transform: translate(calc(var(--ax) - 14px), calc(-50% + 10px)) rotate(var(--tilt)); }
+}
 @keyframes dgreet-blink {
-  0%, 100% { opacity: 0.08; text-shadow: none; }
-  45% { opacity: 0.1; }
-  55% { opacity: 0.32; text-shadow: 0 0 18px rgba(245, 165, 36, 0.55); }
-  65% { opacity: 0.12; }
+  0%, 100% { opacity: 0.14; text-shadow: none; transform: scale(1); }
+  40% { opacity: 0.16; }
+  48% { opacity: 0.62; text-shadow: 0 0 10px rgba(255, 200, 90, 0.9), 0 0 26px rgba(245, 165, 36, 0.7); transform: scale(1.08); }
+  52% { opacity: 0.3; }
+  56% { opacity: 0.58; text-shadow: 0 0 10px rgba(255, 200, 90, 0.9), 0 0 26px rgba(245, 165, 36, 0.7); transform: scale(1.06); }
+  66% { opacity: 0.16; text-shadow: none; transform: scale(1); }
 }
-.dhero--night .dgreet__row span { color: #ffd98a; }
-.dhero--night .dgreet__row:nth-child(even) span { color: #ffb347; }
-@media (max-width: 600px) { .dgreet { padding: 60px 0 150px; } }
-@media (prefers-reduced-motion: reduce) { .dgreet__row, .dgreet__row span { animation: none; } }
+
+.dhero--night .dgreet__w > span { color: #ffd98a; }
+.dhero--night .dgreet__w:nth-child(3n) > span { color: #ffb347; }
+@media (min-width: 1000px) {
+  .dgreet__w { --ax: 0%; left: var(--dx); top: var(--dy); }
+  .dgreet__w--right { --ax: -100%; }
+}
+@media (max-width: 600px) {
+  .dgreet { inset: 50px 0 140px; }
+  .dgreet__w { left: var(--px); top: var(--py); }
+  .dgreet__w > span { font-size: calc(0.95rem * var(--size)); animation-name: dgreet-blink-soft; }
+}
+@keyframes dgreet-blink-soft {
+  0%, 100% { opacity: 0.09; text-shadow: none; }
+  45% { opacity: 0.38; text-shadow: 0 0 8px rgba(255, 200, 90, 0.8), 0 0 18px rgba(245, 165, 36, 0.55); }
+  55% { opacity: 0.12; }
+}
+@media (prefers-reduced-motion: reduce) { .dgreet__w, .dgreet__w > span { animation: none; } }
