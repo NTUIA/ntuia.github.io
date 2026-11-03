@@ -38,7 +38,7 @@ export default function DiwaliEvent() {
           <dl className="ddetails__facts">
             <div><dt>Date</dt><dd>{event.date ? formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : 'To be announced'}</dd></div>
             <div><dt>Time</dt><dd>{event.time || 'To be announced'}</dd></div>
-            <div><dt>Venue</dt><dd>{event.location}</dd></div>
+            <div><dt>Venue</dt><dd>{event.mapUrl ? <a className="map-link" href={event.mapUrl} target="_blank" rel="noreferrer">{event.location} <span aria-hidden="true">↗</span></a> : event.location}</dd></div>
           </dl>
           <div className="ddetails__actions">
             <RegisterButton />

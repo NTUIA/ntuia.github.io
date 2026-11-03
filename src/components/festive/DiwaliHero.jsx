@@ -28,6 +28,35 @@ function EventDate() {
   )
 }
 
+// Time and venue under the date pill. The venue opens Google Maps.
+function EventWhere() {
+  if (!diwali?.time && !diwali?.location) return null
+  return (
+    <p className="dhero__where">
+      {diwali.time && (
+        <span className="dhero__time">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
+            <path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+          {diwali.time}
+        </span>
+      )}
+      {diwali.location && (
+        <a className="dhero__place" href={diwali.mapUrl} target="_blank" rel="noreferrer" aria-label={`${diwali.location}, open in Google Maps`}>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+            <circle cx="12" cy="10" r="2.4" fill="currentColor" />
+          </svg>
+          <span className="dhero__place-full">{diwali.location.replace(', Taipei', '')}</span>
+          <span className="dhero__place-short">{diwali.location.replace('National Taiwan University, Taipei', 'NTU')}</span>
+          <span className="dhero__map">Map ↗</span>
+        </a>
+      )}
+    </p>
+  )
+}
+
 function DefaultActions() {
   return (
     <>
@@ -79,6 +108,7 @@ export default function DiwaliHero({ actions = <DefaultActions /> }) {
         <div className="container dhero__content dhero__content--celebration">
           <FestiveBoard />
           <EventDate />
+          <EventWhere />
           <p className="dhero__lead">{LEAD}</p>
           <div className="dhero__actions">{actions}</div>
         </div>
@@ -88,6 +118,7 @@ export default function DiwaliHero({ actions = <DefaultActions /> }) {
           <h1 className="dhero__title">Jashn-e-Diwali 2026</h1>
           <p className="dhero__script">Festival of Lights in Taipei</p>
           <EventDate />
+          <EventWhere />
           <p className="dhero__lead">{LEAD}</p>
           <div className="dhero__actions">{actions}</div>
         </div>

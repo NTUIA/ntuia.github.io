@@ -1,6 +1,7 @@
 // NTUIA events. Dates use ISO format (YYYY-MM-DD).
 // Events dated today or later appear under "Upcoming"; earlier ones move to "Past events".
-// Optional fields: slug (links to an event page), image (poster in public/images/events).
+// Optional fields: slug (links to an event page), image (poster in public/images/events),
+// mapUrl (Google Maps link opened when someone taps the venue).
 // Leave date as null while the date is not announced; the event then shows
 // "Date to be announced" and stays in the upcoming list.
 export const events = [
@@ -11,6 +12,7 @@ export const events = [
     date: '2026-11-15',
     time: '6:00 PM – 9:00 PM',
     location: '103, Boya Building, National Taiwan University, Taipei',
+    mapUrl: 'https://maps.app.goo.gl/Q6Mtj1hWCiRwopP56',
     description: 'Our Festival of Lights celebration with diyas, rangoli, cultural performances, and Indian food. Everyone is welcome.',
   },
   {

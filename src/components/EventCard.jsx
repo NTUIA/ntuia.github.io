@@ -26,7 +26,11 @@ export default function EventCard({ event, past = false }) {
             ? <><time dateTime={event.date}>{formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long' })}</time>{event.time && `, ${event.time}`}</>
             : 'Date and time to be announced'}
         </p>
-        <p className="meta event-card__where">{event.location}</p>
+        <p className="meta event-card__where">
+          {event.mapUrl
+            ? <a className="map-link" href={event.mapUrl} target="_blank" rel="noreferrer">{event.location} <span aria-hidden="true">↗</span></a>
+            : event.location}
+        </p>
         <p>{event.description}</p>
       </div>
       {event.image && (

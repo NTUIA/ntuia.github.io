@@ -78,6 +78,24 @@
   .dhero__date svg { width: 16px; height: 16px; }
   .dhero__date-label { font-size: 0.66rem; letter-spacing: 0.08em; }
 }
+.dhero__where {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 22px;
+  margin: -6px auto 18px; font-weight: 600; font-size: 1.02rem; color: var(--primary);
+}
+.dhero__time, .dhero__place { display: inline-flex; align-items: center; gap: 7px; }
+.dhero__where svg { color: var(--saffron, #e8730c); flex: none; }
+.dhero__place { color: inherit; text-decoration: underline; text-decoration-color: rgba(201, 150, 43, 0.6); text-underline-offset: 4px; }
+.dhero__place:hover { color: var(--saffron, #e8730c); }
+.dhero__map {
+  font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 999px;
+  background: rgba(201, 150, 43, 0.18); text-decoration: none; display: inline-block;
+}
+.dhero__place-short { display: none; }
+@media (max-width: 520px) {
+  .dhero__where { font-size: 0.92rem; gap: 6px 16px; }
+  .dhero__place-full { display: none; }
+  .dhero__place-short { display: inline; }
+}
 .dhero__lead { font-size: 1.12rem; color: var(--muted); max-width: 620px; margin-inline: auto; }
 .dhero__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .btn--outline { border-color: var(--primary); color: var(--primary); background: transparent; }
@@ -711,3 +729,7 @@ a.btn--register:hover { background: #fff3dc; border-style: solid; transform: tra
   55% { opacity: 0.12; }
 }
 @media (prefers-reduced-motion: reduce) { .dgreet__w, .dgreet__w > span { animation: none; } }
+
+/* Venue links to Google Maps */
+.map-link { color: inherit; text-decoration: underline; text-decoration-color: rgba(201, 150, 43, 0.6); text-underline-offset: 4px; }
+.map-link:hover { color: var(--saffron, #e8730c); }
