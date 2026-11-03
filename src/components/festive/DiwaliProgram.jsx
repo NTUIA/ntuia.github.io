@@ -79,6 +79,7 @@ export function DiwaliStage() {
         <Heading eyebrow="The stage" title="Feel every" accent="beat.">
           A taste of the performances to come. Artists and show times will be announced.
         </Heading>
+        <DjNight />
         <div className="dcards dcards--two">
           {stage.map((s) => {
             const Art = programArt[s.key]
@@ -97,7 +98,6 @@ export function DiwaliStage() {
             )
           })}
         </div>
-        <DjNight />
       </div>
     </section>
   )
