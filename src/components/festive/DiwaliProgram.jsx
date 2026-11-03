@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { carnival, dj, highlights, mains, sharedDishes, stage, welcome } from '../../data/diwaliProgram.js'
 import { events } from '../../data/events.js'
 import { programArt, Samosa } from './ProgramArt.jsx'
@@ -103,16 +103,49 @@ export function DiwaliStage() {
   )
 }
 
+// Rising light pixels (left %, delay, duration) and equaliser bar delays.
+const PIXELS = [[6, 0, 5], [14, 2.1, 6.5], [23, 0.8, 4.6], [34, 3.2, 5.8], [46, 1.4, 6.2], [55, 4, 5], [63, 0.4, 5.6], [71, 2.7, 4.8], [79, 1.1, 6.8], [88, 3.6, 5.2], [95, 0.2, 6]]
+const EQ = [0, 0.35, 0.15, 0.5, 0.25, 0.6, 0.1]
+
 // DJ night feature in the look of the DJ poster: dark stage, orange glow and a
 // moving grid floor behind the DJ's cut-out photo.
 function DjNight() {
+  const ref = useRef(null)
+  // Plays the entrance once the panel scrolls into view, then lets the photo and
+  // glow drift with the scroll (--p runs from 1 below the fold to -1 above it).
+  useEffect(() => {
+    const el = ref.current
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.classList.add('is-in')
+      return
+    }
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('is-in'); io.disconnect() }
+    }, { threshold: 0.25 })
+    io.observe(el)
+    let frame = 0
+    const drift = () => {
+      frame = 0
+      const r = el.getBoundingClientRect()
+      const p = (r.top + r.height / 2 - innerHeight / 2) / (innerHeight / 2 + r.height / 2)
+      el.style.setProperty('--p', Math.max(-1, Math.min(1, p)).toFixed(3))
+    }
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(drift) }
+    drift()
+    addEventListener('scroll', onScroll, { passive: true })
+    return () => { io.disconnect(); removeEventListener('scroll', onScroll); cancelAnimationFrame(frame) }
+  }, [])
   const diwali = events.find((e) => e.slug === 'jashn-e-diwali-2026')
   const day = diwali?.date ? diwali.date.slice(2).split('-').reverse().join('.') : 'TBA'
   const start = diwali?.time?.split('–')[0].trim()
   return (
-    <article className="djnight" aria-label={`DJ night with ${dj.name}`}>
+    <article ref={ref} className="djnight" aria-label={`DJ night with ${dj.name}`}>
       <div className="djnight__floor" aria-hidden="true" />
       <div className="djnight__glow" aria-hidden="true" />
+      <div className="djnight__beams" aria-hidden="true"><span /><span /></div>
+      <div className="djnight__pixels" aria-hidden="true">
+        {PIXELS.map(([x, d, s], i) => <span key={i} style={{ '--x': `${x}%`, '--d': `${d}s`, '--s': `${s}s` }} />)}
+      </div>
       <div className="djnight__copy">
         <p className="djnight__guest">Guest DJ</p>
         <h3 className="djnight__name">{dj.name}</h3>
@@ -121,6 +154,7 @@ function DjNight() {
         <div className="djnight__panel">
           <div><span>Event</span><strong>Diwali</strong></div>
           <div><span>Venue</span><strong>NTU</strong></div>
+          <div className="djnight__eq" aria-hidden="true">{EQ.map((d, i) => <span key={i} style={{ '--d': `${d}s` }} />)}</div>
           <p className="djnight__when"><b>{day}</b>{start && <> <i aria-hidden="true">|</i> {start}</>}</p>
         </div>
         <a className="djnight__ig" href={dj.link} target="_blank" rel="noreferrer">Meet the DJ {dj.handle} <span aria-hidden="true">↗</span></a>

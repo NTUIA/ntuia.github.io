@@ -605,9 +605,54 @@ a.btn--register:hover { background: #fff3dc; border-style: solid; transform: tra
 .djnight__ig { display: inline-block; margin-top: 18px; color: #ffb878; font-weight: 600; text-decoration: none; }
 .djnight__ig:hover { color: #fff; text-decoration: underline; }
 .djnight__photo { position: relative; width: 100%; height: auto; max-height: 520px; object-fit: contain; object-position: bottom; filter: drop-shadow(0 0 22px rgba(255, 123, 1, 0.45)); }
+/* Stage beams sweeping, light pixels rising, equaliser bars and a beat on the photo */
+.djnight__beams { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
+.djnight__beams span {
+  position: absolute; top: -20%; width: 160px; height: 140%; transform-origin: 50% 0;
+  background: linear-gradient(to bottom, rgba(255, 170, 70, 0.35), rgba(255, 123, 1, 0) 80%);
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%); filter: blur(2px);
+  animation: djnight-beam 6s ease-in-out infinite alternate;
+}
+.djnight__beams span:first-child { left: 52%; }
+.djnight__beams span:last-child { left: 78%; animation-delay: -3s; animation-duration: 7s; }
+.djnight__pixels { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
+.djnight__pixels span {
+  position: absolute; left: var(--x); bottom: -8px; width: 6px; height: 6px; background: #ffa24a; box-shadow: 0 0 8px #ff7b01;
+  opacity: 0; animation: djnight-rise var(--s) linear var(--d) infinite;
+}
+.djnight__pixels span:nth-child(3n) { width: 4px; height: 4px; background: #ffd29a; }
+.djnight__panel .djnight__eq { display: flex; align-items: flex-end; gap: 3px; height: 34px; margin-left: auto; }
+.djnight__eq span { width: 5px; height: 100%; border-radius: 2px; background: linear-gradient(to top, #ff7b01, #ffd29a); transform-origin: bottom; animation: djnight-eq 0.9s ease-in-out var(--d) infinite alternate; }
+.djnight__photo { animation: djnight-beat 0.5s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+.djnight__name { animation: djnight-neon 5s linear infinite; }
+@keyframes djnight-beam { from { transform: rotate(-22deg); } to { transform: rotate(22deg); } }
+@keyframes djnight-rise { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(-420px); opacity: 0; } }
+@keyframes djnight-eq { from { transform: scaleY(0.25); } to { transform: scaleY(1); } }
+@keyframes djnight-beat { to { transform: scale(1.012); } }
+@keyframes djnight-neon {
+  0%, 90%, 94%, 100% { text-shadow: 0 0 18px rgba(255, 123, 1, 0.9), 0 0 2px #ff7b01; }
+  92%, 95% { text-shadow: 0 0 4px rgba(255, 123, 1, 0.3), 0 0 1px #ff7b01; }
+}
+
+/* Entrance when the panel scrolls into view, then a gentle scroll drift */
+.djnight { --p: 0; }
+.djnight__photo { translate: 0 calc(var(--p) * 36px); clip-path: inset(0); transition: clip-path 1.1s cubic-bezier(.2, .8, .2, 1), opacity 0.6s; }
+.djnight__glow { translate: 0 calc(var(--p) * -28px); transition: scale 1.2s ease-out; }
+.djnight__copy > * { transition: opacity 0.7s ease-out, translate 0.7s cubic-bezier(.2, .8, .2, 1), scale 0.7s, filter 0.7s; }
+.djnight__copy > :nth-child(2) { transition-delay: 0.25s; }
+.djnight__copy > :nth-child(3) { transition-delay: 0.45s; }
+.djnight__copy > :nth-child(4) { transition-delay: 0.55s; }
+.djnight__copy > :nth-child(5) { transition-delay: 0.7s; }
+.djnight__copy > :nth-child(6) { transition-delay: 0.85s; }
+.djnight:not(.is-in) .djnight__photo { clip-path: inset(100% 0 0 0); opacity: 0; }
+.djnight:not(.is-in) .djnight__glow { scale: 0.3; }
+.djnight:not(.is-in) .djnight__copy > * { opacity: 0; translate: 0 22px; }
+.djnight:not(.is-in) .djnight__name { translate: 0; scale: 0.7; filter: blur(10px); }
+.djnight:not(.is-in) .djnight__beams { opacity: 0; }
+.djnight__beams { transition: opacity 1.4s 0.3s; }
 @keyframes djnight-floor { to { background-position: 0 56px; } }
 @keyframes djnight-pulse { 50% { opacity: 0.6; transform: scale(0.92); } }
-@media (prefers-reduced-motion: reduce) { .djnight__floor, .djnight__glow { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .djnight__floor, .djnight__glow, .djnight__beams span, .djnight__pixels span, .djnight__eq span, .djnight__photo, .djnight__name { animation: none; } .djnight__pixels { display: none; } .djnight__photo, .djnight__glow { translate: none; } }
 @media (max-width: 760px) {
   .djnight { grid-template-columns: 1fr; min-height: 0; }
   .djnight__photo { order: -1; max-height: 330px; margin-top: 12px; -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent); mask-image: linear-gradient(to bottom, #000 78%, transparent); }
