@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { carnival, highlights, mains, sharedDishes, stage, welcome } from '../../data/diwaliProgram.js'
 import { programArt, Samosa } from './ProgramArt.jsx'
+import { Diya } from './Decorations.jsx'
 
 // Things that slide in as they scroll into view. Children of the same parent
 // come in one after another.
@@ -58,11 +59,11 @@ export function DiwaliHighlights() {
   )
 }
 
-function Heading({ num, eyebrow, title, accent, children }) {
+function Heading({ eyebrow, title, accent, children }) {
   return (
     <header className="dsec__head">
       <div>
-        <p className="dsec__eyebrow"><span>{num}</span>{eyebrow}</p>
+        <p className="dsec__eyebrow"><Diya size={40} className="dsec__diya" />{eyebrow}</p>
         <h2>{title} <em>{accent}</em></h2>
       </div>
       <p>{children}</p>
@@ -74,7 +75,7 @@ export function DiwaliStage() {
   return (
     <section className="dsec" id="stage" aria-label="The stage">
       <div className="container">
-        <Heading num="01" eyebrow="The stage" title="Feel every" accent="beat.">
+        <Heading eyebrow="The stage" title="Feel every" accent="beat.">
           A taste of the performances to come. Artists and show times will be announced.
         </Heading>
         <div className="dcards">
@@ -107,7 +108,7 @@ export function DiwaliMenu() {
   return (
     <section className="dsec dsec--food" id="food" aria-label="Food and drink">
       <div className="container">
-        <Heading num="02" eyebrow="The festival table" title="A festive meal," accent="made to share.">
+        <Heading eyebrow="The festival table" title="A festive meal," accent="made to share.">
           Start with a welcome snack at registration, then enjoy the shared dishes with your choice of mains.
         </Heading>
 
@@ -117,9 +118,8 @@ export function DiwaliMenu() {
             <h3>Included with both meal choices</h3>
           </div>
           <ul>
-            {sharedDishes.map((d, i) => (
+            {sharedDishes.map((d) => (
               <li key={d.name}>
-                <span className="dmenu__num">{String(i + 1).padStart(2, '0')}</span>
                 <strong>{d.name}</strong>
                 <span lang="zh-Hant" className="dmenu__zh">{d.zh}</span>
                 <small>{d.note}</small>
@@ -169,7 +169,7 @@ export function DiwaliCarnival() {
   return (
     <section className="dsec" id="carnival" aria-label="The carnival">
       <div className="container">
-        <Heading num="03" eyebrow="The carnival" title="A little colour." accent="A little wonder.">
+        <Heading eyebrow="The carnival" title="A little colour." accent="A little wonder.">
           Explore between performances. Find a new look, a playful moment or a little mystery.
         </Heading>
         <div className="dcards dcards--four">

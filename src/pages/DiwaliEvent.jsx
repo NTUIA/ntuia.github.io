@@ -33,7 +33,7 @@ export default function DiwaliEvent() {
           {[8, 22, 37, 63, 78, 92].map((x, i) => <span key={x} style={{ '--x': `${x}%`, '--i': i }} />)}
         </div>
         <div className="container ddetails">
-          <p className="dhero__script">Your evening, illuminated</p>
+          <p className="ddetails__kicker">Your evening, illuminated</p>
           <h2 id="details-title">Come as you are. <em>Leave a little brighter.</em></h2>
           <dl className="ddetails__facts">
             <div><dt>Date</dt><dd>{event.date ? formatDate(event.date, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : 'To be announced'}</dd></div>
