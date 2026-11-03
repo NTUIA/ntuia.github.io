@@ -18,15 +18,17 @@ export const stage = [
     text: 'Live performances bringing timeless Indian melodies to the stage.',
     tag: 'Artist reveal coming soon',
   },
-  {
-    key: 'dj',
-    kicker: 'When the lights go down',
-    title: 'Your DJ night awaits',
-    text: 'Bollywood favourites, crowd anthems and a dance floor that keeps the celebration going.',
-    tag: 'Meet the DJ: @pvrplebreeze',
-    link: 'https://www.instagram.com/pvrplebreeze/',
-  },
 ]
+
+// The DJ night feature under the stage cards, styled after the DJ poster.
+export const dj = {
+  name: 'DJ Nilesh',
+  kicker: 'When the lights go down',
+  text: 'Bollywood favourites, crowd anthems and a dance floor that keeps the celebration going.',
+  handle: '@pvrplebreeze',
+  link: 'https://www.instagram.com/pvrplebreeze/',
+  image: '/images/events/dj-nilesh.webp',
+}
 
 export const sharedDishes = [
   { name: 'Biryani rice', zh: '印度香料飯', note: 'Fragrant and flavourful' },

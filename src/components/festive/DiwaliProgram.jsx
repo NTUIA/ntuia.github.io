@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { carnival, highlights, mains, sharedDishes, stage, welcome } from '../../data/diwaliProgram.js'
+import { carnival, dj, highlights, mains, sharedDishes, stage, welcome } from '../../data/diwaliProgram.js'
+import { events } from '../../data/events.js'
 import { programArt, Samosa } from './ProgramArt.jsx'
 import { Diya } from './Decorations.jsx'
 
@@ -78,7 +79,7 @@ export function DiwaliStage() {
         <Heading eyebrow="The stage" title="Feel every" accent="beat.">
           A taste of the performances to come. Artists and show times will be announced.
         </Heading>
-        <div className="dcards">
+        <div className="dcards dcards--two">
           {stage.map((s) => {
             const Art = programArt[s.key]
             return (
@@ -96,8 +97,36 @@ export function DiwaliStage() {
             )
           })}
         </div>
+        <DjNight />
       </div>
     </section>
+  )
+}
+
+// DJ night feature in the look of the DJ poster: dark stage, orange glow and a
+// moving grid floor behind the DJ's cut-out photo.
+function DjNight() {
+  const diwali = events.find((e) => e.slug === 'jashn-e-diwali-2026')
+  const day = diwali?.date ? diwali.date.slice(2).split('-').reverse().join('.') : 'TBA'
+  const start = diwali?.time?.split('–')[0].trim()
+  return (
+    <article className="djnight" aria-label={`DJ night with ${dj.name}`}>
+      <div className="djnight__floor" aria-hidden="true" />
+      <div className="djnight__glow" aria-hidden="true" />
+      <div className="djnight__copy">
+        <p className="djnight__guest">Guest DJ</p>
+        <h3 className="djnight__name">{dj.name}</h3>
+        <p className="djnight__kicker">{dj.kicker}</p>
+        <p className="djnight__text">{dj.text}</p>
+        <div className="djnight__panel">
+          <div><span>Event</span><strong>Diwali</strong></div>
+          <div><span>Venue</span><strong>NTU</strong></div>
+          <p className="djnight__when"><b>{day}</b>{start && <> <i aria-hidden="true">|</i> {start}</>}</p>
+        </div>
+        <a className="djnight__ig" href={dj.link} target="_blank" rel="noreferrer">Meet the DJ {dj.handle} <span aria-hidden="true">↗</span></a>
+      </div>
+      <img className="djnight__photo" src={dj.image} alt={`${dj.name} wearing headphones`} width="900" height="846" loading="lazy" />
+    </article>
   )
 }
 
