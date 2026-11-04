@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { carnival, dj, highlights, mains, sharedDishes, stage, welcome } from '../../data/diwaliProgram.js'
 import { events } from '../../data/events.js'
-import { programArt, Samosa } from './ProgramArt.jsx'
+import { programArt } from './ProgramArt.jsx'
 import { Diya } from './Decorations.jsx'
 
 // Things that slide in as they scroll into view. Children of the same parent
 // come in one after another.
-const REVEAL = '.dsec__head, .calls__head, .call, .dcard, .dmenu__shared li, .dmenu__shared-head, .dmenu__tabs, .dmenu__welcome, .ddetails > *, .ddetails__facts > div'
+const REVEAL = '.dsec__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div'
 
 export function useReveal() {
   useEffect(() => {
@@ -164,9 +164,32 @@ function DjNight() {
   )
 }
 
+// A dish photo in a hand-drawn chalk ring, with its name and Chinese name under it.
+// The ring draws itself and the photo pops in as the dish scrolls into view.
+function ChalkDish({ name, zh, image, size }) {
+  return (
+    <figure className={`chalk-dish${size ? ` chalk-dish--${size}` : ''}`}>
+      <div className="chalk-dish__ring">
+        <svg className="chalk-dish__chalk" viewBox="0 0 200 200" aria-hidden="true">
+          <path className="chalk-dish__line" pathLength="1" d="M100 6 C 152 4, 196 46, 194 100 C 192 154, 150 196, 98 194 C 46 192, 4 152, 6 98 C 8 50, 46 8, 104 8" />
+          <path className="chalk-dish__dots" d="M100 14 C 146 13, 187 52, 186 101 C 185 150, 148 186, 99 186 C 52 186, 13 150, 14 100 C 15 55, 50 16, 96 15" />
+        </svg>
+        <img src={image} alt={name} width="640" height="640" loading="lazy" />
+      </div>
+      <figcaption>
+        <strong>{name}</strong>
+        <span lang="zh-Hant">{zh}</span>
+      </figcaption>
+    </figure>
+  )
+}
+
+// Food section in the look of the Instagram menu: a chalkboard with the dish photos
+// in chalk rings, white marker headings and yellow chalk accents.
 export function DiwaliMenu() {
   const [tab, setTab] = useState('veg')
-  const tabs = [['veg', 'Vegetarian mains'], ['nonveg', 'Non-vegetarian mains']]
+  const tabs = [['veg', 'Vegetarian mains', '素食主菜'], ['nonveg', 'Non-vegetarian mains', '葷食主菜']]
+  const starters = [{ name: welcome.snack.name, zh: welcome.snack.zhName, image: welcome.snack.image }, ...welcome.drinks]
 
   return (
     <section className="dsec dsec--food" id="food" aria-label="Food and drink">
@@ -175,54 +198,71 @@ export function DiwaliMenu() {
           Start with a welcome snack at registration, then enjoy the shared dishes with your choice of mains.
         </Heading>
 
-        <div className="dmenu__shared">
-          <div className="dmenu__shared-head">
-            <p className="dcard__kicker">On every plate</p>
-            <h3>Included with both meal choices</h3>
+        <div className="chalkboard">
+          <ol className="chalk-steps" aria-label="How the meal works">
+            <li><b>1</b> Start with a samosa <span lang="zh-Hant">先來一個酥脆咖哩角</span></li>
+            <li><b>2</b> Share the feast <span lang="zh-Hant">一起分享滿桌美食</span></li>
+            <li><b>3</b> Pick your curry <span lang="zh-Hant">挑一道你最愛的咖哩</span></li>
+          </ol>
+          <div className="chalk-intro">
+            <p className="chalk-intro__q">Why is food the heart of Diwali?</p>
+            <p>Because the festival of lights is about sharing light, laughter and a full plate with everyone around you.</p>
+            <p lang="zh-Hant">為什麼美食是排燈節的靈魂？因為這個節日的意義，就是和身邊的人分享光明、歡笑與滿滿的美食。</p>
           </div>
-          <ul>
-            {sharedDishes.map((d) => (
-              <li key={d.name}>
-                <strong>{d.name}</strong>
-                <span lang="zh-Hant" className="dmenu__zh">{d.zh}</span>
-                <small>{d.note}</small>
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        <div className="dmenu__tabs" role="tablist" aria-label="Meal choices">
-          {tabs.map(([key, label]) => (
-            <button key={key} type="button" role="tab" id={`tab-${key}`} aria-selected={tab === key} aria-controls="dmenu-panel" onClick={() => setTab(key)}>
-              <span className={`dmenu__mark${key === 'nonveg' ? ' dmenu__mark--meat' : ''}`} aria-hidden="true" />
-              {label}
-            </button>
-          ))}
-        </div>
-        <div className="dmenu__panel" id="dmenu-panel" role="tabpanel" aria-labelledby={`tab-${tab}`} key={tab}>
-          {mains[tab].map((d) => (
-            <article key={d.name} className="dmenu__dish">
-              <h3>{d.name}</h3>
-              <p className="dmenu__sub">{d.sub} <span lang="zh-Hant">{d.zhName}</span></p>
-              <p>{d.text}</p>
-              <p lang="zh-Hant" className="dmenu__zhline">{d.zh}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="dmenu__welcome">
-          <div className="dmenu__samosa"><Samosa /></div>
-          <div>
-            <p className="dcard__kicker">A warm welcome at registration</p>
-            <h3>{welcome.snack.name} <span lang="zh-Hant">{welcome.snack.zhName}</span></h3>
-            <p>{welcome.snack.text}</p>
-            <p lang="zh-Hant" className="dmenu__zhline">{welcome.snack.zh}</p>
-            <ul className="dmenu__drinks">
-              {welcome.drinks.map((d) => <li key={d.name}>{d.name} <span lang="zh-Hant">{d.zh}</span></li>)}
-            </ul>
+          <div className="chalk-block">
+            <header className="chalk-head">
+              <p className="chalk-tag">first up</p>
+              <h3>Welcome at registration</h3>
+              <span className="chalk-line" aria-hidden="true" />
+            </header>
+            <div className="chalk-row chalk-row--three">
+              {starters.map((d) => <ChalkDish key={d.name} {...d} />)}
+            </div>
           </div>
+
+          <div className="chalk-block">
+            <header className="chalk-head">
+              <p className="chalk-tag">on every plate</p>
+              <h3>Shared dishes</h3>
+              <span className="chalk-line" aria-hidden="true" />
+            </header>
+            <div className="chalk-row chalk-row--four">
+              {sharedDishes.map((d) => <ChalkDish key={d.name} {...d} />)}
+            </div>
+          </div>
+
+          <div className="chalk-block">
+            <header className="chalk-head">
+              <p className="chalk-tag">your choice</p>
+              <h3>Pick your main</h3>
+              <span className="chalk-line" aria-hidden="true" />
+            </header>
+            <div className="chalk-tabs" role="tablist" aria-label="Meal choices">
+              {tabs.map(([key, label, zh]) => (
+                <button key={key} type="button" role="tab" id={`tab-${key}`} aria-selected={tab === key} aria-controls="dmenu-panel" onClick={() => setTab(key)}>
+                  <span className={`dmenu__mark${key === 'nonveg' ? ' dmenu__mark--meat' : ''}`} aria-hidden="true" />
+                  {label} <span lang="zh-Hant">{zh}</span>
+                </button>
+              ))}
+            </div>
+            <div className="chalk-mains" id="dmenu-panel" role="tabpanel" aria-labelledby={`tab-${tab}`} key={tab}>
+              {mains[tab].map((d) => (
+                <article key={d.name} className="chalk-main">
+                  <ChalkDish name={d.name} zh={d.zhName} image={d.image} size="big" />
+                  <div className="chalk-main__text">
+                    <p className="chalk-main__sub">{d.sub}</p>
+                    <p>{d.text}</p>
+                    <p lang="zh-Hant" className="chalk-main__zh">{d.zh}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <p className="chalk-warn">Warning: this menu may cause sudden hunger.<span lang="zh-Hant">警告：看完這份菜單可能會突然肚子餓！</span></p>
+          <p className="chalk-note">Images and portions are for reference only. Recipes and spice levels may vary; please ask our team about allergens.<br /><span lang="zh-Hant">圖片及份量僅供參考，實際餐點以現場為準。如有過敏或飲食需求，請洽服務人員。</span></p>
         </div>
-        <p className="dmenu__note">Recipes and spice levels may vary. Please check ingredients, dietary needs and allergens with the serving team.</p>
       </div>
     </section>
   )

@@ -31,16 +31,17 @@ export const dj = {
 }
 
 export const sharedDishes = [
-  { name: 'Biryani rice', zh: '印度香料飯', note: 'Fragrant and flavourful' },
-  { name: 'Lachha paratha', zh: '千層烤餅', note: 'Flaky layered bread' },
-  { name: 'Dal makhani', zh: '奶油扁豆咖哩', note: 'Rich, comforting lentils' },
-  { name: 'Motichur ladoo', zh: '印度甜球', note: 'A sweet festive finish' },
+  { name: 'Biryani rice', image: '/images/food/biryani.webp', zh: '印度香料飯', note: 'Fragrant and flavourful' },
+  { name: 'Lachha paratha', image: '/images/food/lachha-paratha.webp', zh: '千層烤餅', note: 'Flaky layered bread' },
+  { name: 'Dal makhani', image: '/images/food/dal-makhani.webp', zh: '奶油扁豆咖哩', note: 'Rich, comforting lentils' },
+  { name: 'Motichur ladoo', image: '/images/food/motichur-ladoo.webp', zh: '印度甜球', note: 'A sweet festive finish' },
 ]
 
 export const mains = {
   veg: [
     {
       name: 'Chana masala',
+      image: '/images/food/chana-masala.webp',
       sub: 'Chickpea curry',
       zhName: '鷹嘴豆咖哩',
       text: 'Tender chickpeas simmered in a thick, savoury sauce with tomato, onion and fragrant Indian spices. Enjoy it with biryani rice or scoop it up with lachha paratha.',
@@ -48,15 +49,17 @@ export const mains = {
     },
     {
       name: 'Kadhai paneer',
+      image: '/images/food/kadhai-paneer.webp',
       sub: 'Indian fresh cheese curry',
-      zhName: '印度鮮乳酪咖哩',
+      zhName: '印度起司咖哩',
       text: 'Paneer is a mild, firm fresh cheese made from milk. It is cooked with bell peppers and onions in a fragrant tomato sauce. Kadhai is the Indian wok-style pan used for this dish.',
-      zh: 'Paneer 是以牛奶製成、口感紮實溫和的印度鮮乳酪，並非豆腐；搭配甜椒、洋蔥與番茄香料醬汁。',
+      zh: 'Paneer 是以牛奶製成、口感紮實溫和的印度起司，不是豆腐；搭配甜椒、洋蔥與番茄香料醬汁。',
     },
   ],
   nonveg: [
     {
       name: 'Murgh kadhai',
+      image: '/images/food/murgh-kadhai.webp',
       sub: 'Chicken and bell pepper curry',
       zhName: '印度甜椒雞肉咖哩',
       text: 'Murgh means chicken. Chicken, bell peppers and onions in a savoury tomato sauce with Indian spices. Pair it with rice or use paratha to scoop up the sauce.',
@@ -64,10 +67,11 @@ export const mains = {
     },
     {
       name: 'Murgh rahara',
+      image: '/images/food/murgh-rahara.webp',
       sub: 'Rich chicken curry',
       zhName: '濃郁印度雞肉咖哩',
       text: 'A hearty chicken curry with a thick, deeply flavoured sauce that coats each piece. Enjoy it with biryani rice, or tear off some paratha to soak up the gravy.',
-      zh: '醬汁濃厚、香料風味豐富的印度雞肉咖哩，適合搭配香料飯，或用千層烤餅沾取醬汁。',
+      zh: '醬汁濃厚、香料風味豐富的印度雞肉咖哩，適合搭配香料飯，或用千層烤餅沾醬汁。',
     },
   ],
 }
@@ -75,13 +79,14 @@ export const mains = {
 export const welcome = {
   snack: {
     name: 'Samosa',
+    image: '/images/food/samosa.webp',
     zhName: '印度咖哩角',
     text: 'A golden, triangular pastry with a crisp shell and a savoury filling of potatoes, peas and Indian spices.',
     zh: '酥脆的三角形炸點心，內餡通常有馬鈴薯、豌豆與印度香料。',
   },
   drinks: [
-    { name: 'Lemon tea', zh: '檸檬茶' },
-    { name: 'Fruit juice', zh: '果汁' },
+    { name: 'Lemon tea', zh: '檸檬茶', image: '/images/food/lemon-tea.webp' },
+    { name: 'Fruit juice', zh: '果汁', image: '/images/food/fruit-juice.webp' },
   ],
 }
 
