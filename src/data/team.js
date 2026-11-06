@@ -43,7 +43,7 @@ export const pastCommittees = [
       { name: 'Deep Shubhra Biswas', role: 'Vice President', photo: '' },
       { name: 'Avijeet Balabantray', role: 'Social Media Coordinator', photo: '' },
       { name: 'Bharanitharan J', role: 'Event Coordinator', photo: '/images/team/past/2025/bharani.webp' },
-      { name: 'Nilabh Basu', role: 'Treasurer', photo: '' },
+      { name: 'Nilabh Basu', role: 'Treasurer', photo: '/images/team/past/2023/nilabh.webp' },
     ],
   },
   {
