@@ -455,6 +455,14 @@ a.call__btn:hover { transform: translateY(-2px); }
 /* Live "Register here" button (same look as the old "starts soon" chip, now clickable) */
 a.btn--register { cursor: pointer; text-decoration: none; }
 a.btn--register:hover { background: #fff3dc; border-style: solid; transform: translateY(-1px); }
+/* A pointing hand that keeps nudging toward "Register now", and a soft ring
+   that ripples out from the button every few seconds, so visitors see where to tap. */
+a.btn--register { position: relative; }
+.btn--register__hand { display: inline-block; font-size: 1.25em; line-height: 1; animation: reg-hand 1.2s ease-in-out infinite; }
+a.btn--register::after { content: ''; position: absolute; inset: -2px; border-radius: inherit; border: 2px solid var(--accent); opacity: 0; pointer-events: none; animation: reg-ring 2.6s ease-out infinite; }
+@keyframes reg-hand { 0%, 100% { transform: translateX(-2px); } 50% { transform: translateX(5px); } }
+@keyframes reg-ring { 0% { opacity: .9; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.22, 1.5); } }
+@media (prefers-reduced-motion: reduce) { .btn--register__hand, a.btn--register::after { animation: none; } }
 
 /* "Registration closes" card under the Diwali hero buttons: a blinking badge,
    the date, then a live countdown that turns red in the last two days */

@@ -25,7 +25,7 @@ export default function RegisterButton() {
   return (
     <>
       <a href="/registration" className="btn btn--soon btn--register" onClick={open}>
-        <span className="btn--soon__dot" aria-hidden="true" />Register now
+        <span className="btn--register__hand" aria-hidden="true">👉</span>Register now
       </a>
       <dialog
         ref={dialog}
