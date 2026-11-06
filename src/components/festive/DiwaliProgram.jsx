@@ -96,14 +96,13 @@ function Performances() {
         <p className="perfs__script">Performances</p>
         <p className="perfs__count">{moreActsComing ? 'More acts to be announced' : `${performances.length} acts on the night`}</p>
       </div>
-      {performances.map((p, i) => (
+      {performances.map((p) => (
         <article key={p.key} className={`perf perf--${p.key}`} aria-labelledby={`perf-${p.key}`}>
           <span className="perf__sparks" aria-hidden="true"><i /><i /><i /><i /><i /></span>
           <figure className="perf__photo">
             <img src={p.image} alt={`${p.performers.join(' and ')} in costume for ${p.title}`} width="1100" height="734" loading="lazy" />
           </figure>
           <div className="perf__body">
-            <p className="perf__num">Act {String(i + 1).padStart(2, '0')}</p>
             <h3 id={`perf-${p.key}`}>“{p.title}”</h3>
             <p className="perf__sub">{p.type || 'Dance Performance'}</p>
             <p className="perf__by">Performed by <strong>{p.performers.join(' & ')}</strong></p>
