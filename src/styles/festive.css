@@ -934,3 +934,109 @@ a.btn--register:hover { background: #fff3dc; border-style: solid; transform: tra
   .regnote__back { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .regnote[open], .regnote[open]::backdrop { animation: none; } }
+
+/* ---------- Dance line-up (styled after the performer posters) ---------- */
+.perfs { margin: clamp(40px, 6vw, 64px) 0; display: grid; gap: clamp(22px, 3vw, 32px); }
+.perfs__head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 20px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.perfs__script { margin: 0; font-family: var(--font-script); font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.1; color: var(--primary); }
+.perfs__count { margin: 0; font-family: var(--font-serif); font-style: italic; color: var(--muted); }
+.perf {
+  --tone: #7a1b3d;
+  display: grid; grid-template-columns: 1.05fr 1fr; align-items: center;
+  background: #e1ca9c url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence baseFrequency=".8" numOctaves="2"/><feColorMatrix values="0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .15 0 0 0 .09 0"/></filter><rect width="160" height="160" filter="url(%23n)"/></svg>');
+  border: 1px solid #cdb07a; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 18px 40px -26px rgba(74, 13, 33, .55);
+}
+.perf--bharatanatyam { --tone: #d9252a; }
+.perf--classical { --tone: #11683a; }
+.perf:nth-of-type(even) .perf__photo { order: 2; }
+.perf__photo { margin: 0; align-self: stretch; display: grid; place-items: center; }
+.perf__photo img {
+  display: block; width: 100%; height: auto;
+  /* soften the photo's paper edges into the card */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent), linear-gradient(transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent), linear-gradient(transparent, #000 4%, #000 96%, transparent);
+  mask-composite: intersect;
+}
+.perf__body { padding: clamp(22px, 3.4vw, 40px); color: #3a1f14; }
+.perf__num { margin: 0 0 6px; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: #8a6a3e; }
+.perf__body h3 { margin: 0; font-family: var(--font-display); font-weight: 700; font-variant: small-caps; font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.1; letter-spacing: .02em; color: var(--tone); }
+.perf__sub { margin: 2px 0 14px; font-family: var(--font-script); font-size: clamp(1.3rem, 2.4vw, 1.65rem); color: var(--tone); }
+.perf__by { margin: 0 0 14px; font-size: .95rem; color: #6a4a2c; }
+.perf__by strong { color: var(--tone); font-weight: 600; }
+.perf__text { margin: 0 0 10px; line-height: 1.6; color: var(--tone); filter: brightness(.82); }
+.perf__zh { margin: 0; line-height: 1.75; color: var(--tone); filter: brightness(.82); }
+.perf--soon { --tone: #6e1631; grid-template-columns: auto 1fr; border-style: dashed; border-color: #b8945a; }
+.perf__mystery { display: flex; gap: 14px; padding: clamp(22px, 3.4vw, 40px); padding-right: 0; }
+.perf__mystery span {
+  display: grid; place-items: center; width: clamp(76px, 9vw, 104px); aspect-ratio: 1; border-radius: 50%;
+  border: 2px dashed #b8945a; background: radial-gradient(circle, rgba(255, 250, 235, .7), rgba(255, 250, 235, .15));
+  font-family: var(--font-display); font-size: clamp(2rem, 3.6vw, 2.8rem); color: #a1784a;
+  animation: perf-q 2.8s ease-in-out infinite;
+}
+.perf__mystery span:nth-child(2) { animation-delay: .7s; }
+@keyframes perf-q { 50% { transform: translateY(-6px); color: var(--primary); border-color: var(--primary); } }
+@media (prefers-reduced-motion: reduce) { .perf__mystery span { animation: none; } }
+@media (max-width: 820px) {
+  .perf { grid-template-columns: 1fr; }
+  .perf__mystery { padding-bottom: 0; padding-right: clamp(22px, 3.4vw, 40px); justify-content: center; }
+  .perf:nth-of-type(even) .perf__photo { order: 0; }
+}
+
+/* ---------- Line-up animation ----------
+   On scroll-in each card plays a short entrance: the photo glides in from its
+   side, the title and script line write themselves in, then the text follows.
+   After that the photo floats gently, sparkles twinkle in the act's colour and a
+   soft sheen passes over the paper. Hover lifts the card. */
+.perf { position: relative; isolation: isolate; transition: box-shadow .35s ease, translate .35s ease; }
+.perf::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 250, 230, .55) 50%, transparent 65%);
+  translate: -110% 0;
+}
+.perf.rv-in::after, .perf:not(.rv)::after { animation: perf-sheen 1.6s ease .5s both; }
+@keyframes perf-sheen { to { translate: 110% 0; } }
+.perf:hover { translate: 0 -4px; box-shadow: 0 26px 46px -26px rgba(74, 13, 33, .65); }
+
+.perf__photo img { transition: opacity .9s ease .15s, transform 1s cubic-bezier(.2, .8, .2, 1) .15s, scale .6s ease; }
+.perf__photo { animation: perf-float 6s ease-in-out 1.4s infinite; }
+.perf:hover .perf__photo img { scale: 1.03; }
+@keyframes perf-float { 50% { translate: 0 -6px; } }
+.perf.rv:not(.rv-in) .perf__photo img { opacity: 0; transform: translateX(-70px) rotate(-2deg) scale(.94); }
+.perf.rv:not(.rv-in):nth-of-type(even) .perf__photo img { transform: translateX(70px) rotate(2deg) scale(.94); }
+
+.perf__body > * { transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1), letter-spacing .9s ease, clip-path 1s cubic-bezier(.6, 0, .3, 1); }
+.perf.rv:not(.rv-in) .perf__body > * { opacity: 0; transform: translateY(16px); }
+.perf.rv:not(.rv-in) .perf__body h3 { letter-spacing: .18em; }
+.perf.rv:not(.rv-in) .perf__sub { clip-path: inset(0 100% 0 0); transform: none; }
+.perf__sub { clip-path: inset(0 0 0 0); }
+.perf__body > :nth-child(1) { transition-delay: .25s; }
+.perf__body > :nth-child(2) { transition-delay: .35s; }
+.perf__body > :nth-child(3) { transition-delay: .6s; }
+.perf__body > :nth-child(4) { transition-delay: .75s; }
+.perf__body > :nth-child(5) { transition-delay: .85s; }
+.perf__body > :nth-child(6) { transition-delay: .95s; }
+
+.perf__sparks { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.perf__sparks i {
+  position: absolute; width: 14px; height: 14px; background: var(--tone);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0; animation: perf-twinkle 3.6s ease-in-out infinite;
+}
+.perf__sparks i:nth-child(1) { top: 8%; left: 4%; animation-delay: .2s; }
+.perf__sparks i:nth-child(2) { top: 14%; left: 47%; width: 10px; height: 10px; animation-delay: 1.4s; }
+.perf__sparks i:nth-child(3) { bottom: 10%; left: 50%; animation-delay: 2.3s; }
+.perf__sparks i:nth-child(4) { top: 9%; right: 4%; width: 10px; height: 10px; animation-delay: .9s; }
+.perf__sparks i:nth-child(5) { bottom: 8%; right: 6%; animation-delay: 3s; }
+@keyframes perf-twinkle { 0%, 100% { opacity: 0; scale: .3; rotate: 0deg; } 45% { opacity: .75; scale: 1; rotate: 45deg; } }
+
+@supports (animation-timeline: view()) {
+  .perf__photo img { animation: perf-drift linear both; animation-timeline: view(); }
+  @keyframes perf-drift { from { translate: 0 18px; } to { translate: 0 -18px; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .perf, .perf__photo, .perf__photo img, .perf__body > *, .perf::after, .perf__sparks i { animation: none !important; transition: none !important; }
+  .perf::after, .perf__sparks { display: none; }
+}

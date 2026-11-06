@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { carnival, dj, highlights, mains, sharedDishes, stage, welcome } from '../../data/diwaliProgram.js'
+import { carnival, dj, highlights, mains, performances, moreActsComing, sharedDishes, welcome } from '../../data/diwaliProgram.js'
 import { events } from '../../data/events.js'
 import { programArt } from './ProgramArt.jsx'
 import { Diya } from './Decorations.jsx'
 
 // Things that slide in as they scroll into view. Children of the same parent
 // come in one after another.
-const REVEAL = '.dsec__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div'
+const REVEAL = '.dsec__head, .perf, .perfs__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div'
 
 export function useReveal() {
   useEffect(() => {
@@ -77,29 +77,57 @@ export function DiwaliStage() {
     <section className="dsec" id="stage" aria-label="The stage">
       <div className="container">
         <Heading eyebrow="The stage" title="Feel every" accent="beat.">
-          A taste of the performances to come. Artists and show times will be announced.
+          Classical grace, Bollywood energy and a DJ night to close. Meet the performers taking the stage.
         </Heading>
         <DjNight />
-        <div className="dcards dcards--two">
-          {stage.map((s) => {
-            const Art = programArt[s.key]
-            return (
-              <article key={s.key} className={`dcard dcard--${s.key}`}>
-                <div className="dcard__art"><Art /></div>
-                <div className="dcard__body">
-                  <p className="dcard__kicker">{s.kicker}</p>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                  {s.link
-                    ? <a className="dcard__tag dcard__tag--link" href={s.link} target="_blank" rel="noreferrer">{s.tag} <span aria-hidden="true">↗</span></a>
-                    : <span className="dcard__tag">{s.tag}</span>}
-                </div>
-              </article>
-            )
-          })}
-        </div>
+        <Performances />
       </div>
     </section>
+  )
+}
+
+// The stage line-up in the look of the performer posters: aged paper, the
+// performers' photo with their names, then the write-up in English and Chinese.
+// Acts still to be announced show as one teaser card after the confirmed ones.
+function Performances() {
+    return (
+    <div className="perfs">
+      <div className="perfs__head">
+        <p className="perfs__script">Performances</p>
+        <p className="perfs__count">{moreActsComing ? 'More acts to be announced' : `${performances.length} acts on the night`}</p>
+      </div>
+      {performances.map((p, i) => (
+        <article key={p.key} className={`perf perf--${p.key}`} aria-labelledby={`perf-${p.key}`}>
+          <span className="perf__sparks" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+          <figure className="perf__photo">
+            <img src={p.image} alt={`${p.performers.join(' and ')} in costume for ${p.title}`} width="1100" height="734" loading="lazy" />
+          </figure>
+          <div className="perf__body">
+            <p className="perf__num">Act {String(i + 1).padStart(2, '0')}</p>
+            <h3 id={`perf-${p.key}`}>“{p.title}”</h3>
+            <p className="perf__sub">{p.type || 'Dance Performance'}</p>
+            <p className="perf__by">Performed by <strong>{p.performers.join(' & ')}</strong></p>
+            <p className="perf__text">{p.text}</p>
+            <p className="perf__zh" lang="zh-Hant">{p.zh}</p>
+          </div>
+        </article>
+      ))}
+      {moreActsComing && (
+        <article className="perf perf--soon" aria-labelledby="perf-soon">
+          <span className="perf__sparks" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+          <div className="perf__mystery" aria-hidden="true">
+            <span>?</span>
+          </div>
+          <div className="perf__body">
+            <p className="perf__num">Coming soon</p>
+            <h3 id="perf-soon">More performers on the way</h3>
+            <p className="perf__sub">Stay tuned</p>
+            <p className="perf__text">More performers are joining the Diwali stage. Watch this space for the reveal.</p>
+            <p className="perf__zh" lang="zh-Hant">更多精彩表演即將登場，敬請期待！</p>
+          </div>
+        </article>
+      )}
+    </div>
   )
 }
 

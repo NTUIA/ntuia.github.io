@@ -3,20 +3,38 @@
 
 export const highlights = ['Dance and live music', 'Indian food', 'Henna and tarot', 'DJ night', 'Photo booth', 'Festive stalls']
 
-export const stage = [
+// More acts are coming but not announced yet. While true, a "more performers on
+// the way" card shows after the line-up (it never says how many). Add each act
+// to performances below once announced (with its own type, such as
+// 'Music Performance'), and set this to false when the line-up is complete.
+export const moreActsComing = true
+
+// The stage line-up, taken from the performer posters in Canva. Each act shows
+// the poster photo and the English and Chinese write-up.
+export const performances = [
   {
-    key: 'dance',
-    kicker: 'Movement and tradition',
-    title: 'Dance in full colour',
-    text: 'Graceful classical movements, folk rhythms and the joyful energy of Bollywood.',
-    tag: 'Performances to be announced',
+    key: 'bharatanatyam',
+    title: 'Bharatanatyam',
+    performers: ['Ganesha Samvada', 'Sherry Wang'],
+    image: '/images/events/perf-bharatanatyam.webp',
+    text: "Experience the beauty of Bharatanatyam, one of India's oldest classical dance forms, where graceful movements, expressive gestures, and rhythmic footwork come together to tell beautiful stories. Get ready for a mesmerizing performance filled with tradition, elegance, and cultural richness!",
+    zh: '一起感受印度古典舞蹈「婆羅多舞」的優雅魅力！透過優美的舞姿、細膩的手勢與富有節奏感的腳步，展現印度傳統文化與藝術之美，帶來一場充滿韻律、情感與文化氣息的精彩演出。',
   },
   {
-    key: 'music',
-    kicker: 'Strings, beats and soul',
-    title: 'Music that moves you',
-    text: 'Live performances bringing timeless Indian melodies to the stage.',
-    tag: 'Artist reveal coming soon',
+    key: 'classical',
+    title: 'Indian Classical Fusion',
+    performers: ['Swagatika', 'Ammu'],
+    image: '/images/events/perf-classical-fusion.webp',
+    text: 'Experience the magic of Semi-Classical Fusion, where the grace of Indian classical dance meets modern rhythms and expressions! With elegant movements, powerful beats, and heartfelt emotions, this beautiful duet brings together tradition, creativity, and romance in a mesmerizing performance.',
+    zh: '一起感受印度半古典融合舞蹈的獨特魅力！結合印度傳統舞蹈的優雅、現代音樂的活力與浪漫情感，透過柔美的舞姿、充滿力量的節奏與細膩的情感表達，呈現一場融合傳統與現代的精彩雙人演出！',
+  },
+  {
+    key: 'bollywood',
+    title: 'Bollywood Fusion',
+    performers: ['Riya', 'Diya'],
+    image: '/images/events/perf-bollywood-fusion.webp',
+    text: 'Experience the magic of Bollywood Fusion, where traditional elegance meets modern beats! Get ready for a vibrant performance filled with energy, rhythm, and festive vibes.',
+    zh: '融合印度傳統舞蹈的優雅與現代舞蹈的活力，帶來一場充滿節奏、熱情與歡樂的精彩演出，一起感受寶萊塢的魅力與排燈節的歡樂氣氛！',
   },
 ]
 
