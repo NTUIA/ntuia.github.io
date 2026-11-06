@@ -10,16 +10,16 @@ function PersonIcon() {
   )
 }
 
-function PastMember({ member }) {
+export function PastMember({ member }) {
   const name = member.name || 'Name to be added'
   return (
     <article className={`past-member${member.name ? '' : ' past-member--empty'}`}>
       <div className="past-member__photo">
         {member.photo
-          ? <img src={member.photo} alt={`${name}, ${member.role}`} width="320" height="320" loading="lazy" />
+          ? <img src={member.photo} alt={member.role ? `${name}, ${member.role}` : name} width="320" height="320" loading="lazy" />
           : <PersonIcon />}
       </div>
-      <p className="member__role">{member.role}</p>
+      {member.role && <p className="member__role">{member.role}</p>}
       <h3 className="past-member__name">{name}</h3>
     </article>
   )

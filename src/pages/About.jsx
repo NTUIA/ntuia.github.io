@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 import TeamCard from '../components/TeamCard.jsx'
-import PastCommittees from '../components/PastCommittees.jsx'
+import PastCommittees, { PastMember } from '../components/PastCommittees.jsx'
 import { site } from '../data/site.js'
-import { committeeYear, team } from '../data/team.js'
+import { committeeYear, foundingContributors, team } from '../data/team.js'
 
 const values = [
   { title: 'Welcome', text: 'Everyone is welcome at NTUIA, whatever their nationality, field or background.' },
@@ -77,6 +77,20 @@ export default function About() {
             </div>
           </div>
           <PastCommittees />
+        </div>
+      </section>
+
+      <section className="section" id="founding-contributors">
+        <div className="container">
+          <div className="section__head">
+            <div>
+              <p className="eyebrow">Where it all began</p>
+              <h2>Founding Contributors</h2>
+            </div>
+          </div>
+          <div className="past-grid past-grid--four">
+            {foundingContributors.map((m, i) => <PastMember key={i} member={m} />)}
+          </div>
         </div>
       </section>
     </>

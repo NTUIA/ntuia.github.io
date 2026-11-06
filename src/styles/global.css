@@ -188,7 +188,8 @@ p { margin: 0 0 1em; }
 .past-member__name { font: 700 1.05rem/1.3 var(--font-display); color: var(--navy-deep); margin: 0; }
 .past-member--empty .past-member__photo { background: transparent; border: 1.5px dashed #c3ccd8; }
 .past-member--empty .past-member__name { color: var(--slate); font-weight: 400; font-style: italic; }
-@media (max-width: 900px) { .past-grid { grid-template-columns: repeat(3, 1fr); } }
+.past-grid--four { grid-template-columns: repeat(4, 1fr); max-width: 900px; margin-inline: auto; }
+@media (max-width: 900px) { .past-grid { grid-template-columns: repeat(3, 1fr); } .past-grid--four { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .past-grid { grid-template-columns: repeat(2, 1fr); gap: 22px 14px; } }
 
 /* ---------- Gallery ---------- */
