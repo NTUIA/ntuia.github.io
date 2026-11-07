@@ -474,6 +474,14 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
   background: #fffaf0; border: 1.5px solid var(--gold); border-radius: 16px;
   box-shadow: 0 6px 18px rgba(110, 22, 49, 0.12);
 }
+.reg-deadline__extended {
+  position: absolute; top: 0; left: 50%; transform: translate(-50%, -55%);
+  padding: 3px 12px; border-radius: 999px; white-space: nowrap;
+  background: linear-gradient(135deg, #f7d77c, #e0a93a); color: #5a1028;
+  border: 1.5px solid #fffaf0; box-shadow: 0 3px 10px rgba(110, 22, 49, 0.2);
+  font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.reg-deadline:has(.reg-deadline__extended) { margin-top: 20px; padding-top: 20px; }
 .reg-deadline__text { display: grid; justify-items: center; min-width: 0; line-height: 1.25; }
 .reg-deadline__label {
   display: inline-flex; align-items: center; gap: 7px;

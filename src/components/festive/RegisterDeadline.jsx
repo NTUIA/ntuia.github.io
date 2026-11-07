@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { registrationDeadline, registrationOpen } from '../../data/diwaliForms.js'
+import { deadlineExtended, registrationDeadline, registrationOpen } from '../../data/diwaliForms.js'
 
 // Registration closes at the end of the deadline day, Taiwan time.
 const CLOSES = new Date(`${registrationDeadline}T23:59:59+08:00`).getTime()
@@ -31,6 +31,7 @@ export default function RegisterDeadline() {
 
   return (
     <div className={`reg-deadline${left < 2 * DAY ? ' reg-deadline--urgent' : ''}`}>
+      {deadlineExtended && <span className="reg-deadline__extended">✨ Deadline extended</span>}
       <div className="reg-deadline__text">
         <span className="reg-deadline__label">Registration closes</span>
         <strong>{part({ weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</strong>

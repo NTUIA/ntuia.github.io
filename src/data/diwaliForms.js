@@ -21,4 +21,8 @@ export const registrationOpen = true
 
 // Last day to register (Taiwan time). The Diwali page shows it beside "Register now"
 // with a countdown, and hides it once the day has passed.
-export const registrationDeadline = '2026-11-08'
+export const registrationDeadline = '2026-11-13'
+
+// Set to true while the deadline above has been pushed back. The countdown card then
+// shows a "Deadline extended" tag above the date.
+export const deadlineExtended = true
