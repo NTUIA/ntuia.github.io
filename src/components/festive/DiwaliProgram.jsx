@@ -77,7 +77,7 @@ export function DiwaliStage() {
     <section className="dsec" id="stage" aria-label="The stage">
       <div className="container">
         <Heading eyebrow="The stage" title="Feel every" accent="beat.">
-          Classical grace, Bollywood energy and a DJ night to close. Meet the performers taking the stage.
+          Classical grace, Bollywood energy, live ukulele and tabla, and a DJ night to close. Meet the performers taking the stage.
         </Heading>
         <DjNight />
         <Performances />
@@ -100,7 +100,7 @@ function Performances() {
         <article key={p.key} className={`perf perf--${p.key}`} aria-labelledby={`perf-${p.key}`}>
           <span className="perf__sparks" aria-hidden="true"><i /><i /><i /><i /><i /></span>
           <figure className="perf__photo">
-            <img src={p.image} alt={`${p.performers.join(' and ')} in costume for ${p.title}`} width="1100" height="734" loading="lazy" />
+            <img src={p.image} alt={p.alt || `${p.performers.join(' and ')} in costume for ${p.title}`} width="1100" height="734" loading="lazy" />
           </figure>
           <div className="perf__body">
             <h3 id={`perf-${p.key}`}>“{p.title}”</h3>

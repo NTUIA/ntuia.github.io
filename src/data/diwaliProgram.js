@@ -7,7 +7,7 @@ export const highlights = ['Dance and live music', 'Indian food', 'Henna and tar
 // the way" card shows after the line-up (it never says how many). Add each act
 // to performances below once announced (with its own type, such as
 // 'Music Performance'), and set this to false when the line-up is complete.
-export const moreActsComing = true
+export const moreActsComing = false
 
 // The stage line-up, taken from the performer posters in Canva. Each act shows
 // the poster photo and the English and Chinese write-up.
@@ -35,6 +35,27 @@ export const performances = [
     image: '/images/events/perf-bollywood-fusion.webp',
     text: 'Experience the magic of Bollywood Fusion, where traditional elegance meets modern beats! Get ready for a vibrant performance filled with energy, rhythm, and festive vibes.',
     zh: '融合印度傳統舞蹈的優雅與現代舞蹈的活力，帶來一場充滿節奏、熱情與歡樂的精彩演出，一起感受寶萊塢的魅力與排燈節的歡樂氣氛！',
+  },
+  {
+    key: 'ukulele',
+    title: 'Ukulele & Vocals',
+    type: 'Singing & Music Performance',
+    performers: ['Priscilla', 'Duo Duo (NTU Ukulele)'],
+    alt: 'Priscilla singing into a microphone with the Duo Duo (NTU Ukulele) players holding ukuleles and a guitar',
+    image: '/images/events/perf-ukulele-vocals.webp',
+    text: 'Enjoy heartfelt singing by Priscilla, accompanied by the warm melodies of Duo Duo (NTU Ukulele)! With expressive vocals and lively acoustic rhythms, this performance brings music, joy, and togetherness to our Diwali celebration.',
+    zh: '一起欣賞 Priscilla 真摯動人的歌聲，以及 Duo Duo（NTU Ukulele）溫暖悠揚的樂器伴奏！透過充滿情感的演唱與輕快的旋律，為排燈節增添歡樂與溫馨，與大家共享美好的音樂時光！',
+  },
+  {
+    key: 'tabla',
+    title: 'Tabla Ensemble',
+    type: 'Music Performance',
+    // The poster names no one, so the card credits the group instead.
+    performers: ['NTU Taiwanese tabla musicians'],
+    alt: 'Four NTU musicians in kurtas playing tabla',
+    image: '/images/events/perf-tabla-ensemble.webp',
+    text: 'Experience the vibrant rhythms of Indian tabla, brought to life by talented NTU Taiwanese musicians! With intricate beats, lively rhythms, and seamless teamwork, this performance celebrates the beauty of Indian percussion and the joy of connecting cultures through music.',
+    zh: '一起感受由台灣樂手帶來的印度塔布拉鼓演出！透過細膩多變的鼓點、充滿活力的節奏與默契十足的合奏，展現印度打擊樂的獨特魅力，讓音樂串起台灣與印度的文化交流！',
   },
 ]
 

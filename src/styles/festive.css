@@ -972,6 +972,8 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 }
 .perf--bharatanatyam { --tone: #d9252a; }
 .perf--classical { --tone: #11683a; }
+.perf--ukulele { --tone: #b8501a; }
+.perf--tabla { --tone: #1f2a8c; }
 .perf:nth-of-type(even) .perf__photo { order: 2; }
 .perf__photo { margin: 0; align-self: center; display: grid; place-items: center; }
 .perf__photo img {
@@ -1072,6 +1074,8 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 .perf--bharatanatyam { --neon: #ff3d57; }
 .perf--classical { --neon: #12d97a; }
 .perf--bollywood { --neon: #ff4fb0; }
+.perf--ukulele { --neon: #ff8a2a; }
+.perf--tabla { --neon: #4d6bff; }
 .perf__photo { position: relative; isolation: isolate; }
 .perf__photo::before {
   content: ''; position: absolute; inset: 4% 6%; z-index: -1; pointer-events: none; border-radius: 30px;
