@@ -15,7 +15,7 @@ export const performances = [
   {
     key: 'bharatanatyam',
     title: 'Bharatanatyam',
-    performers: ['Ganesha Samvada', 'Sherry Wang'],
+    performers: ['Sriranjani', 'Sherry Wang'],
     image: '/images/events/perf-bharatanatyam.webp',
     text: "Experience the beauty of Bharatanatyam, one of India's oldest classical dance forms, where graceful movements, expressive gestures, and rhythmic footwork come together to tell beautiful stories. Get ready for a mesmerizing performance filled with tradition, elegance, and cultural richness!",
     zh: '一起感受印度古典舞蹈「婆羅多舞」的優雅魅力！透過優美的舞姿、細膩的手勢與富有節奏感的腳步，展現印度傳統文化與藝術之美，帶來一場充滿韻律、情感與文化氣息的精彩演出。',
