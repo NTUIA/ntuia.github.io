@@ -11,6 +11,14 @@ export const diwaliForms = {
 // "Volunteer sign-up closed" and the news post says registration is closed.
 export const volunteersOpen = false
 
+// Set to true to reopen performer sign-up. While false, the news post says registration
+// is closed and has no form button.
+export const performersOpen = false
+
+// Set to true to reopen stall sign-up. While false, the news post says registration is
+// closed, and the Diwali page hides the Stalls section and its menu link.
+export const stallsOpen = false
+
 // Jashn-e-Diwali 2026 attendee registration (Google Apps Script web app).
 // Shown inside https://ntuia.org/registration so visitors stay on ntuia.org.
 export const diwaliRegistration = 'https://script.google.com/macros/s/AKfycbyjMare0Q3Hi1pbox8SG_Jhenk1U81vhOe77xdyOGSzS0ro9UqX4yJSEkFxUCN6XP3t/exec'

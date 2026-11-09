@@ -6,6 +6,7 @@ import RegisterDeadline from '../components/festive/RegisterDeadline.jsx'
 import DiwaliCalls from '../components/festive/DiwaliCalls.jsx'
 import { DiwaliCarnival, DiwaliHighlights, DiwaliMenu, DiwaliStage, ShareButton, useReveal } from '../components/festive/DiwaliProgram.jsx'
 import { events } from '../data/events.js'
+import { stallsOpen } from '../data/diwaliForms.js'
 import { formatDate } from '../utils.js'
 
 export default function DiwaliEvent() {
@@ -47,7 +48,7 @@ export default function DiwaliEvent() {
           <Link reloadDocument to="/contact" className="link-arrow">Questions? Ask the organisers</Link>
         </div>
       </section>
-      <DiwaliCalls />
+      {stallsOpen && <DiwaliCalls />}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { carnival, dj, highlights, mains, performances, moreActsComing, sharedDishes, welcome } from '../../data/diwaliProgram.js'
 import { events } from '../../data/events.js'
+import { stallsOpen } from '../../data/diwaliForms.js'
 import { programArt } from './ProgramArt.jsx'
 import { Diya } from './Decorations.jsx'
 
@@ -36,7 +37,7 @@ const JUMPS = [
   ['#food', 'Food'],
   ['#carnival', 'Carnival'],
   ['#details', 'Event details'],
-  ['#stalls', 'Stalls'],
+  ...(stallsOpen ? [['#stalls', 'Stalls']] : []),
 ]
 
 // Sliding strip of highlights under the banner, then quick links to each section.
