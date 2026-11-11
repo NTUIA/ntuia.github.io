@@ -1,4 +1,4 @@
-// Mehndi and tarot at the carnival, shown as feature cards in the same paper style
+// Mehndi, tarot and the two food stalls at the carnival, shown as feature cards in the same paper style
 // as the performer cards on the stage. Mehndi photos are cropped to show only the
 // designs, never anyone's face.
 const DESIGNS = [
@@ -7,6 +7,83 @@ const DESIGNS = [
   { src: '/images/diwali/mehndi-3.webp', w: 520, h: 756, alt: 'Compass and arrow line design on a forearm' },
   { src: '/images/diwali/mehndi-4.webp', w: 360, h: 385, alt: 'Floral bracelet henna design on a hand' },
 ]
+
+// Two food stalls, after their "Snack First, Chill Later" posters. Spicy, salty and sweet run 0 to 3.
+const SNACK_STALLS = [
+  {
+    key: 'snack1',
+    title: 'Chaat & Mithai',
+    text: 'Start with something spicy, finish with something sweet. Tuck into a flaky Pyazz Kachori with tangy chutneys, then cool down with soft Cham Cham and creamy Rasmalai soaked in saffron milk.',
+    zh: '先來點辣，再來點甜！酥脆的洋蔥 Pyazz Kachori 搭配酸甜醬汁，接著品嚐鬆軟的 Cham Cham 和浸滿番紅花牛奶的 Rasmalai。',
+    dishes: [
+      { name: 'Pyazz Kachori', img: 'pyaaz', spicy: 2, salty: 2, sweet: 0 },
+      { name: 'Cham Cham', img: 'chamcham', spicy: 0, salty: 0, sweet: 3 },
+      { name: 'Rasmalai', img: 'rasmalai', spicy: 0, salty: 0, sweet: 3 },
+    ],
+  },
+  {
+    key: 'snack2',
+    title: 'Street Bites & Chai',
+    text: "India's favourite street snacks in one stop. Burst a Pani Puri full of tangy, spicy water, grab a melt-in-the-mouth Besan Laddu, and warm up with a glass of Indian tea.",
+    zh: '一站嚐遍印度街頭人氣小吃！一口咬下裝滿酸辣香料水的 Pani Puri，再來一顆入口即化的 Besan Laddu，最後用一杯印度奶茶暖暖身。',
+    dishes: [
+      { name: 'Pani Puri', img: 'panipuri', spicy: 2, salty: 1, sweet: 1 },
+      { name: 'Besan Laddu', img: 'laddu', spicy: 0, salty: 0, sweet: 3 },
+      { name: 'Indian Tea', img: 'chai', spicy: 1, salty: 0, sweet: 2 },
+    ],
+  },
+]
+
+function Taste({ label, level }) {
+  return (
+    <span className={`taste taste--${label.toLowerCase()}`} aria-label={`${label} ${level} out of 3`}>
+      {label}
+      <span className="taste__dots" aria-hidden="true">{[1, 2, 3].map((n) => <i key={n} className={n <= level ? 'on' : ''} />)}</span>
+    </span>
+  )
+}
+
+const Twinkle = ({ className }) => (
+  <svg className={`csnack__star ${className}`} viewBox="0 0 40 40" aria-hidden="true">
+    <path d="M20 0 L21.2 18.8 L40 20 L21.2 21.2 L20 40 L18.8 21.2 L0 20 L18.8 18.8Z M7 7 L20.6 19.4 L33 7 L20.6 20.6 L33 33 L19.4 20.6 L7 33 L19.4 19.4Z" />
+  </svg>
+)
+
+function SnackStall({ s }) {
+  return (
+    <article className={`perf perf--snack perf--${s.key}`} id={`carnival-${s.key}`} aria-labelledby={`perf-${s.key}`}>
+      <span className="cdecor" aria-hidden="true">
+        <Twinkle className="csnack__star--a" /><Twinkle className="csnack__star--b" /><Twinkle className="csnack__star--c" />
+      </span>
+      <Sparks />
+      <figure className="perf__photo csnack">
+        {s.dishes.map((d, i) => (
+          <span key={d.name} className="csnack__dish" style={{ '--d': i }}>
+            <img src={`/images/diwali/snack-${d.img}.webp`} alt={d.name} width="360" height="360" loading="lazy" />
+            <span className="csnack__pill">{d.name}</span>
+          </span>
+        ))}
+      </figure>
+      <div className="perf__body">
+        <h3 id={`perf-${s.key}`}>“{s.title}”</h3>
+        <p className="perf__sub">Snack First, Chill Later</p>
+        <p className="perf__by">Food stall at the <strong>carnival</strong></p>
+        <p className="perf__text">{s.text}</p>
+        <ul className="csnack__menu">
+          {s.dishes.map((d) => (
+            <li key={d.name}>
+              <span className="csnack__name">{d.name}</span>
+              <Taste label="Spicy" level={d.spicy} />
+              <Taste label="Salty" level={d.salty} />
+              <Taste label="Sweet" level={d.sweet} />
+            </li>
+          ))}
+        </ul>
+        <p className="perf__zh" lang="zh-Hant">{s.zh}</p>
+      </div>
+    </article>
+  )
+}
 
 const FAN = [-34, -17, 0, 17, 34]
 const RAYS = Array.from({ length: 28 }, (_, i) => i * (360 / 28))
@@ -66,6 +143,8 @@ export default function CarnivalFeatures() {
           <p className="perf__zh" lang="zh-Hant">塔羅牌占卜，以及象神、迦梨女神與天使神諭卡解讀。坐下來抽一張牌，享受一段輕鬆有趣的占卜時光。</p>
         </div>
       </article>
+
+      {SNACK_STALLS.map((st) => <SnackStall key={st.key} s={st} />)}
     </div>
   )
 }
