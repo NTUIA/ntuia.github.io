@@ -1212,7 +1212,7 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 @keyframes csnack-twinkle { 0%, 100% { transform: scale(.85) rotate(0); opacity: .7; } 50% { transform: scale(1.1) rotate(20deg); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .csnack__dish, .csnack__star, .taste__dots i.on { animation: none !important; } }
 @media (max-width: 760px) { .csnack__name { flex-basis: 100%; } .csnack { margin-top: 14px; } }
-/* Carnival cards: no neon flicker, glow or sparks; the photos simply appear. */
-.perfs--carnival .perf__sparks, .perfs--carnival .perf__photo::before, .perfs--carnival .perf__photo::after { display: none; }
-.perfs--carnival .perf.rv-in .perf__photo img, .perfs--carnival .perf:not(.rv) .perf__photo img { animation: none; }
-.perfs--carnival .perf.rv:not(.rv-in) .perf__photo img { opacity: 1; }
+/* Performer and carnival cards: no neon flicker, glow or sparks; the photos simply appear. */
+.perfs .perf__sparks, .perfs .perf__photo::before, .perfs .perf__photo::after { display: none; }
+.perfs .perf.rv-in .perf__photo img, .perfs .perf:not(.rv) .perf__photo img { animation: none; }
+.perfs .perf.rv:not(.rv-in) .perf__photo img { opacity: 1; }
