@@ -6,7 +6,7 @@ import { Diya } from './Decorations.jsx'
 
 // Things that slide in as they scroll into view. Children of the same parent
 // come in one after another.
-const REVEAL = '.dsec__head, .perf, .perfs__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div, .mstall__head, .mstall__card'
+const REVEAL = '.dsec__head, .perf, .perfs__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div, .mstall__head, .mstall__card, .tstall__head, .tstall__card'
 
 export function useReveal() {
   useEffect(() => {
