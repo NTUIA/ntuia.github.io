@@ -11,7 +11,7 @@ export default function DiwaliStalls() {
   return (
     <>
     <section className="mstall" id="stalls" aria-labelledby="mstall-title">
-      <img className="mstall__mandala" src="/images/diwali/mehndi-mandala.webp" alt="" aria-hidden="true" width="470" height="470" loading="lazy" />
+      <img className="mstall__mandala" src="/images/diwali/mehndi-mandala.webp" alt="" aria-hidden="true" width="600" height="600" loading="lazy" />
       <img className="mstall__leaf mstall__leaf--l" src="/images/diwali/mehndi-leaf-l.webp" alt="" aria-hidden="true" loading="lazy" />
       <img className="mstall__leaf mstall__leaf--r" src="/images/diwali/mehndi-leaf-r.webp" alt="" aria-hidden="true" loading="lazy" />
 

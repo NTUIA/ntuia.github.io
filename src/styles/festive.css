@@ -1118,7 +1118,7 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 /* ---------- Stalls: Mehndi (styled after the stall's cream-and-green poster) ---------- */
 .mstall { --mg: #2a3322; --mcream: #f4ece5; position: relative; overflow: hidden; background: var(--mcream); color: var(--mg); padding: clamp(56px, 8vw, 96px) 0 clamp(110px, 14vw, 160px); line-height: 1.65; }
 .mstall::after { content: ''; position: absolute; left: -10%; right: -10%; bottom: -70px; height: 150px; background: var(--mg); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
-.mstall__mandala { position: absolute; top: -70px; left: -80px; width: clamp(220px, 30vw, 380px); height: auto; opacity: .85; pointer-events: none; animation: mstall-spin 90s linear infinite; }
+.mstall__mandala { position: absolute; top: 0; left: 0; translate: -38% -38%; width: clamp(260px, 34vw, 460px); height: auto; opacity: .8; pointer-events: none; animation: mstall-spin 90s linear infinite; }
 .mstall__leaf { position: absolute; bottom: 70px; width: clamp(80px, 10vw, 130px); height: auto; opacity: .7; pointer-events: none; z-index: 1; }
 .mstall__leaf--l { left: 0; } .mstall__leaf--r { right: 0; }
 .mstall__inner { position: relative; z-index: 2; }
