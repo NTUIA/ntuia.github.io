@@ -1,3 +1,4 @@
+import CarnivalFeatures from './CarnivalFeatures.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { carnival, dj, highlights, mains, performances, moreActsComing, sharedDishes, welcome } from '../../data/diwaliProgram.js'
 import { events } from '../../data/events.js'
@@ -6,7 +7,7 @@ import { Diya } from './Decorations.jsx'
 
 // Things that slide in as they scroll into view. Children of the same parent
 // come in one after another.
-const REVEAL = '.dsec__head, .perf, .perfs__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div, .mstall__head, .mstall__card, .tstall__head, .tstall__card'
+const REVEAL = '.dsec__head, .perf, .perfs__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div'
 
 export function useReveal() {
   useEffect(() => {
@@ -36,7 +37,6 @@ const JUMPS = [
   ['#food', 'Food'],
   ['#carnival', 'Carnival'],
   ['#details', 'Event details'],
-  ['#stalls', 'Stalls'],
 ]
 
 // Sliding strip of highlights under the banner, then quick links to each section.
@@ -302,7 +302,8 @@ export function DiwaliCarnival() {
         <Heading eyebrow="The carnival" title="A little colour." accent="A little wonder.">
           Explore between performances. Find a new look, a playful moment or a little mystery.
         </Heading>
-        <div className="dcards dcards--four">
+        <CarnivalFeatures />
+        <div className="dcards dcards--two">
           {carnival.map((c) => {
             const Art = programArt[c.key]
             return (

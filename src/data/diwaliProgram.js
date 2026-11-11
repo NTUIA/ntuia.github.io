@@ -129,9 +129,8 @@ export const welcome = {
   ],
 }
 
+// Henna and tarot have their own feature cards (CarnivalFeatures.jsx); these are the rest.
 export const carnival = [
-  { key: 'henna', kicker: 'Tradition in every detail', title: 'Henna and mehndi', text: 'Celebrate with beautiful henna designs and a touch of festive artistry.' },
-  { key: 'tarot', kicker: 'A moment of mystery', title: 'Tarot card reading', text: 'Take a seat, pick a card and enjoy a light-hearted reading.' },
   { key: 'paint', kicker: 'Wear your festive spirit', title: 'Face painting', text: 'Add a splash of colour with playful designs that bring your celebration to life.' },
   { key: 'booth', kicker: 'Strike a pose', title: 'Diwali photo booth', text: 'Festive backdrops, playful props and your favourite people. Take a little of the glow home.' },
 ]

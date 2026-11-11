@@ -1114,79 +1114,6 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
   .perf__photo::after { display: none; }
   .perf__photo::before { opacity: .3; animation: none !important; }
 }
-
-/* ---------- Stalls: Mehndi (styled after the stall's cream-and-green poster) ---------- */
-.mstall { --mg: #2a3322; --mcream: #f4ece5; position: relative; overflow: hidden; background: var(--mcream); color: var(--mg); padding: clamp(56px, 8vw, 96px) 0 clamp(110px, 14vw, 160px); line-height: 1.65; }
-.mstall::after { content: ''; position: absolute; left: -10%; right: -10%; bottom: -70px; height: 150px; background: var(--mg); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
-.mstall__mandala { position: absolute; top: 0; left: 0; translate: -38% -38%; width: clamp(260px, 34vw, 460px); height: auto; opacity: .8; pointer-events: none; animation: mstall-spin 90s linear infinite; }
-.mstall__leaf { position: absolute; bottom: 70px; width: clamp(80px, 10vw, 130px); height: auto; opacity: .7; pointer-events: none; z-index: 1; }
-.mstall__leaf--l { left: 0; } .mstall__leaf--r { right: 0; }
-.mstall__inner { position: relative; z-index: 2; }
-.mstall__head { text-align: center; max-width: 620px; margin: 0 auto 44px; }
-.mstall__pill { display: inline-block; background: var(--mg); color: var(--mcream); border-radius: 999px; padding: 6px 22px; font-size: .82rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.mstall__head h2 { font-family: 'Cinzel', var(--font-serif); font-weight: 600; font-size: clamp(3rem, 9vw, 5.6rem); letter-spacing: .06em; text-transform: uppercase; line-height: 1; margin: 18px 0 6px; color: #15180f; }
-.mstall__sub { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 0 18px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: clamp(.85rem, 2vw, 1.05rem); }
-.mstall__sub svg { width: clamp(50px, 12vw, 110px); height: 14px; fill: none; stroke: var(--mg); stroke-width: 1.4; stroke-linecap: round; }
-.mstall__lede { margin: 0 auto; max-width: 48ch; color: #4a5240; }
-.mstall__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 28px); align-items: end; }
-.mstall__card { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.mstall__card:nth-child(even) { transform: translateY(26px); }
-.mstall__frame { position: relative; display: block; width: 100%; aspect-ratio: 3 / 4; padding: 6px; border: 2px solid var(--mg); border-radius: 999px 999px 22px 22px; background: var(--mcream); box-shadow: 0 18px 34px -22px rgba(42, 51, 34, .6); }
-.mstall__frame img { position: absolute; inset: 6px; display: block; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: cover; border-radius: 999px 999px 16px 16px; transition: transform .5s ease; }
-.mstall__card:hover .mstall__frame img { transform: scale(1.04); }
-.mstall__label { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; text-align: center; }
-@keyframes mstall-spin { to { transform: rotate(360deg); } }
-/* Motion: floating arches, swaying leaves, twinkling sparks, a light sweep across each photo, and the flourish lines drawing in. */
-.mstall__frame { animation: mstall-float 6s ease-in-out infinite; animation-delay: calc(var(--d) * -1.5s); overflow: hidden; transition: box-shadow .4s ease; }
-.mstall__frame::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(255, 244, 214, .45) 50%, transparent 65%); transform: translateX(-120%); animation: mstall-sheen 7s ease-in-out infinite; animation-delay: calc(var(--d) * 1.2s + 1s); }
-.mstall__card:hover .mstall__frame { animation-play-state: paused; box-shadow: 0 26px 44px -22px rgba(42, 51, 34, .75); }
-.mstall__leaf--l { transform-origin: 0 100%; animation: mstall-sway 7s ease-in-out infinite; }
-.mstall__leaf--r { transform-origin: 100% 100%; animation: mstall-sway 8s ease-in-out infinite reverse; }
-.mstall__sub svg path { stroke-dasharray: 130; stroke-dashoffset: 130; animation: mstall-draw 2.2s ease-out .4s forwards; }
-.mstall__pill { position: relative; overflow: hidden; }
-.mstall__pill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .35) 50%, transparent 70%); transform: translateX(-120%); animation: mstall-sheen 5s ease-in-out 1.5s infinite; }
-.mstall__head h2 { animation: mstall-glow 5s ease-in-out infinite; }
-.mstall__sparks { position: absolute; inset: 0; pointer-events: none; }
-.mstall__spark { position: absolute; color: #8a6a1f; font-size: .9rem; opacity: 0; animation: stall-twinkle 3s ease-in-out infinite; }
-.mstall__spark--1 { left: 6%; top: 46%; } .mstall__spark--2 { left: 22%; top: 40%; animation-delay: -.6s; font-size: .7rem; }
-.mstall__spark--3 { left: 40%; top: 44%; animation-delay: -1.2s; } .mstall__spark--4 { left: 58%; top: 39%; animation-delay: -1.8s; font-size: .7rem; }
-.mstall__spark--5 { left: 76%; top: 45%; animation-delay: -2.4s; } .mstall__spark--6 { left: 93%; top: 41%; animation-delay: -.3s; font-size: .7rem; }
-.mstall__spark--7 { left: 80%; top: 8%; animation-delay: -1.5s; }
-@keyframes mstall-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-@keyframes mstall-sheen { 0%, 60% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
-@keyframes mstall-sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg); } }
-@keyframes mstall-draw { to { stroke-dashoffset: 0; } }
-@keyframes mstall-glow { 0%, 100% { text-shadow: 0 0 0 rgba(201, 150, 43, 0); } 50% { text-shadow: 0 0 22px rgba(201, 150, 43, .35); } }
-@media (max-width: 760px) {
-  .mstall__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 34px; }
-  .mstall__mandala { opacity: .35; }
-  .mstall__leaf { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .mstall__mandala, .mstall__frame, .mstall__frame::after, .mstall__leaf, .mstall__pill::after, .mstall__head h2, .mstall__spark { animation: none; }
-  .mstall__sub svg path { animation: none; stroke-dashoffset: 0; }
-}
-
-/* ---------- Stalls: Tarot & Oracle (styled after the stall's purple-and-cream poster) ---------- */
-.tstall { --tc: #fce7b6; --tp: #2a0b45; position: relative; overflow: hidden; color: var(--tc); text-align: center; line-height: 1.65; padding: clamp(64px, 9vw, 110px) 0 0;
-  background: radial-gradient(ellipse at 30% 0%, #5a1a8f 0%, transparent 60%), radial-gradient(ellipse at 80% 40%, #3f1270 0%, transparent 55%), linear-gradient(180deg, #34105a 0%, #1d0833 60%, #0e0418 100%); }
-.tstall::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .5; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .06' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .3 0 0 0 0 .9 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"); }
-.tstall__inner { position: relative; z-index: 2; }
-.tstall__star { position: absolute; z-index: 1; width: clamp(70px, 11vw, 150px); height: auto; pointer-events: none; animation: tstall-pulse 5s ease-in-out infinite; }
-.tstall__star--tl { top: 14px; left: 14px; } .tstall__star--tr { top: 14px; right: 14px; animation-delay: -1.2s; }
-.tstall__star--bl { bottom: 14px; left: 14px; animation-delay: -2.4s; } .tstall__star--br { bottom: 14px; right: 14px; animation-delay: -3.6s; }
-.tstall__twinkles { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
-.tstall__tw { position: absolute; color: var(--tc); font-size: .8rem; opacity: 0; text-shadow: 0 0 8px rgba(252, 231, 182, .8); animation: stall-twinkle 3.2s ease-in-out infinite; }
-.tstall__tw--1 { left: 12%; top: 30%; } .tstall__tw--2 { left: 85%; top: 24%; animation-delay: -.8s; } .tstall__tw--3 { left: 20%; top: 58%; animation-delay: -1.6s; font-size: .6rem; }
-.tstall__tw--4 { left: 78%; top: 62%; animation-delay: -2.4s; } .tstall__tw--5 { left: 50%; top: 8%; animation-delay: -.4s; font-size: .6rem; } .tstall__tw--6 { left: 6%; top: 78%; animation-delay: -1.2s; }
-.tstall__tw--7 { left: 93%; top: 82%; animation-delay: -2s; font-size: .6rem; } .tstall__tw--8 { left: 35%; top: 44%; animation-delay: -2.8s; font-size: .6rem; }
-.tstall__pill { display: inline-block; border: 1.5px solid var(--tc); border-radius: 999px; padding: 5px 20px; font-size: .8rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
-.tstall__head h2 { font-family: 'Cinzel', var(--font-serif); font-weight: 700; font-size: clamp(2.6rem, 8vw, 5rem); letter-spacing: .05em; line-height: 1.05; margin: 18px 0 4px; color: var(--tc); text-shadow: 0 0 24px rgba(252, 231, 182, .25); animation: tstall-glow 5s ease-in-out infinite; }
-.tstall__head h2 span { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
-.tstall__sub { margin: 0; font-family: 'Cinzel', var(--font-serif); font-weight: 600; letter-spacing: .2em; text-transform: uppercase; font-size: clamp(.9rem, 2.2vw, 1.2rem); }
-.tstall__by { margin: 6px 0 0; font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; opacity: .9; }
-.tstall__by strong { font-style: normal; font-weight: 400; font-family: 'Cinzel', var(--font-serif); letter-spacing: .06em; }
-.tstall__fan { position: relative; width: min(560px, 92%); aspect-ratio: 2 / 1.05; margin: 40px auto 56px; }
 /* Each card pivots on a point below the deck: the fan closes into a stack, opens again, and the middle card flips to show its face. */
 .tcard { position: absolute; left: 39%; bottom: 0; width: 22%; aspect-ratio: 2 / 3; transform-origin: 50% 135%; rotate: var(--a); z-index: calc(10 - (var(--i) - 2) * (var(--i) - 2)); perspective: 700px; filter: drop-shadow(0 0 10px rgba(252, 231, 182, .22)); animation: tcard-fan 9s cubic-bezier(.6, 0, .3, 1) infinite; transition: translate .3s ease; }
 .tcard--mid { z-index: 20; }
@@ -1209,24 +1136,47 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 @keyframes tcard-fan { 0%, 8% { rotate: var(--a); } 20%, 30% { rotate: 0deg; } 44%, 100% { rotate: var(--a); } }
 @keyframes tcard-flip { 0%, 50% { transform: rotateY(0); } 58%, 82% { transform: rotateY(180deg) translateY(-6px); } 90%, 100% { transform: rotateY(360deg); } }
 @keyframes tcard-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-.tstall__lede { max-width: 50ch; margin: 0 auto 36px; color: rgba(252, 231, 182, .85); }
-.tstall__cards { list-style: none; margin: 0 auto; padding: 0; max-width: 900px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 26px); }
-.tstall__card { position: relative; padding: 30px 20px 26px; border: 1.5px solid var(--tc); border-radius: 16px; background: rgba(20, 5, 35, .55); transition: transform .35s ease, box-shadow .35s ease; }
-.tstall__card::before { content: ''; position: absolute; inset: 6px; border: 1px dashed rgba(252, 231, 182, .6); border-radius: 11px; pointer-events: none; }
-.tstall__card:nth-child(1) { transform: rotate(-3deg); } .tstall__card:nth-child(3) { transform: rotate(3deg); }
-.tstall__card:hover { transform: translateY(-8px) rotate(0); box-shadow: 0 0 30px rgba(252, 231, 182, .3); }
-.tstall__icon { display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid var(--tc); font-size: 1.5rem; box-shadow: 0 0 0 5px rgba(252, 231, 182, .08); animation: tstall-orb 4s ease-in-out infinite; animation-delay: calc(var(--d) * -1.3s); }
-.tstall__card h3 { font-family: 'Cinzel', var(--font-serif); font-weight: 700; font-size: 1.12rem; letter-spacing: .04em; margin: 14px 0 6px; color: var(--tc); }
-.tstall__card p { margin: 0; font-size: .95rem; color: rgba(252, 231, 182, .8); }
-.tstall__hand { display: block; width: clamp(150px, 20vw, 220px); height: auto; margin: 46px auto 0; animation: tstall-hand 5s ease-in-out infinite; }
-@keyframes tstall-pulse { 0%, 100% { transform: scale(1) rotate(0); opacity: .85; } 50% { transform: scale(1.08) rotate(8deg); opacity: 1; } }
-@keyframes tstall-glow { 0%, 100% { text-shadow: 0 0 14px rgba(252, 231, 182, .15); } 50% { text-shadow: 0 0 30px rgba(252, 231, 182, .5); } }
-@keyframes tstall-orb { 0%, 100% { box-shadow: 0 0 0 5px rgba(252, 231, 182, .08); } 50% { box-shadow: 0 0 0 9px rgba(252, 231, 182, .14), 0 0 22px rgba(252, 231, 182, .35); } }
-@keyframes tstall-hand { 0%, 100% { transform: translateY(6px); } 50% { transform: translateY(0); } }
-@media (max-width: 760px) {
-  .tstall__cards { grid-template-columns: 1fr; max-width: 360px; }
-  .tstall__card:nth-child(n) { transform: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .tstall__star, .tstall__tw, .tstall__head h2, .tcard, .tcard__inner, .tstall__icon, .tstall__hand { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { .tcard, .tcard__inner, .cmehndi__frame { animation: none; } }
+
+/* ---------- Carnival feature cards: mehndi and tarot, in the performer-card style ---------- */
+.perfs--carnival { margin-top: 8px; }
+.perf--mehndi { --tone: #2a3322; --neon: #9fbf7a; }
+.perf--tarot { --tone: #fce7b6; --neon: #a45cff; --tc: #fce7b6; }
+/* Each card keeps the look of its stall poster: cream with mandala and leaves for mehndi, deep purple with star bursts for tarot. */
+.perf--mehndi { background: #f4ece5; border-color: #c9bfa9; }
+.perf--tarot { background: radial-gradient(ellipse at 25% 0%, #5a1a8f 0%, transparent 60%), radial-gradient(ellipse at 85% 50%, #3f1270 0%, transparent 55%), linear-gradient(180deg, #34105a 0%, #1d0833 70%, #12051f 100%); border-color: #5b2a86; }
+.perf--mehndi .perf__photo, .perf--mehndi .perf__body, .perf--tarot .perf__photo, .perf--tarot .perf__body { position: relative; z-index: 1; }
+.cdecor { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; }
+.cdecor__mandala { position: absolute; top: 0; left: 0; width: clamp(200px, 26vw, 340px); height: auto; translate: -40% -40%; opacity: .5; animation: cdecor-spin 90s linear infinite; }
+.cdecor__leaf { position: absolute; bottom: 34px; width: clamp(60px, 7vw, 96px); height: auto; opacity: .6; }
+.cdecor__leaf--l { left: 0; transform-origin: 0 100%; animation: cdecor-sway 7s ease-in-out infinite; }
+.cdecor__leaf--r { right: 0; transform-origin: 100% 100%; animation: cdecor-sway 8s ease-in-out infinite reverse; }
+.cdecor__hill { position: absolute; left: -10%; right: -10%; bottom: -46px; height: 80px; background: #2a3322; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+.perf--mehndi .perf__body { padding-bottom: clamp(44px, 5vw, 56px); }
+.perf--mehndi .perf__by { color: #4a5240; }
+.perf--mehndi .perf__text, .perf--mehndi .perf__zh { filter: none; color: #3b4433; }
+.perf--mehndi .perf__body h3 { font-family: 'Cinzel', var(--font-display); }
+.cdecor__star { position: absolute; width: clamp(56px, 7vw, 96px); height: auto; animation: cdecor-pulse 5s ease-in-out infinite; }
+.cdecor__star--tl { top: 10px; left: 10px; } .cdecor__star--tr { top: 10px; right: 10px; animation-delay: -1.2s; }
+.cdecor__star--bl { bottom: 10px; left: 10px; animation-delay: -2.4s; } .cdecor__star--br { bottom: 10px; right: 10px; animation-delay: -3.6s; }
+.perf--tarot .perf__by { color: rgba(252, 231, 182, .8); }
+.perf--tarot .perf__text, .perf--tarot .perf__zh { filter: none; color: rgba(252, 231, 182, .88); }
+.perf--tarot .perf__body h3 { font-family: 'Cinzel', var(--font-display); text-shadow: 0 0 22px rgba(252, 231, 182, .3); }
+.perf--tarot .perf__sparks i { filter: hue-rotate(40deg) brightness(1.4); }
+@keyframes cdecor-spin { to { rotate: 360deg; } }
+@keyframes cdecor-sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg); } }
+@keyframes cdecor-pulse { 0%, 100% { transform: scale(1) rotate(0); opacity: .85; } 50% { transform: scale(1.08) rotate(8deg); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .cdecor__mandala, .cdecor__leaf, .cdecor__star { animation: none; } }
+/* Mehndi: the four design photos in arch frames, gently floating. */
+/* Same 3:2 picture area as the performer cards, so all the cards are one size. */
+.cmehndi, .ctarot { width: 100%; aspect-ratio: 3 / 2; }
+.cmehndi { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(8px, 1.2vw, 14px); padding: 0 clamp(18px, 2.6vw, 30px); align-content: center; place-items: center stretch; }
+.cmehndi__frame { display: block; aspect-ratio: 3 / 5; padding: 4px; border: 2px solid var(--tone); border-radius: 999px 999px 14px 14px; background: #f4ece5; overflow: hidden; animation: tcard-bob 5s ease-in-out infinite; animation-delay: calc(var(--d) * -1.2s); }
+.cmehndi__frame:nth-child(even) { translate: 0 22px; }
+.cmehndi__frame:nth-child(odd) { translate: 0 -10px; }
+.cmehndi .cmehndi__frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 999px 999px 10px 10px; -webkit-mask-image: none; mask-image: none; }
+/* Tarot: the animated fan of cards. */
+.ctarot { padding: 0 clamp(16px, 3vw, 30px); align-content: center; }
+.ctarot__fan { position: relative; width: 82%; max-width: 460px; aspect-ratio: 2 / 1.15; margin-top: -4%; }
+.perf--tarot .tcard { filter: drop-shadow(0 0 10px rgba(252, 231, 182, .25)); }
+@media (max-width: 760px) { .cdecor__leaf, .cdecor__star--br { display: none; } }
