@@ -28,7 +28,7 @@ const STALL_ART = [
 // "Call for Stalls" card at the end of the Diwali event page.
 export default function DiwaliCalls() {
   return (
-    <section className="calls" id="stalls" aria-labelledby="calls-title">
+    <section className="calls" id="stall-signup" aria-labelledby="calls-title">
       <div className="container">
         <header className="calls__head">
           <p className="calls__eyebrow">Jashn-e-Diwali 2026 at NTU</p>

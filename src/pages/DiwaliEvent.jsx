@@ -4,6 +4,7 @@ import DiwaliHero from '../components/festive/DiwaliHero.jsx'
 import RegisterButton from '../components/festive/RegisterButton.jsx'
 import RegisterDeadline from '../components/festive/RegisterDeadline.jsx'
 import DiwaliCalls from '../components/festive/DiwaliCalls.jsx'
+import DiwaliStalls from '../components/festive/DiwaliStalls.jsx'
 import { DiwaliCarnival, DiwaliHighlights, DiwaliMenu, DiwaliStage, ShareButton, useReveal } from '../components/festive/DiwaliProgram.jsx'
 import { events } from '../data/events.js'
 import { stallsOpen } from '../data/diwaliForms.js'
@@ -29,6 +30,7 @@ export default function DiwaliEvent() {
       <DiwaliStage />
       <DiwaliMenu />
       <DiwaliCarnival />
+      <DiwaliStalls />
       <section className="dsec dsec--details" id="details" aria-labelledby="details-title">
         <div className="dlanterns" aria-hidden="true">
           {[8, 22, 37, 63, 78, 92].map((x, i) => <span key={x} style={{ '--x': `${x}%`, '--i': i }} />)}

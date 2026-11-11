@@ -1114,3 +1114,55 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
   .perf__photo::after { display: none; }
   .perf__photo::before { opacity: .3; animation: none !important; }
 }
+
+/* ---------- Stalls: Mehndi (styled after the stall's cream-and-green poster) ---------- */
+.mstall { --mg: #2a3322; --mcream: #f4ece5; position: relative; overflow: hidden; background: var(--mcream); color: var(--mg); padding: clamp(56px, 8vw, 96px) 0 clamp(110px, 14vw, 160px); line-height: 1.65; }
+.mstall::after { content: ''; position: absolute; left: -10%; right: -10%; bottom: -70px; height: 150px; background: var(--mg); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+.mstall__mandala { position: absolute; top: -70px; left: -80px; width: clamp(220px, 30vw, 380px); height: auto; opacity: .85; pointer-events: none; animation: mstall-spin 90s linear infinite; }
+.mstall__leaf { position: absolute; bottom: 70px; width: clamp(80px, 10vw, 130px); height: auto; opacity: .7; pointer-events: none; z-index: 1; }
+.mstall__leaf--l { left: 0; } .mstall__leaf--r { right: 0; }
+.mstall__inner { position: relative; z-index: 2; }
+.mstall__head { text-align: center; max-width: 620px; margin: 0 auto 44px; }
+.mstall__pill { display: inline-block; background: var(--mg); color: var(--mcream); border-radius: 999px; padding: 6px 22px; font-size: .82rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.mstall__head h2 { font-family: 'Cinzel', var(--font-serif); font-weight: 600; font-size: clamp(3rem, 9vw, 5.6rem); letter-spacing: .06em; text-transform: uppercase; line-height: 1; margin: 18px 0 6px; color: #15180f; }
+.mstall__sub { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 0 18px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: clamp(.85rem, 2vw, 1.05rem); }
+.mstall__sub svg { width: clamp(50px, 12vw, 110px); height: 14px; fill: none; stroke: var(--mg); stroke-width: 1.4; stroke-linecap: round; }
+.mstall__lede { margin: 0 auto; max-width: 48ch; color: #4a5240; }
+.mstall__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 28px); align-items: end; }
+.mstall__card { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.mstall__card:nth-child(even) { transform: translateY(26px); }
+.mstall__frame { position: relative; display: block; width: 100%; aspect-ratio: 3 / 4; padding: 6px; border: 2px solid var(--mg); border-radius: 999px 999px 22px 22px; background: var(--mcream); box-shadow: 0 18px 34px -22px rgba(42, 51, 34, .6); }
+.mstall__frame img { position: absolute; inset: 6px; display: block; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: cover; border-radius: 999px 999px 16px 16px; transition: transform .5s ease; }
+.mstall__card:hover .mstall__frame img { transform: scale(1.04); }
+.mstall__label { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; text-align: center; }
+@keyframes mstall-spin { to { transform: rotate(360deg); } }
+/* Motion: floating arches, swaying leaves, twinkling sparks, a light sweep across each photo, and the flourish lines drawing in. */
+.mstall__frame { animation: mstall-float 6s ease-in-out infinite; animation-delay: calc(var(--d) * -1.5s); overflow: hidden; transition: box-shadow .4s ease; }
+.mstall__frame::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(255, 244, 214, .45) 50%, transparent 65%); transform: translateX(-120%); animation: mstall-sheen 7s ease-in-out infinite; animation-delay: calc(var(--d) * 1.2s + 1s); }
+.mstall__card:hover .mstall__frame { animation-play-state: paused; box-shadow: 0 26px 44px -22px rgba(42, 51, 34, .75); }
+.mstall__leaf--l { transform-origin: 0 100%; animation: mstall-sway 7s ease-in-out infinite; }
+.mstall__leaf--r { transform-origin: 100% 100%; animation: mstall-sway 8s ease-in-out infinite reverse; }
+.mstall__sub svg path { stroke-dasharray: 130; stroke-dashoffset: 130; animation: mstall-draw 2.2s ease-out .4s forwards; }
+.mstall__pill { position: relative; overflow: hidden; }
+.mstall__pill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .35) 50%, transparent 70%); transform: translateX(-120%); animation: mstall-sheen 5s ease-in-out 1.5s infinite; }
+.mstall__head h2 { animation: mstall-glow 5s ease-in-out infinite; }
+.mstall__sparks { position: absolute; inset: 0; pointer-events: none; }
+.mstall__spark { position: absolute; color: #8a6a1f; font-size: .9rem; opacity: 0; animation: stall-twinkle 3s ease-in-out infinite; }
+.mstall__spark--1 { left: 6%; top: 46%; } .mstall__spark--2 { left: 22%; top: 40%; animation-delay: -.6s; font-size: .7rem; }
+.mstall__spark--3 { left: 40%; top: 44%; animation-delay: -1.2s; } .mstall__spark--4 { left: 58%; top: 39%; animation-delay: -1.8s; font-size: .7rem; }
+.mstall__spark--5 { left: 76%; top: 45%; animation-delay: -2.4s; } .mstall__spark--6 { left: 93%; top: 41%; animation-delay: -.3s; font-size: .7rem; }
+.mstall__spark--7 { left: 80%; top: 8%; animation-delay: -1.5s; }
+@keyframes mstall-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes mstall-sheen { 0%, 60% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+@keyframes mstall-sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg); } }
+@keyframes mstall-draw { to { stroke-dashoffset: 0; } }
+@keyframes mstall-glow { 0%, 100% { text-shadow: 0 0 0 rgba(201, 150, 43, 0); } 50% { text-shadow: 0 0 22px rgba(201, 150, 43, .35); } }
+@media (max-width: 760px) {
+  .mstall__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 34px; }
+  .mstall__mandala { opacity: .35; }
+  .mstall__leaf { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mstall__mandala, .mstall__frame, .mstall__frame::after, .mstall__leaf, .mstall__pill::after, .mstall__head h2, .mstall__spark { animation: none; }
+  .mstall__sub svg path { animation: none; stroke-dashoffset: 0; }
+}

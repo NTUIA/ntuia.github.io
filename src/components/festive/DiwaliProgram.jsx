@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { carnival, dj, highlights, mains, performances, moreActsComing, sharedDishes, welcome } from '../../data/diwaliProgram.js'
 import { events } from '../../data/events.js'
-import { stallsOpen } from '../../data/diwaliForms.js'
 import { programArt } from './ProgramArt.jsx'
 import { Diya } from './Decorations.jsx'
 
 // Things that slide in as they scroll into view. Children of the same parent
 // come in one after another.
-const REVEAL = '.dsec__head, .perf, .perfs__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div'
+const REVEAL = '.dsec__head, .perf, .perfs__head, .calls__head, .call, .dcard, .chalk-steps, .chalk-intro, .chalk-head, .chalk-dish, .chalk-tabs, .chalk-warn, .ddetails > *, .ddetails__facts > div, .mstall__head, .mstall__card'
 
 export function useReveal() {
   useEffect(() => {
@@ -37,7 +36,7 @@ const JUMPS = [
   ['#food', 'Food'],
   ['#carnival', 'Carnival'],
   ['#details', 'Event details'],
-  ...(stallsOpen ? [['#stalls', 'Stalls']] : []),
+  ['#stalls', 'Stalls'],
 ]
 
 // Sliding strip of highlights under the banner, then quick links to each section.
