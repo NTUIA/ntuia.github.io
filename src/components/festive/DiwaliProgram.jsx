@@ -1,8 +1,7 @@
 import CarnivalFeatures from './CarnivalFeatures.jsx'
 import { useEffect, useRef, useState } from 'react'
-import { carnival, dj, highlights, mains, performances, moreActsComing, sharedDishes, welcome } from '../../data/diwaliProgram.js'
+import { dj, highlights, mains, performances, moreActsComing, sharedDishes, welcome } from '../../data/diwaliProgram.js'
 import { events } from '../../data/events.js'
-import { programArt } from './ProgramArt.jsx'
 import { Diya } from './Decorations.jsx'
 
 // Things that slide in as they scroll into view. Children of the same parent
@@ -300,24 +299,9 @@ export function DiwaliCarnival() {
     <section className="dsec" id="carnival" aria-label="The carnival">
       <div className="container">
         <Heading eyebrow="The carnival" title="A little colour." accent="A little wonder.">
-          Explore between performances. Find a new look, a playful moment or a little mystery.
+          Explore between performances. Get a henna design, ask the tarot cards, and grab something tasty to snack on.
         </Heading>
         <CarnivalFeatures />
-        <div className="dcards dcards--two">
-          {carnival.map((c) => {
-            const Art = programArt[c.key]
-            return (
-              <article key={c.key} className={`dcard dcard--${c.key}`}>
-                <div className="dcard__art dcard__art--small"><Art /></div>
-                <div className="dcard__body">
-                  <p className="dcard__kicker">{c.kicker}</p>
-                  <h3>{c.title}</h3>
-                  <p>{c.text}</p>
-                </div>
-              </article>
-            )
-          })}
-        </div>
       </div>
     </section>
   )

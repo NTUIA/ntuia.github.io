@@ -1,7 +1,7 @@
 // What happens at Jashn-e-Diwali 2026: the stage, the menu and the carnival.
 // Shown on the Diwali event page. Chinese lines are for our Taiwanese guests.
 
-export const highlights = ['Dance and live music', 'Indian food', 'Henna and tarot', 'DJ night', 'Photo booth', 'Festive stalls']
+export const highlights = ['Dance and live music', 'Indian food', 'Henna and tarot', 'DJ night', 'Snack stalls']
 
 // More acts are coming but not announced yet. While true, a "more performers on
 // the way" card shows after the line-up (it never says how many). Add each act
@@ -128,12 +128,6 @@ export const welcome = {
     { name: 'Fruit juice', zh: '果汁', image: '/images/food/fruit-juice.webp' },
   ],
 }
-
-// Henna and tarot have their own feature cards (CarnivalFeatures.jsx); these are the rest.
-export const carnival = [
-  { key: 'paint', kicker: 'Wear your festive spirit', title: 'Face painting', text: 'Add a splash of colour with playful designs that bring your celebration to life.' },
-  { key: 'booth', kicker: 'Strike a pose', title: 'Diwali photo booth', text: 'Festive backdrops, playful props and your favourite people. Take a little of the glow home.' },
-]
 
 // "Happy Diwali" in the 22 scheduled languages of India, English, Bhojpuri,
 // Rajasthani and Chinese for our Taiwanese guests. Just the two words, not longer

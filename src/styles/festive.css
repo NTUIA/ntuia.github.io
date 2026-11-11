@@ -1139,7 +1139,7 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 @media (prefers-reduced-motion: reduce) { .tcard, .tcard__inner, .cmehndi__frame { animation: none; } }
 
 /* ---------- Carnival feature cards: mehndi and tarot, in the performer-card style ---------- */
-.perfs--carnival { margin-top: 8px; }
+.perfs--carnival { margin-top: 8px; margin-bottom: 0; }
 .perf--mehndi { --tone: #2a3322; --neon: #9fbf7a; }
 .perf--tarot { --tone: #fce7b6; --neon: #a45cff; --tc: #fce7b6; }
 /* Each card keeps the look of its stall poster: cream with mandala and leaves for mehndi, deep purple with star bursts for tarot. */
