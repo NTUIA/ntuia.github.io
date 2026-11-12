@@ -105,6 +105,13 @@ function Performances() {
             <h3 id={`perf-${p.key}`}>“{p.title}”</h3>
             <p className="perf__sub">{p.type || 'Dance Performance'}</p>
             <p className="perf__by">Performed by <strong>{p.performers.join(' & ')}</strong></p>
+            {p.guide && (
+              <p className="perf__guide">
+                Under the guidance of{' '}
+                <a href={p.guide.link} target="_blank" rel="noopener noreferrer"><strong>{p.guide.name}</strong> <span lang="zh-Hant">({p.guide.zh})</span></a>
+                , {p.guide.note}
+              </p>
+            )}
             <p className="perf__text">{p.text}</p>
             <p className="perf__zh" lang="zh-Hant">{p.zh}</p>
           </div>
