@@ -21,7 +21,7 @@ export const pastCommittees = [
     members: [
       { name: 'Bharanitharan J', role: 'President', photo: '/images/team/past/2025/bharani.webp' },
       { name: 'Subhash Magapu', role: 'Vice President', photo: '/images/team/past/2025/subhash.webp' },
-      { name: 'Selva Brindha', role: 'Secretariat', photo: '/images/team/past/2025/selva.webp' },
+      { name: 'Selva Brindha', role: 'Secretary', photo: '/images/team/past/2025/selva.webp' },
       { name: 'Akarsth (AK)', role: 'Event Coordinator', photo: '/images/team/past/2025/akarsth.webp' },
       { name: 'Maharshi', role: 'Treasurer', photo: '/images/team/past/2025/maharshi.webp' },
     ],
