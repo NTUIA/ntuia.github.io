@@ -31,7 +31,7 @@ export const pastCommittees = [
     members: [
       { name: 'Ranvijay Singh', role: 'President', photo: '/images/team/past/2024/ranvijay.webp' },
       { name: 'Ankit Saraswat', role: 'Vice President', photo: '/images/team/past/2024/ankit.webp' },
-      { name: 'Logeshwaran Venkatesapandian', role: 'Secretariat', photo: '/images/team/past/2024/logeshwaran.webp' },
+      { name: 'Logeshwaran Venkatesapandian', role: 'Secretary', photo: '/images/team/past/2024/logeshwaran.webp' },
       { name: 'Papiya Bhattacharya', role: 'Event Coordinator', photo: '/images/team/past/2024/papiya.webp' },
       { name: 'Sumangaladevi K.', role: 'Treasurer', photo: '/images/team/past/2024/sumangaladevi.webp' },
     ],
