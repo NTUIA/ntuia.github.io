@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { deadlineExtended, registrationDeadline, registrationOpen } from '../../data/diwaliForms.js'
+import { deadlineExtended, registrationDeadline, registrationFull, registrationOpen } from '../../data/diwaliForms.js'
 
 // Registration closes at the end of the deadline day, Taiwan time.
 const CLOSES = new Date(`${registrationDeadline}T23:59:59+08:00`).getTime()
@@ -18,7 +18,7 @@ export default function RegisterDeadline() {
   }, [])
 
   const left = CLOSES - now
-  if (!registrationOpen || left <= 0) return null
+  if (registrationFull || !registrationOpen || left <= 0) return null
 
   const date = new Date(CLOSES)
   const part = (o) => date.toLocaleDateString('en-GB', { timeZone: 'Asia/Taipei', ...o })

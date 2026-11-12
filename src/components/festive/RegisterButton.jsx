@@ -1,10 +1,18 @@
 import { useRef } from 'react'
-import { registrationOpen } from '../../data/diwaliForms.js'
+import { registrationFull, registrationOpen } from '../../data/diwaliForms.js'
 
 // "Register now" first opens a short notice with help for booking and payment
 // problems, then "Continue to registration" goes on to the form.
 export default function RegisterButton() {
   const dialog = useRef(null)
+
+  if (registrationFull) {
+    return (
+      <span className="btn btn--full" role="status">
+        <span className="btn--full__diya" aria-hidden="true">🪔</span><span className="btn--full__text"><strong>Thank you, we are fully booked</strong><small>Registration is now closed</small></span>
+      </span>
+    )
+  }
 
   if (!registrationOpen) {
     return (

@@ -377,6 +377,10 @@
 .btn--soon { display: inline-flex; align-items: center; gap: 10px; background: #fffaf0; color: var(--primary); border: 2px dashed var(--accent); cursor: default; font: inherit; font-weight: 700; }
 .btn--soon__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 0 rgba(232, 115, 12, 0.6); animation: soon-pulse 1.8s ease-out infinite; }
 @keyframes soon-pulse { 0% { box-shadow: 0 0 0 0 rgba(232, 115, 12, 0.6); } 100% { box-shadow: 0 0 0 12px rgba(232, 115, 12, 0); } }
+.btn--full { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #f7c948, #e8730c); color: #3d0a26; border: 2px solid #f7c948; cursor: default; font: inherit; font-weight: 700; box-shadow: 0 6px 18px rgba(232, 115, 12, 0.3); }
+.btn--full__diya { font-size: 1.15em; line-height: 1; }
+.btn--full__text { display: grid; text-align: left; line-height: 1.2; }
+.btn--full__text small { font-size: .78em; font-weight: 600; opacity: .8; }
 .dhero--night .btn--soon { background: transparent; color: #ffd98a; border-color: #ffd98a; }
 @media (prefers-reduced-motion: reduce) { .btn--soon__dot { animation: none; } }
 

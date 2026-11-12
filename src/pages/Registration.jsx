@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { diwaliRegistration, registrationOpen } from '../data/diwaliForms.js'
+import { diwaliRegistration, registrationFull, registrationOpen } from '../data/diwaliForms.js'
 
 // ntuia.org/registration: the Jashn-e-Diwali registration form, shown inside the
 // site so the address bar stays on ntuia.org. The form fills the screen below the
@@ -47,6 +47,23 @@ export default function Registration() {
       window.removeEventListener('pageshow', onPageShow)
     }
   }, [])
+
+  if (registrationFull) {
+    return (
+      <section className="registration registration--closed" aria-labelledby="reg-title">
+        <div className="container registration__soon registration__full">
+          <span className="registration__diya" aria-hidden="true">🪔</span>
+          <p className="registration__kicker">Jashn-e-Diwali 2026</p>
+          <h1 id="reg-title">Thank you!</h1>
+          <p className="registration__lead">We are fully booked</p>
+          <p>We are truly grateful for your warm response. All places for Jashn-e-Diwali 2026 have now been filled, so registration is closed.</p>
+          <p>If you have registered, we look forward to welcoming you on Sunday, 15 November, from 6 PM at Boya Building 103. If you missed out this time, we are sorry and hope to see you at our next event.</p>
+          <p lang="zh-Hant">衷心感謝大家的熱情支持！本次活動名額已滿，報名已截止。已報名的朋友，期待11月15日與您相見；這次未能報名的朋友，也期待在下次活動與您相會。</p>
+          <Link reloadDocument to="/events/jashn-e-diwali-2026" className="link-arrow">Diwali event details</Link>
+        </div>
+      </section>
+    )
+  }
 
   if (!registrationOpen) {
     return (

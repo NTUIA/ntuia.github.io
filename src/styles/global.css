@@ -388,5 +388,10 @@ button.btn { font-family: inherit; }
 .registration__soon h1 { margin: 0; color: #fbe9d4; font-size: clamp(1.6rem, 4vw, 2.4rem); }
 .registration__soon p { margin: 0; color: #f0d9c2; font-size: 1.1rem; }
 .registration__soon .link-arrow { color: #f2c14e; }
+.registration__full { gap: 12px; max-width: 640px; margin-inline: auto; }
+.registration__diya { font-size: 3rem; line-height: 1; filter: drop-shadow(0 0 18px rgba(247, 201, 72, .7)); }
+.registration__kicker { margin: 0; font-size: .85rem !important; letter-spacing: .2em; text-transform: uppercase; color: #f2c14e !important; }
+.registration__full h1 { font-size: clamp(2rem, 6vw, 3.2rem); color: #f7c948; }
+.registration__lead { margin-top: -6px !important; font-size: clamp(1.25rem, 3vw, 1.6rem) !important; font-weight: 600; color: #fbe9d4 !important; }
 
 @media (prefers-reduced-motion: reduce) { .eyebrow::before, .footer__flag { background-image: var(--flag-still); } }
