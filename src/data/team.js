@@ -7,7 +7,7 @@ export const team = [
   { name: 'Vinay Vilas Shinde', role: 'Vice President', degree: "Master's Scholar", photo: '/images/team/vinay.webp' },
   { name: 'Simran Maurya', role: 'Activity Coordinator', degree: 'PhD Scholar', photo: '/images/team/simran.webp' },
   { name: 'Akshaya Ganesh Murthy', role: 'Secretary', degree: "Master's Scholar", photo: '/images/team/akshaya.webp' },
-  { name: 'Rehman Sabir', role: 'Treasurer', degree: "Master's Scholar", photo: '/images/team/rehman.webp' },
+  { name: 'Rehman Sabir', role: 'Treasurer', degree: 'PhD Scholar', photo: '/images/team/rehman.webp' },
 ]
 
 // Previous committees, newest first. To fill one in:
