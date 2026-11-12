@@ -59,7 +59,7 @@ export const performances = [
       note: 'Grammy-winning tabla maestro and adjunct professor at the NTU Graduate Institute of Musicology',
       link: 'https://gim.ntu.edu.tw/web/faculty/faculty_in.jsp?fp_id=FP1764233162855',
     },
-    alt: 'Four NTU musicians in kurtas playing tabla, with a man in white speaking into a microphone behind them',
+    alt: 'Four NTU musicians in kurtas playing tabla, with Prof. Abhiman Kaushal speaking into a microphone behind them',
     image: '/images/events/perf-tabla-ensemble.webp',
     text: 'Experience the vibrant rhythms of Indian tabla, brought to life by talented NTU Taiwanese musicians! With intricate beats, lively rhythms, and seamless teamwork, this performance celebrates the beauty of Indian percussion and the joy of connecting cultures through music.',
     zh: '一起感受由台灣樂手帶來的印度塔布拉鼓演出！透過細膩多變的鼓點、充滿活力的節奏與默契十足的合奏，展現印度打擊樂的獨特魅力，讓音樂串起台灣與印度的文化交流！',
