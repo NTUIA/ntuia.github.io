@@ -51,7 +51,7 @@ export const pastCommittees = [
     members: [
       { name: 'Dr. Siddhartha Panigrahi', role: 'President', photo: '/images/team/founding/siddhartha.webp' },
       { name: 'Dalip Kumar', role: 'Vice President', photo: '/images/team/past/2022/dalip.webp' },
-      { name: 'Kavya J', role: 'Cultural Coordinator', photo: '/images/team/past/2022/kavya.webp' },
+      { name: 'Kavya Nair Jayakumaran', role: 'Cultural Coordinator', photo: '/images/team/past/2022/kavya.webp' },
       { name: 'Subhashree Shivani', role: 'Activity Coordinator', photo: '/images/team/past/2022/subhashree.webp' },
       { name: 'Varad Modak', role: 'Activity Coordinator', photo: '/images/team/past/2023/varad.webp' },
       { name: 'Amali Gitanjali', role: 'Social Media Coordinator', photo: '/images/team/past/2022/amali.webp' },
