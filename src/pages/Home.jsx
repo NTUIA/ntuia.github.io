@@ -42,6 +42,7 @@ export default function Home() {
             <>
               <RegisterButton />
               <Link reloadDocument to="/events/jashn-e-diwali-2026" className="btn btn--primary">Diwali event details</Link>
+              <Link reloadDocument to="/events/jashn-e-diwali-2026/rundown" className="btn btn--outline">Event rundown</Link>
               <RegisterDeadline />
             </>
           }
