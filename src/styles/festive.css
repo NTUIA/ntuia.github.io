@@ -1277,7 +1277,6 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
   .rundown__list { padding-left: 50px; }
   .rundown__list::before { left: 17px; }
   .rundown__dot { left: -50px; width: 38px; height: 38px; font-size: 1.05rem; box-shadow: 0 0 0 4px #fbecd0; }
-  .rundown__tag { position: static; display: inline-block; margin-top: 8px; }
   .rundown__chips li { font-size: .9rem; padding: 7px 13px; }
 }
 /* Clickable cards (performances, DJ) and their details pop-up. */
@@ -1308,3 +1307,11 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 @media (prefers-reduced-motion: reduce) { .rdlg[open] { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .rundown__card, .rundown__diya .flame { transition: none; animation: none; } }
 .ddetails .link-arrow + .link-arrow { margin-left: 22px; }
+/* Phones: the Performance tag stays top right beside the time; "View details" gets its own line. */
+@media (max-width: 560px) {
+  .rundown__tag { top: 12px; right: 12px; }
+  .rundown__more { display: block; margin-top: 8px; }
+}
+@media (max-width: 380px) {
+  .rundown__tag { top: 13px; right: 10px; padding: 2px 7px; font-size: .6rem; letter-spacing: .06em; }
+}
