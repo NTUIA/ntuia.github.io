@@ -22,7 +22,6 @@ export const rundown = [
       { time: '6:45 PM', icon: '🎙️', what: 'Address from the Office of International Affairs', who: 'Prof. Yuan, Vice President for International Affairs' },
       { time: '6:49 PM', icon: '💃', what: 'Bharatanatyam: Ganesh Samvada', perf: 'bharatanatyam', who: 'Sriranjani and Sherry Wang', act: true },
       { time: '6:54 PM', approx: true, icon: '🎶', what: 'Ukulele and vocals', perf: 'ukulele', who: 'Priscilla and NTU Ukulele', act: true },
-      { time: '6:58 PM', approx: true, icon: '🎙️', what: 'Address from the Office of Student Affairs', who: 'Ms. Ting Huei-Mei, Chief Executive Officer, OSA' },
       { time: '7:02 PM', approx: true, icon: '🌸', what: 'Indian Classical Fusion', perf: 'classical', who: 'Swagatika and Ammu', act: true },
       { time: '7:07 PM', approx: true, icon: '🥁', what: 'Tabla Ensemble', perf: 'tabla', who: "Prof. Abhiman Kaushal's students", act: true },
       { time: '7:10 PM', approx: true, icon: '🏆', what: 'Best Paper Award', who: 'Presented by Dr. Mukesh' },
