@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { Diya, Rangoli } from '../components/festive/Decorations.jsx'
 import { rundown, rundownDate } from '../data/diwaliRundown.js'
 import { dj, performances } from '../data/diwaliProgram.js'
+import { events } from '../data/events.js'
+
+const event = events.find((e) => e.slug === 'jashn-e-diwali-2026')
 
 // The details shown in the pop-up for a performance or the DJ night.
 function detailsFor(it) {
@@ -61,7 +64,7 @@ export default function DiwaliRundown() {
           <ul className="rundown__chips">
             <li><span aria-hidden="true">📅</span>{rundownDate}</li>
             <li><span aria-hidden="true">🕕</span>5:45 – 9:00 PM</li>
-            <li><span aria-hidden="true">📍</span>103, Boya Building, NTU</li>
+            <li><a href={event.mapUrl} target="_blank" rel="noreferrer"><span aria-hidden="true">📍</span>103, Boya Building, NTU <span className="rundown__map">Map ↗</span></a></li>
           </ul>
         </div>
       </header>

@@ -1248,6 +1248,11 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 .rundown__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .rundown__chips li { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(255, 244, 220, .12); border: 1px solid rgba(255, 217, 138, .45); font-weight: 600; color: #fff4dc; backdrop-filter: blur(4px); }
 
+.rundown__chips a { display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; }
+.rundown__chips li:has(a) { background: rgba(255, 217, 138, .2); border-color: #ffd98a; }
+.rundown__chips li:has(a):hover { background: #ffd98a; color: #4a0d21; }
+.rundown__map { padding: 2px 8px; border-radius: 999px; background: #ffd98a; color: #4a0d21; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.rundown__chips li:has(a):hover .rundown__map { background: #4a0d21; color: #ffd98a; }
 .rundown__body { max-width: 780px; padding-top: clamp(30px, 5vw, 48px); }
 .rundown__part + .rundown__part { margin-top: 38px; }
 .rundown__parthead { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
