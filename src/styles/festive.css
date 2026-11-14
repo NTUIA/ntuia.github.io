@@ -1320,3 +1320,5 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 @media (max-width: 380px) {
   .rundown__tag { top: 13px; right: 10px; padding: 2px 7px; font-size: .6rem; letter-spacing: .06em; }
 }
+.rundown__icon { display: block; width: 28px; height: 28px; overflow: visible; }
+@media (max-width: 560px) { .rundown__icon { width: 23px; height: 23px; } }

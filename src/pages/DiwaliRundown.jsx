@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Diya, Rangoli } from '../components/festive/Decorations.jsx'
+import { ActIcon, hasActIcon } from '../components/festive/RundownIcons.jsx'
 import { rundown, rundownDate } from '../data/diwaliRundown.js'
 import { dj, performances } from '../data/diwaliProgram.js'
 import { events } from '../data/events.js'
@@ -82,7 +83,7 @@ export default function DiwaliRundown() {
             <ol className="rundown__list">
               {g.items.map((it) => (
                 <li key={it.time + it.what} className={it.act ? 'is-act' : undefined}>
-                  <span className="rundown__dot" aria-hidden="true">{it.icon}</span>
+                  <span className="rundown__dot" aria-hidden="true">{hasActIcon(it.perf || (it.dj && 'dj')) ? <ActIcon name={it.perf || 'dj'} /> : it.icon}</span>
                   {(() => {
                     const body = (
                       <>
