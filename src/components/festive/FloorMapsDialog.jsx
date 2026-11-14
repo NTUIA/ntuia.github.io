@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { floorMaps, mapPdfs } from '../../data/diwaliMaps.js'
+import { floorMaps } from '../../data/diwaliMaps.js'
 
 // Pop-up with the venue floor maps: first a list of maps to choose from,
 // then the chosen map with back / previous / next.
@@ -46,10 +46,6 @@ export default function FloorMapsDialog({ open, onClose }) {
               </li>
             ))}
           </ul>
-          <p className="fmap__pdfs">
-            <span>Download to print or keep offline:</span>
-            {mapPdfs.map((p) => <a key={p.href} href={p.href} target="_blank" rel="noopener noreferrer">⬇ {p.label}</a>)}
-          </p>
         </div>
       ) : (
         <div className="fmap__view">

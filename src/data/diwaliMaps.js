@@ -1,13 +1,8 @@
 // Floor maps and walking directions for Jashn-e-Diwali 2026 (N13 / Boya
 // Building, first floor), shown in the "Floor maps" pop-up on the rundown page.
-// Images are cropped from the direction-map PDFs; the PDFs themselves are in
-// public/files for download.
+// Images are cropped from the venue direction-map PDF.
 
 const base = '/images/diwali/maps/'
-
-export const mapPdfs = [
-  { label: 'All direction maps (PDF)', href: '/files/ntu-diwali-2026-direction-maps.pdf' },
-]
 
 export const floorMaps = [
   { key: 'overview', icon: '🏢', title: 'Venue overview', note: 'The whole first floor and how to read the maps', image: base + 'overview.webp', w: 1277, h: 1678 },

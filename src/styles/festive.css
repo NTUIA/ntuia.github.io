@@ -1363,8 +1363,6 @@ a.btn--register::after { content: ''; position: absolute; inset: -2px; border-ra
 .fmap__txt strong em { display: block; font-style: normal; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--saffron); }
 .fmap__txt > span { display: block; margin-top: 2px; font-size: .85rem; line-height: 1.35; color: var(--muted); }
 .fmap__go { flex: none; font-weight: 700; color: #a3123a; }
-.fmap__pdfs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 18px 0 0; padding-top: 14px; border-top: 1px dashed #d7b269; font-size: .9rem; color: var(--muted); }
-.fmap__pdfs a { font-weight: 700; color: #a3123a; }
 .fmap__view { padding-bottom: 18px; }
 .fmap__bar { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 14px; padding: 12px 64px 12px 16px; background: #fffdf7; border-bottom: 3px solid #e9b44c; }
 .fmap__bar h2 { margin: 0; font-size: clamp(1.05rem, 3.4vw, 1.4rem); }
