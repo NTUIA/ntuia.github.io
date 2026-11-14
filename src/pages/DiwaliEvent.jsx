@@ -21,6 +21,7 @@ export default function DiwaliEvent() {
           <>
             <RegisterButton />
             <a href="#details" className="btn btn--primary">Diwali event details</a>
+            <Link reloadDocument to="/events/jashn-e-diwali-2026/rundown" className="btn btn--outline">Event rundown</Link>
             <RegisterDeadline />
           </>
         }
@@ -45,6 +46,7 @@ export default function DiwaliEvent() {
             <RegisterButton />
             <ShareButton />
           </div>
+          <Link reloadDocument to="/events/jashn-e-diwali-2026/rundown" className="link-arrow">See the evening's rundown</Link>
           <Link reloadDocument to="/contact" className="link-arrow">Questions? Ask the organisers</Link>
         </div>
       </section>
