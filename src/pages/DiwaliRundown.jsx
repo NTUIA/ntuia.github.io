@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Diya, Rangoli } from '../components/festive/Decorations.jsx'
 import { ActIcon, hasActIcon } from '../components/festive/RundownIcons.jsx'
+import FloorMapsDialog from '../components/festive/FloorMapsDialog.jsx'
 import { rundown, rundownDate } from '../data/diwaliRundown.js'
 import { dj, performances } from '../data/diwaliProgram.js'
 import { events } from '../data/events.js'
@@ -49,6 +50,7 @@ function DetailsDialog({ item, onClose }) {
 
 export default function DiwaliRundown() {
   const [open, setOpen] = useState(null)
+  const [maps, setMaps] = useState(false)
   useEffect(() => { document.title = 'Event rundown | Jashn-e-Diwali 2026 | NTU India Association' }, [])
 
   return (
@@ -66,11 +68,18 @@ export default function DiwaliRundown() {
             <li><span aria-hidden="true">📅</span>{rundownDate}</li>
             <li><span aria-hidden="true">🕕</span>5:45 – 9:00 PM</li>
             <li><a href={event.mapUrl} target="_blank" rel="noreferrer"><span aria-hidden="true">📍</span>103, Boya Building, NTU <span className="rundown__map">Map ↗</span></a></li>
+            <li><button type="button" onClick={() => setMaps(true)} aria-haspopup="dialog"><span aria-hidden="true">🧭</span>Floor maps <span className="rundown__map">Open</span></button></li>
           </ul>
         </div>
       </header>
 
       <div className="container rundown__body">
+        <button type="button" className="rundown__mapcta" onClick={() => setMaps(true)} aria-haspopup="dialog">
+          <span className="rundown__mapcta-ic" aria-hidden="true">🗺️</span>
+          <span><strong>Floor maps and directions</strong>
+            <span>Registration, Room 103, washrooms, dinner, DJ area, water and fire exits</span></span>
+          <b aria-hidden="true">View maps →</b>
+        </button>
         {rundown.map((g, gi) => (
           <section key={g.part} className="rundown__part" aria-labelledby={`part-${gi}`}>
             <div className="rundown__parthead">
@@ -104,6 +113,7 @@ export default function DiwaliRundown() {
           </section>
         ))}
         <DetailsDialog item={open} onClose={() => setOpen(null)} />
+        <FloorMapsDialog open={maps} onClose={() => setMaps(false)} />
         <p className="rundown__note">🪔 Stage times are a guide and may shift by a few minutes. See you there!</p>
       </div>
     </div>
