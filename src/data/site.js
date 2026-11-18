@@ -20,7 +20,7 @@ export const site = {
 // Diwali pages switch. false hides the home page Diwali banner, the event page,
 // the rundown, the registration page and the "Event page" link on the Diwali
 // event card; their addresses go to the home page. Set to true to bring it all back.
-export const showDiwali = false
+export const showDiwali = true
 
 export const navLinks = [
   { to: '/', label: 'Home' },
