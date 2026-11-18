@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { showDiwali } from './data/site.js'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
@@ -34,9 +35,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/events/jashn-e-diwali-2026" element={<DiwaliEvent />} />
-          <Route path="/events/jashn-e-diwali-2026/rundown" element={<DiwaliRundown />} />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/events/jashn-e-diwali-2026" element={showDiwali ? <DiwaliEvent /> : <Navigate to="/" replace />} />
+          <Route path="/events/jashn-e-diwali-2026/rundown" element={showDiwali ? <DiwaliRundown /> : <Navigate to="/" replace />} />
+          <Route path="/registration" element={showDiwali ? <Registration /> : <Navigate to="/" replace />} />
           <Route path="/news" element={<News />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />

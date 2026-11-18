@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { site } from '../data/site.js'
+import { showDiwali, site } from '../data/site.js'
 import { events } from '../data/events.js'
 import { news } from '../data/news.js'
 import { committeeYear, team } from '../data/team.js'
@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="theme-diwali">
+      {showDiwali && <div className="theme-diwali">
         <DiwaliHero
           actions={
             <>
@@ -47,7 +47,7 @@ export default function Home() {
             </>
           }
         />
-      </div>
+      </div>}
 
       <section className="home-hero">
         <div className="container home-hero__inner">

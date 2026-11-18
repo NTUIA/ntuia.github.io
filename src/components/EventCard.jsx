@@ -3,7 +3,7 @@ import { formatDate } from '../utils.js'
 
 export default function EventCard({ event, past = false }) {
   const d = event.date ? new Date(`${event.date}T00:00:00`) : null
-  const href = event.slug ? `/events/${event.slug}` : null
+  const href = event.slug && event.page !== false ? `/events/${event.slug}` : null
   return (
     <article className={`event-card ${past ? 'is-past' : ''} ${event.image ? 'has-poster' : ''}`}>
       <div className="event-card__date">

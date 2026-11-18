@@ -1,6 +1,8 @@
+import { showDiwali } from './site.js'
+
 // NTUIA events. Dates use ISO format (YYYY-MM-DD).
 // Events dated today or later appear under "Upcoming"; earlier ones move to "Past events".
-// Optional fields: slug (links to an event page), image (poster in public/images/events),
+// Optional fields: slug (links to an event page; page: false hides that link), image (poster in public/images/events),
 // mapUrl (Google Maps link opened when someone taps the venue).
 // Leave date as null while the date is not announced; the event then shows
 // "Date to be announced" and stays in the upcoming list.
@@ -8,6 +10,7 @@ export const events = [
   {
     id: 'diwali-2026',
     slug: 'jashn-e-diwali-2026',
+    page: showDiwali,
     title: 'Jashn-e-Diwali 2026',
     date: '2026-11-15',
     time: '6:00 PM – 9:00 PM',
